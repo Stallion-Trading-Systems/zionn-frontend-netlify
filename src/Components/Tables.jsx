@@ -15,7 +15,8 @@ const Tables = (props) => {
     async function f() {
       let res = await api.getCompanyData(cname)
 
-      setDetails(res.data.result);
+      setDetails(res.data.result2);
+      // console.log(res);
     }
 
     f()

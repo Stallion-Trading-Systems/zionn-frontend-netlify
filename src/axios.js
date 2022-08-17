@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 const API = axios.create({
-    baseURL: 'http://localhost:8080/'
+    baseURL: 'https://zionn-stage.herokuapp.com/'
 })
 
 API.interceptors.request.use((req) => {
