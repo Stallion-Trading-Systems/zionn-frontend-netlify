@@ -159,6 +159,9 @@ const Home = () => {
                     <NavLink to="/onboarding">
                         <Button name="Button to onboarding page"></Button>
                     </NavLink>
+                    <NavLink target="_blank" to="/privacy-policy">
+                        <Button name="Button to Privacy Policy"></Button>
+                    </NavLink>
                     <div className="home-footer-css">
                         <Footer />
                     </div>

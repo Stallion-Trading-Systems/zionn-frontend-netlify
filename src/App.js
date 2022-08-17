@@ -12,6 +12,7 @@ import Home from "./Components/Home";
 import Onboardingflow from "./Components/Onboardingflow";
 import SellBuy from "./Components/SellBuy";
 import Scoops from "./Components/Scoops";
+import PrivacyPolicy from "./Components/PrivacyPolicy";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/sellbuy" element={<SellBuy />} />
           <Route exact path="/company/:cname" element={<SidebarP />} />
           <Route exact path="/scoops" element={<Scoops />} />
+          <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </BrowserRouter>
     </div>

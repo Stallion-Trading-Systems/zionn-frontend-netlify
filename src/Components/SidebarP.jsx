@@ -31,7 +31,8 @@ const [cname,setCname]=useState("");
     <SidebarItem>
       <div className="">
         <div>
-          <img className="logo-size" src={logo} />
+        <NavLink to="/"><img className="logo-size" src={logo} /></NavLink>
+          
         </div>
       </div>
     </SidebarItem>,
