@@ -1,0 +1,67 @@
+* {
+  font-family: "Roboto Mono", monospace;
+}
+.cell {
+  box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 18px;
+  gap: 10px;
+
+  width: 145px;
+  height: 39px;
+
+  background: #ffffff;
+  border: 1px solid #000000;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 1;
+  text-align: left;
+}
+.cell-wide {
+  width: 230px;
+}
+.cell-last {
+  width: 175px;
+}
+.cell-mid {
+  width: 100px;
+  gap: 0;
+  margin: 0px;
+}
+.purple-b {
+  background-color: #7b61ff;
+}
+mark {
+  background-color: rgb(104, 247, 104);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 25px;
+  width: 6rem;
+}
+.redmark {
+  background-color: rgb(243, 146, 94);
+}
+.bor-table {
+  box-sizing: border-box;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  width: 1091px;
+}
+.tab-con {
+  align-items: center;
+  width: 900px;
+}
+.main-con{
+  margin: 25px 40px 25px 0px;
+}

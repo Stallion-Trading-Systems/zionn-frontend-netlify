@@ -1,0 +1,18 @@
+.btn-2{
+  /* Rectangle 1 */
+
+
+position: absolute;
+
+/* Fallback */
+background: #7b61ff;
+width: 140px;
+height: 50px;
+font-size: 10px;
+color: white;
+font-weight: 500;
+border: none;
+/* Cut the corner */
+background: linear-gradient(-45deg, transparent 7px, #7b61ff 7px);
+transition: background 2s ease;
+}

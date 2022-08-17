@@ -1,0 +1,32 @@
+.news-con {
+  align-items: center;
+  width: 800px;
+}
+.heading-trun {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  font-family: "PP Cirka";
+  font-style: normal;
+  font-size: 22px;
+}
+.user-trun {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  font-size: 17px;
+}
+.content-trun {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+  font-size: 17px;
+}
+.news-bor {
+  box-sizing: border-box;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  padding: 22px;
+}

@@ -1,0 +1,28 @@
+.footer-header-css {
+    height: 38px;
+    background-color: #F6BF45;
+    width: 100%;
+    overflow: hidden;
+}
+
+#verticle-line {
+    width: 1px;
+    min-height: 200px;
+    background: rgb(181, 179, 179);
+    margin: 20px;
+    float: left;
+    overflow: hidden;
+    flex-direction: column;
+}
+#horizontal-line {
+    border-bottom: 1px solid rgb(181, 179, 179);
+    margin-top: 20px;
+    width: 100%;
+}
+.footer-relative{
+    position: relative;
+    width: 100%;
+    max-height: 200px;
+    max-width: 100%;
+    overflow: hidden;
+}

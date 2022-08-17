@@ -1,0 +1,89 @@
+.side-bar {
+  align-items: center;
+  margin-left: 100px;
+}
+.sidebar-btn {
+  margin-left: 30px;
+  color: blue;
+  font-size: 14px;
+}
+.sidebar-logo {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.mar-top {
+  margin-top: 30px;
+}
+.mar-mid-top {
+  margin-top: 5px;
+}
+.img-logo {
+  width: 89px;
+  height: 89px;
+  margin-right: 1106px;
+}
+.row-2 {
+  margin-top: 66px;
+  max-width: 600px;
+}
+.fix-nav {
+  position: fixed;
+  z-index: 1;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  top: 0;
+  background-color: #fff;
+  width: 100%;
+}
+.con-abs {
+  position: absolute;
+  margin-top: 100px;
+}
+.img-size {
+  height: 103px;
+  width: 89px;
+  margin-top: 40px;
+  margin-left: 45px;
+}
+.title-name {
+  margin-top: 60px;
+  margin-left: 60px;
+  font-family: "PP Cirka";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.but-below {
+  margin-left: 270px;
+}
+.box-bor {
+  position: absolute;
+  width: 450px;
+  height: 250px;
+  border: 2px solid #000000;
+  border-radius: 20px;
+}
+.table-top {
+  margin-top: 80px;
+}
+.logo-top-size {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+}
+.last-but {
+  margin-right: 100px;
+  margin-top: 110px;
+}
+.logo-size{
+  width: 50px;
+  height: 90px;
+  margin-left: 40px;
+}
+.grid-mar{
+  margin-left: 70px;
+}
+.home-footer-css{
+  overflow: hidden;
+}
