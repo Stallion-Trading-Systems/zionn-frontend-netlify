@@ -15,12 +15,13 @@ import { useNavigate } from "react-router";
 import * as api from "../axios";
 
 const Signup = (props) => {
-  const curruser=props.curruser;
+  const curruser = props.curruser;
   const navigate = useNavigate();
-  if (curruser!==null) {
-    setTimeout(()=>{
-        navigate("/");
-    },500)
+  if (curruser !== null) {
+    setTimeout(() => {
+      window.location.reload();
+      navigate("/");
+    }, 500)
   }
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -31,7 +32,7 @@ const Signup = (props) => {
   const [errorotp, setErrorotp] = useState(false);  //OTP Invalid
   const [user, setUser] = useState(false);
   const [otp, setOtp] = useState("");
-  
+
   const responseGoogle = async (res) => {
     console.log(res.profileObj.name);
     let nm = res.profileObj.name;
@@ -100,214 +101,214 @@ const Signup = (props) => {
 
   return (
     <>
-      {curruser?(<></>):(<div>
-      <div className="container ">
-        <div className="row">
-          <div className="col order-2 order-lg-1">
-            <div className="con-image mt-5">
-              {error ? (
-                <></>
-              ) : (
-                <img className="img-signup" src={signuppic} alt="signuppic" />
-              )}
-              {errorotp ? (
-                <img className="img-signup" src={invalidotp} alt="signuppic" />
-              ) : <></>}
-              {erroruae ? (
-                <img className="img-signup" src={userexists} alt="signuppic" />
-              ) : <></>}
+      {curruser ? (<></>) : (<div>
+        <div className="container ">
+          <div className="row">
+            <div className="col order-2 order-lg-1">
+              <div className="con-image mt-5">
+                {error ? (
+                  <></>
+                ) : (
+                  <img className="img-signup" src={signuppic} alt="signuppic" />
+                )}
+                {errorotp ? (
+                  <img className="img-signup" src={invalidotp} alt="signuppic" />
+                ) : <></>}
+                {erroruae ? (
+                  <img className="img-signup" src={userexists} alt="signuppic" />
+                ) : <></>}
+              </div>
             </div>
-          </div>
-          <div className="txt col pt-0 pt-lg-0 order-1 order-lg-1 d-flex justify-content-center flex-column">
-            <div className="container">
-              {user == false ? (
-                <form id="form1" onSubmit={signupfun}>
-                  <div className="container">
-                    <div className="row">
-                      <div className="col"></div>
-                      <div className="col-8">
-                        <div className="inp-css">
-                          <input
-                            onChange={(e) => {
-                              setError(false);
-                              setErroruae(false);
-                              setErrorotp(false);
-                              setName(e.target.value);
-                            }}
-                            type="text"
-                            className="butto-2 input-form"
-                            placeholder="full name"
-                            required
-                          />
-                        </div>
-                        <div className="inp-css mt-4">
-                          <input
-                            onChange={(e) => {
-                              setError(false);
-                              setErroruae(false);
-                              setErrorotp(false);
-                              setEmail(e.target.value);
-                            }}
-                            type="email"
-                            className="butto-2 input-form"
-                            placeholder="email"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                            title="Please enter valid email"
-                            required
-                          />
-                        </div>
-                        <div className="inp-css mt-4">
-                          <input
-                            onChange={(e) => {
-                              setError(false);
-                              setErroruae(false);
-                              setErrorotp(false);
-                              setPhone(e.target.value);
-                            }}
-                            type="tel"
-                            className="butto-2 input-form"
-                            placeholder="phone #"
-                            pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
-                            title="Phone number should contain 10 digits"
-                            required
-                          />
-                        </div>
-                        <div className="inp-css mt-4">
-                          <input
-                            onChange={(e) => {
-                              setError(false);
-                              setErroruae(false);
-                              setErrorotp(false);
-                              setPassword(e.target.value);
-                            }}
-                            type="password"
-                            className="butto-2 input-form"
-                            placeholder="password"
-                            pattern=".{6,}"
-                            title="Password should contain six or more characters"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div className="col"></div>
-                    </div>
-                    <div className="row">
-                      <p className="txt-2">sign up using </p>
-                    </div>
-                    <div className="row">
-                      <div className="col"></div>
-                      <div className="col-8">
-                        <div className="row">
-                          <div className="col-4"></div>
-                          <div className="col-2">
-                            <GoogleLogin
-                              form="form322"
-                              clientId="1002474588776-p7fi5pd1hpf1fjp1p9v33iet3i9u1fco.apps.googleusercontent.com"
-                              render={(renderProps) => (
-                                <button
-                                  className="social-btn"
-                                  onClick={renderProps.onClick}
-                                  disabled={renderProps.disabled}
-                                  form="form322"
-                                >
-                                  <img
-                                    className="social-media-google"
-                                    src={google}
-                                  />
-                                </button>
-                              )}
-                              buttonText="Login"
-                              onSuccess={responseGoogle}
-                              onFailure={responseGoogleFail}
-                              cookiePolicy={"single_host_origin"}
+            <div className="txt col pt-0 pt-lg-0 order-1 order-lg-1 d-flex justify-content-center flex-column">
+              <div className="container">
+                {user == false ? (
+                  <form id="form1" onSubmit={signupfun}>
+                    <div className="container">
+                      <div className="row">
+                        <div className="col"></div>
+                        <div className="col-8">
+                          <div className="inp-css">
+                            <input
+                              onChange={(e) => {
+                                setError(false);
+                                setErroruae(false);
+                                setErrorotp(false);
+                                setName(e.target.value);
+                              }}
+                              type="text"
+                              className="butto-2 input-form"
+                              placeholder="full name"
+                              required
                             />
                           </div>
-                          <div className="col-2">
-                            <button className="social-btn" form="form2">
-                              <img
-                                className="social-media-linkedin"
-                                src={linkedin}
+                          <div className="inp-css mt-4">
+                            <input
+                              onChange={(e) => {
+                                setError(false);
+                                setErroruae(false);
+                                setErrorotp(false);
+                                setEmail(e.target.value);
+                              }}
+                              type="email"
+                              className="butto-2 input-form"
+                              placeholder="email"
+                              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                              title="Please enter valid email"
+                              required
+                            />
+                          </div>
+                          <div className="inp-css mt-4">
+                            <input
+                              onChange={(e) => {
+                                setError(false);
+                                setErroruae(false);
+                                setErrorotp(false);
+                                setPhone(e.target.value);
+                              }}
+                              type="tel"
+                              className="butto-2 input-form"
+                              placeholder="phone #"
+                              pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+                              title="Phone number should contain 10 digits"
+                              required
+                            />
+                          </div>
+                          <div className="inp-css mt-4">
+                            <input
+                              onChange={(e) => {
+                                setError(false);
+                                setErroruae(false);
+                                setErrorotp(false);
+                                setPassword(e.target.value);
+                              }}
+                              type="password"
+                              className="butto-2 input-form"
+                              placeholder="password"
+                              pattern=".{6,}"
+                              title="Password should contain six or more characters"
+                              required
+                            />
+                          </div>
+                        </div>
+                        <div className="col"></div>
+                      </div>
+                      <div className="row">
+                        <p className="txt-2">sign up using </p>
+                      </div>
+                      <div className="row">
+                        <div className="col"></div>
+                        <div className="col-8">
+                          <div className="row">
+                            <div className="col-4"></div>
+                            <div className="col-2">
+                              <GoogleLogin
+                                form="form322"
+                                clientId="1002474588776-p7fi5pd1hpf1fjp1p9v33iet3i9u1fco.apps.googleusercontent.com"
+                                render={(renderProps) => (
+                                  <button
+                                    className="social-btn"
+                                    onClick={renderProps.onClick}
+                                    disabled={renderProps.disabled}
+                                    form="form322"
+                                  >
+                                    <img
+                                      className="social-media-google"
+                                      src={google}
+                                    />
+                                  </button>
+                                )}
+                                buttonText="Login"
+                                onSuccess={responseGoogle}
+                                onFailure={responseGoogleFail}
+                                cookiePolicy={"single_host_origin"}
                               />
+                            </div>
+                            <div className="col-2">
+                              <button className="social-btn" form="form2">
+                                <img
+                                  className="social-media-linkedin"
+                                  src={linkedin}
+                                />
+                              </button>
+                            </div>
+                            <div className="col-4"></div>
+                          </div>
+                        </div>
+                        <div className="col"></div>
+                      </div>
+                      <div className="row">
+                        <div className="col-3"></div>
+                        <div className="col"></div>
+                        <div className="col">
+                          <div className="sign-btn">
+                            <button
+                              form="form1"
+                              type="submit"
+                              className="btn-2-su"
+                              onSubmit={signupfun}
+                            >
+                              sign up
                             </button>
                           </div>
-                          <div className="col-4"></div>
                         </div>
+                        <div className="col"></div>
+                        <div className="col"></div>
+                        <div className="col-4"></div>
                       </div>
-                      <div className="col"></div>
                     </div>
-                    <div className="row">
-                      <div className="col-3"></div>
-                      <div className="col"></div>
-                      <div className="col">
-                        <div className="sign-btn">
-                          <button
-                            form="form1"
-                            type="submit"
-                            className="btn-2-su"
-                            onSubmit={signupfun}
-                          >
-                            sign up
-                          </button>
+                  </form>
+                ) : (
+                  <form id="form2" onSubmit={verify}>
+                    <div className="container">
+                      <div className="row">
+                        <div className="col"></div>
+                        <div className="col-8">
+                          <div className="inp-css mt-4">
+                            <input
+                              onChange={(e) => {
+                                setError(false);
+                                setErroruae(false);
+                                setErrorotp(false);
+                                setOtp(e.target.value);
+                              }}
+                              type="text"
+                              className="butto-2"
+                              placeholder="enter otp (check email)"
+                              title="otp should be of 6 digits"
+                              required
+                            />
+                          </div>
                         </div>
+                        <div className="col"></div>
                       </div>
-                      <div className="col"></div>
-                      <div className="col"></div>
-                      <div className="col-4"></div>
-                    </div>
-                  </div>
-                </form>
-              ) : (
-                <form id="form2" onSubmit={verify}>
-                  <div className="container">
-                    <div className="row">
-                      <div className="col"></div>
-                      <div className="col-8">
-                        <div className="inp-css mt-4">
-                          <input
-                            onChange={(e) => {
-                              setError(false);
-                              setErroruae(false);
-                              setErrorotp(false);
-                              setOtp(e.target.value);
-                            }}
-                            type="text"
-                            className="butto-2"
-                            placeholder="enter otp (check email)"
-                            title="otp should be of 6 digits"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div className="col"></div>
-                    </div>
 
-                    <div className="row">
-                      <div className="col-3"></div>
-                      <div className="col"></div>
-                      <div className="col">
-                        <div className="sign-btn">
-                          <button
-                            form="form2"
-                            type="submit"
-                            className="btn-2-su"
-                            onSubmit={verify}
-                          >
-                            verify OTP
-                          </button>
+                      <div className="row">
+                        <div className="col-3"></div>
+                        <div className="col"></div>
+                        <div className="col">
+                          <div className="sign-btn">
+                            <button
+                              form="form2"
+                              type="submit"
+                              className="btn-2-su"
+                              onSubmit={verify}
+                            >
+                              verify OTP
+                            </button>
+                          </div>
                         </div>
+                        <div className="col"></div>
+                        <div className="col"></div>
+                        <div className="col-4"></div>
                       </div>
-                      <div className="col"></div>
-                      <div className="col"></div>
-                      <div className="col-4"></div>
                     </div>
-                  </div>
-                </form>
-              )}
+                  </form>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>)}
+      </div>)}
     </>
   );
 };

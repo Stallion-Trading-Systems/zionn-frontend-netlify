@@ -33,7 +33,10 @@ const SellBuy = (props) => {
     formData.append("email", email);
     formData.append("no_of_shares", no_of_shares);
     let res = await api.storeShares(formData)
-    console.log(res);
+    // console.log(res);
+    setTimeout(()=>{
+      navigate("/scoops");
+  },1)
   };
 
   const handleFileInput = (e) => {
