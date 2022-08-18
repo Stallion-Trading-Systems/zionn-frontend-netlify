@@ -14,7 +14,14 @@ import { useNavigate } from "react-router";
 
 import * as api from "../axios";
 
-const Signup = () => {
+const Signup = (props) => {
+  const curruser=props.curruser;
+  const navigate = useNavigate();
+  if (curruser!==null) {
+    setTimeout(()=>{
+        navigate("/");
+    },500)
+  }
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -24,7 +31,7 @@ const Signup = () => {
   const [errorotp, setErrorotp] = useState(false);  //OTP Invalid
   const [user, setUser] = useState(false);
   const [otp, setOtp] = useState("");
-  const navigate = useNavigate();
+  
   const responseGoogle = async (res) => {
     console.log(res.profileObj.name);
     let nm = res.profileObj.name;
@@ -92,7 +99,8 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <>
+      {curruser?(<></>):(<div>
       <div className="container ">
         <div className="row">
           <div className="col order-2 order-lg-1">
@@ -299,7 +307,8 @@ const Signup = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div>)}
+    </>
   );
 };
 

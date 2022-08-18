@@ -38,6 +38,7 @@
 .con-abs {
   position: absolute;
   margin-top: 120px;
+  overflow-x: hidden;
 }
 .img-size {
   height: 103px;

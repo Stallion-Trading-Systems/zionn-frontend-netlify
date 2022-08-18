@@ -7,14 +7,20 @@ import Button from "./Button";
 import monkey from "../assets/monkey.svg";
 import * as api from "../axios";
 
-const SellBuy = () => {
+const SellBuy = (props) => {
+  const curruser=props.curruser;
+  const navigate = useNavigate();
+    if (curruser===null) {
+        setTimeout(()=>{
+            navigate("/signup");
+        },500)
+    }
   const [c_name, setCname] = useState("");
   const [no_of_shares, setNshares] = useState("");
   const [secu_type, setSecutype] = useState("");
   const [user, setUser] = useState(false);
   const [doc, setDoc] = useState(null);
   const [issub, setIssub] = useState(false);
-  const navigate = useNavigate();
 
   const storeSellBuy = async () => {
     let data = JSON.parse(localStorage.getItem("user"));
@@ -43,7 +49,8 @@ const SellBuy = () => {
   };
 
   return (
-    <div>
+    <>
+      {curruser?(<div>
       <div id="leftHalf"></div>
       <div id="rightHalf">
         <div className="top-right-css">
@@ -247,7 +254,8 @@ const SellBuy = () => {
                     </div>
                 </div>
             </div> */}
-    </div>
+    </div>):(<></>)}
+    </>
   );
 };
 

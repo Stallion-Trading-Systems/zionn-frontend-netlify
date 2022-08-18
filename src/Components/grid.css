@@ -1,11 +1,13 @@
 .con-grid{
     position: absolute;
-    width: 1000px;
+    width: 90%;
 }
 
 .chart{
     position: relative;
 }
 .chart-div{
-    margin-left: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

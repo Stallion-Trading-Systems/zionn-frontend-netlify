@@ -2,8 +2,17 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import * as api from '../axios'
 import "./scoops.css"
+import { useNavigate } from "react-router";
 
-const Scoops = () => {
+
+const Scoops = (props) => {
+    const user=props.curruser;
+    const navigate = useNavigate();
+    if (user===null) {
+        setTimeout(()=>{
+            navigate("/signup");
+        },500)
+    }
     const [details, setDetails] = useState([]);
     useEffect(() => {
         async function f() {
@@ -16,7 +25,8 @@ const Scoops = () => {
 
     }, []);
     return (
-        <div>
+        <>
+            {user?(<div>
             <div className='container'>
                 <div>
                     <h1>
@@ -38,7 +48,8 @@ const Scoops = () => {
                     </>
                 </div>
             </div>
-        </div>
+        </div>):(<></>)}
+        </>
     )
 }
 
