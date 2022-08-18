@@ -3,7 +3,7 @@ import "./sidebar.css";
 import { Sidebar, SidebarItem } from "react-responsive-sidebar";
 import Button from "./Button";
 import TitleButton from "./TitleButton";
-import ola from "../assets/ola.png";
+import monkey from "../assets/monkey.svg"
 import Tables from "../Components/Tables";
 import LineChartP from "../Components/LineChartP";
 import PieChartP from "../Components/PieChartP";
@@ -21,24 +21,52 @@ import { NavLink } from "react-router-dom";
 
 const SidebarP = (props) => {
   const params = useParams();
-const [cname,setCname]=useState("");
+  const [cname, setCname] = useState("");
   useEffect(() => {
 
-    setCname (params.cname);
-}, [])
-
+    setCname(params.cname);
+  }, [])
+  const [linkref, setLinkref] = useState("");
+  const [refon, setrefon] = useState(false);
+  const [refonf, setrefonf] = useState(false);
+  const reflinkfun = (e) => {
+    e.preventDefault();
+    setLinkref("https://staging.zionn.trade/signup?utm={username}");
+    setrefon(true);
+    navigator.clipboard.writeText(linkref)
+    setTimeout(() => {
+      setrefon(false);
+    }, 5000);
+  }
+  const reflinkfunf = (e) => {
+    e.preventDefault();
+    setLinkref("https://staging.zionn.trade/signup?utm={username}");
+    setrefonf(true);
+    navigator.clipboard.writeText(linkref)
+    setTimeout(() => {
+      setrefonf(false);
+    }, 5000);
+  }
+  const [isActive, setIsActive] = useState(false);
+  const handleClick = (event) => {
+    setIsActive((current) => !current);
+  };
+  const x = props.widthv;
+  const defaultClick = (e) => {
+    setIsActive(false);
+  };
   const items = [
     <SidebarItem>
       <div className="">
         <div>
-        <NavLink to="/"><img className="logo-size" src={logo} /></NavLink>
-          
+          <NavLink to="/" style={{ textDecoration: 'none' }}><img className="logo-size" src={logo} /></NavLink>
+
         </div>
       </div>
     </SidebarItem>,
     <SidebarItem>
       <div className="sidebar-btn mar-top">
-        <NavLink to="/sellbuy"><Button widthv={120} name="sell/buy" /></NavLink>
+        <NavLink to="/sellbuy" style={{ textDecoration: 'none' }}><Button widthv={120} name="sell/buy" /></NavLink>
       </div>
     </SidebarItem>,
     <SidebarItem>
@@ -48,7 +76,7 @@ const [cname,setCname]=useState("");
     </SidebarItem>,
     <SidebarItem>
       <div className="sidebar-btn mar-mid-top">
-        <NavLink to="/scoops"><Button widthv={120} name="scoops" /></NavLink>
+        <NavLink to="/scoops" style={{ textDecoration: 'none' }}><Button widthv={120} name="scoops" /></NavLink>
       </div>
     </SidebarItem>,
     <SidebarItem>
@@ -58,7 +86,8 @@ const [cname,setCname]=useState("");
     </SidebarItem>,
     <SidebarItem>
       <div className="last-but mar-mid-top">
-        <Button2 name="refer to get $" />
+        <button onClick={reflinkfun} className={refon ? "refon" : "btn-2-ref"}>{refon ? "link copied!" : "refer to get $"}</button>
+
       </div>
     </SidebarItem>,
   ];
@@ -78,12 +107,12 @@ const [cname,setCname]=useState("");
         <div className="fix-nav">
           <div className="container">
             <div className="row">
-              <div className="col-9">
+              <div className="col-6">
                 <TitleButton name="search pricing, analyst updates, etc ( cmd + K)" />
               </div>
-              <div className="col-1"></div>
+              <div className="col-4"></div>
               <div className="col-2 logo-top">
-                <img className="logo-top-size" src={ola} />
+                <img className="logo-top-size" src={monkey} />
               </div>
             </div>
           </div>
@@ -122,19 +151,30 @@ const [cname,setCname]=useState("");
           <div className="row g-0">
             <div className="col-4">
               <div className="but-below">
-                <Button widthv={200} name="sell/buy " />
+                <NavLink to="/sellbuy" style={{ textDecoration: 'none' }}><Button widthv={200} name="sell/buy" /></NavLink>
+
               </div>
             </div>
             <div className="col">
               <div className="but-below">
-                <Button widthv={200} name="Share w family " />
+                <button
+                  style={{ width: 200 }}
+                  onClick={reflinkfunf}
+                  onPointerLeave={defaultClick}
+                  onPointerDown={handleClick}
+                  onPointerUp={handleClick}
+                  className={isActive ? "butt butt-ac" : "butt"}
+                >
+                  {refonf?"link copied!":<>Share w family<i class="bi bi-arrow-up-right"></i></>}
+                  
+                </button>
               </div>
             </div>
           </div>
           <br />
           <br />
           <div className="row mt-5">
-            <Tables cname={params.cname} />   
+            <Tables cname={params.cname} />
           </div>
           <div className="row mt-5">
             <Tables cname={params.cname} />
@@ -152,10 +192,6 @@ const [cname,setCname]=useState("");
               cthr="kjgjhiugvbhkvbkdj"
             />
           </div>
-          <br />
-          <NavLink to="/signup">
-            <Button name="Button to signup page"></Button>
-          </NavLink>
         </div>
       </Sidebar>
     </div>

@@ -13,6 +13,7 @@ const SellBuy = () => {
   const [secu_type, setSecutype] = useState("");
   const [user, setUser] = useState(false);
   const [doc, setDoc] = useState(null);
+  const [issub, setIssub] = useState(false);
   const navigate = useNavigate();
 
   const storeSellBuy = async () => {
@@ -34,6 +35,7 @@ const SellBuy = () => {
       selectedFile: e.target.files[0],
       loaded: 0,
     });
+    setIssub(true);
   };
 
   const setStockunits = (e) => {
@@ -125,25 +127,27 @@ const SellBuy = () => {
               </p>
               <div className="row">
                 <div className="col"></div>
-                <div className="col-5">
-                  <input
-                    type="file"
-                    onChange={handleFileInput}
-                    id="file-doc"
-                    className="upload-form-sb"
-                    placeholder="# of securities"
-                    name="file"
-  
-                  />
-                  <label for="file-doc" className="butto-2 upload-form-sb">
-                    upload <i class="bi bi-arrow-up-right"></i>
+                <div className="col-5 mt-2">
+
+                  <label for="file-doc" className={issub ? "butto-2 file-label uploaded-file-css" : "butto-2 file-label"}>
+                    <input
+                      type="file"
+                      onChange={handleFileInput}
+                      id="file-doc"
+                      className="upload-form-sb"
+                      placeholder="# of securities"
+                      name="file"
+                      accept="application/pdf,application/msword,
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    />
+                    {issub ? <>uploaded  <i class="bi bi-check"></i></> : <>upload <i class="bi bi-arrow-up-right"></i></>}
                   </label>
                 </div>
                 <div className="col"></div>
               </div>
             </div>
           </div>
-          <div className="row mt-5">
+          <div className="row mt-3">
             <div className="col">
               <div className="sign-btn btn-cen-doc">
                 <button

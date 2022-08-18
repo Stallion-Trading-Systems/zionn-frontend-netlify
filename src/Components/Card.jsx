@@ -37,7 +37,7 @@ const Card = (props) => {
 
           </div>
             <div className="col">
-              <NavLink to={`/company/${props.cname}`} ><Button name="sell/buy" /></NavLink>
+              <NavLink to={`/company/${props.cname}`} style={{ textDecoration: 'none' }} ><Button name="sell/buy" /></NavLink>
             </div>
             <div className="col">
 

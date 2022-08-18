@@ -30,14 +30,14 @@
   position: fixed;
   z-index: 1;
   padding-top: 30px;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
   top: 0;
   background-color: #fff;
   width: 100%;
 }
 .con-abs {
   position: absolute;
-  margin-top: 100px;
+  margin-top: 120px;
 }
 .img-size {
   height: 103px;
@@ -86,4 +86,104 @@
 }
 .home-footer-css{
   overflow: hidden;
+}
+NavLink{
+  text-decoration: none;
+}
+.close-btn-noti{
+  -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.close-btn-noti{
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+/* button default remove */
+.btn-def-rem{ 
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+.alert-css{
+  height: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-color: #7b61ff;
+  background-color: rgb(123, 97, 255,.8);
+}
+.refon{
+  position: absolute;
+
+/* Fallback */
+background: rgb(129, 250, 129);
+width: 140px;
+height: 50px;
+font-size: 10px;
+color:black;
+font-weight: 500;
+border: none;
+/* Cut the corner */
+background: linear-gradient(-45deg, transparent 7px, rgb(129, 250, 129) 7px);
+transition: background 2s ease;
+  
+}
+.btn-2-ref{
+  /* Rectangle 1 */
+
+
+position: absolute;
+
+/* Fallback */
+background: #7b61ff;
+width: 140px;
+height: 50px;
+font-size: 10px;
+color: white;
+font-weight: 500;
+border: none;
+/* Cut the corner */
+background: linear-gradient(-45deg, transparent 7px, #7b61ff 7px);
+transition: background 2s ease;
+}
+.butt-fref {
+  /* Button */
+
+  box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 18px;
+  gap: 10px;
+
+  height: 28px;
+
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-shadow: -4px 4px 0px #000000;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 1;
+}
+.butt-fref-ac{
+  transform: translateY(4px) translateX(-4px);
+  box-shadow: 0px 0px 0px #000000;
 }

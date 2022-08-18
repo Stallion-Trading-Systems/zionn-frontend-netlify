@@ -153,8 +153,15 @@ input[type="number"] {
 .upload-form-sb{
   -webkit-appearance: none;
   cursor: pointer;
+  display: none;
 }
-
+.file-label{
+  cursor: pointer;
+}
+.uploaded-file-css{
+  background-color: rgb(129, 250, 129);
+  color: black;
+}
 .upload-form-sb::-webkit-file-upload-button {
   visibility: hidden;
 }

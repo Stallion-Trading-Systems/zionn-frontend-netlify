@@ -9,7 +9,11 @@
     -webkit-appearance: none;
     margin: 0;
   }
-  
+  .ten-cen-css{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   /* Firefox */
   input[type="number"] {
     -moz-appearance: textfield;

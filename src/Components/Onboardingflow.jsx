@@ -10,7 +10,9 @@ const Onboardingflow = () => {
     const [curr_employer, setEmployer] = useState("");
     const [designation, setDesignation] = useState("");
     const [tenure, setTenure] = useState(0);
+    const [tenuredis, setTenuredis] = useState("");
     const [user, setUser] = useState(false);
+    const [slidervalue,setSlidervalue]=useState(false);
     const navigate = useNavigate();
 
     const onboard = async (e) => {
@@ -32,7 +34,16 @@ const Onboardingflow = () => {
             alert(res.data.message)
         }
     };
-
+    const settenurefun=(e)=>{
+        e.preventDefault();
+        setSlidervalue(true);
+        setTenure(e.target.value);
+        if(e.target.value==1)
+        setTenuredis("<=");
+        else if(e.target.value==10)
+        setTenuredis(">=");
+        else setTenuredis("");
+    }
     return (
         <div>
             <div className="container ">
@@ -86,13 +97,16 @@ const Onboardingflow = () => {
                                             &#60; 1 year
                                         </div>
                                         <div className="col-6">
-                                            <input className="form-range input-slider" type="range" min="1" max="10" id="customRange2" onInput={e => setTenure(e.target.value)} />
+                                            <input className="form-range input-slider" value={tenure} type="range" min="1" max="10" id="customRange2" onInput={settenurefun} />
 
                                         </div>
                                         <div className="col-3 input-range-side-2">
                                             &#62;10 years
 
                                         </div>
+                                    </div>
+                                    <div className="row ten-cen-css">
+                                    {tenuredis}{tenure} Years
                                     </div>
                                     <div className="row">
                                         <div className="col-3"></div>

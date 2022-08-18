@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./sidebar.css";
 import { Sidebar, SidebarItem } from "react-responsive-sidebar";
 import Button from "./Button";
@@ -20,6 +20,17 @@ import pic3 from "../assets/Pic3.svg"
 import Carousel from 'react-bootstrap/Carousel';
 
 const Home = () => {
+    const [linkref,setLinkref]=useState("");
+    const [refon,setrefon]=useState(false);
+    const reflinkfun=(e)=>{
+        e.preventDefault();
+        setLinkref("https://staging.zionn.trade/signup?utm={username}");
+        setrefon(true);
+        navigator.clipboard.writeText(linkref)
+        setTimeout(() => {
+            setrefon(false);
+          }, 5000);
+    }
     const items = [
         <SidebarItem>
             <div className="">
@@ -30,7 +41,7 @@ const Home = () => {
         </SidebarItem>,
         <SidebarItem>
             <div className="sidebar-btn mar-top">
-                <NavLink to="/sellbuy" ><Button widthv={120} name="sell/buy" /></NavLink>
+                <NavLink to="/sellbuy" style={{ textDecoration: 'none' }}><Button widthv={120} name="sell/buy" /></NavLink>
             </div>
         </SidebarItem>,
         <SidebarItem>
@@ -40,7 +51,7 @@ const Home = () => {
         </SidebarItem>,
         <SidebarItem>
             <div className="sidebar-btn mar-mid-top">
-            <NavLink to="/scoops"><Button widthv={120} name="scoops" /></NavLink>
+            <NavLink to="/scoops" style={{ textDecoration: 'none' }}><Button widthv={120} name="scoops" /></NavLink>
             </div>
         </SidebarItem>,
         <SidebarItem>
@@ -50,7 +61,7 @@ const Home = () => {
         </SidebarItem>,
         <SidebarItem>
             <div className="last-but mar-mid-top">
-                <Button2 name="refer to get $" />
+                <button onClick={reflinkfun} className={refon?"refon":"btn-2-ref"}>{refon?"link copied!":"refer to get $"}</button>
             </div>
         </SidebarItem>,
     ];
@@ -70,10 +81,10 @@ const Home = () => {
                 <div className="fix-nav">
                     <div className="container">
                         <div className="row">
-                            <div className="col-9">
+                            <div className="col-6">
                                 <TitleButton name="search pricing, analyst updates, etc ( cmd + K)" />
                             </div>
-                            <div className="col-1"></div>
+                            <div className="col-4"></div>
                             <div className="col-2 logo-top">
                                 <img className="logo-top-size" src={monkey} />
                             </div>
@@ -147,21 +158,6 @@ const Home = () => {
                             </Carousel>
                         </Delayed>
                     </div>
-                    <NavLink to="/signup">
-                        <Button name="Button to signup page"></Button>
-                    </NavLink>
-                    <NavLink to="/company">
-                        <Button name="Button to company page"></Button>
-                    </NavLink>
-                    <NavLink to="/signin">
-                        <Button name="Button to signin page"></Button>
-                    </NavLink>
-                    <NavLink to="/onboarding">
-                        <Button name="Button to onboarding page"></Button>
-                    </NavLink>
-                    <NavLink target="_blank" to="/privacy-policy">
-                        <Button name="Button to Privacy Policy"></Button>
-                    </NavLink>
                     <div className="home-footer-css">
                         <Footer />
                     </div>
