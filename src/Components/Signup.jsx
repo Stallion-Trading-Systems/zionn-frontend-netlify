@@ -19,7 +19,7 @@ const Signup = (props) => {
   const navigate = useNavigate();
   if (curruser !== null) {
     setTimeout(() => {
-      window.location.reload();
+      
       navigate("/");
     }, 500)
   }
@@ -61,23 +61,26 @@ const Signup = (props) => {
     e.preventDefault();
     setOtp("");
     let user_token = await api.userSignUp({ name, email, phone, password });
-
+    setOtp("");
     // storing user token in local storage
     localStorage.setItem(
       "user",
       JSON.stringify({ name: name, email: email, token: user_token.data.token })
     );
-
+    setOtp("");
     console.log(user_token.data.message);
     if (user_token.data.message === "User already exit") {
       setError(true);
       setErroruae(true);
+      setOtp("");
     }
     else {
       setError(false);
       setErroruae(false);
       setErrorotp(false);
       setUser(true);
+      setOtp("");
+      console.log(otp);
     }
 
   };
@@ -258,12 +261,13 @@ const Signup = (props) => {
                     </div>
                   </form>
                 ) : (
-                  <form id="form2" onSubmit={verify}>
+                  <form id="form2" autocomplete="off" onSubmit={verify}>
                     <div className="container">
                       <div className="row">
                         <div className="col"></div>
                         <div className="col-8">
                           <div className="inp-css mt-4">
+                          <input type="text" style={{display:"none"}}/>
                             <input
                               onChange={(e) => {
                                 setError(false);
@@ -271,6 +275,7 @@ const Signup = (props) => {
                                 setErrorotp(false);
                                 setOtp(e.target.value);
                               }}
+                              autocomplete="false"
                               type="text"
                               className="butto-2"
                               placeholder="enter otp (check email)"

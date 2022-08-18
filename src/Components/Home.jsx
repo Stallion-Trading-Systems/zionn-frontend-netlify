@@ -20,8 +20,8 @@ import pic3 from "../assets/Pic3.svg"
 import Carousel from 'react-bootstrap/Carousel';
 import { useNavigate } from "react-router";
   
-const Home = (props) => {
-    const user=props.curruser;
+const Home = () => {
+    const user=localStorage.getItem("user");
     const navigate = useNavigate();
     if (user===null) {
         setTimeout(()=>{
