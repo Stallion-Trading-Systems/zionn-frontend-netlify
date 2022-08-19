@@ -22,6 +22,9 @@ import { useNavigate } from "react-router";
 
 const SidebarP = (props) => {
   const user = props.curruser;
+  const userobj = JSON.parse(localStorage.getItem('user'));
+  var uname = userobj.email.substring(0, userobj.email.indexOf('@'));
+  uname = "https://staging.zionn.trade/signup?utm=" + uname;
   const navigate = useNavigate();
   if (user === null) {
     setTimeout(() => {
@@ -39,7 +42,7 @@ const SidebarP = (props) => {
   const [refonf, setrefonf] = useState(false);
   const reflinkfun = (e) => {
     e.preventDefault();
-    setLinkref("https://staging.zionn.trade/signup?utm={username}");
+    setLinkref(uname);
     setrefon(true);
     navigator.clipboard.writeText(linkref)
     setTimeout(() => {
@@ -48,7 +51,8 @@ const SidebarP = (props) => {
   }
   const reflinkfunf = (e) => {
     e.preventDefault();
-    setLinkref("https://staging.zionn.trade/signup?utm={username}");
+    
+    setLinkref(uname);
     setrefonf(true);
     navigator.clipboard.writeText(linkref)
     setTimeout(() => {

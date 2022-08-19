@@ -23,6 +23,9 @@ import Slider from "./Slider";
 
 const Home = () => {
     const user = localStorage.getItem("user");
+    const userobj = JSON.parse(localStorage.getItem('user'));
+    var uname = userobj.email.substring(0, userobj.email.indexOf('@'));
+    uname = "https://staging.zionn.trade/signup?utm=" + uname;
     const navigate = useNavigate();
     if (user === null) {
         setTimeout(() => {
@@ -33,7 +36,7 @@ const Home = () => {
     const [refon, setrefon] = useState(false);
     const reflinkfun = (e) => {
         e.preventDefault();
-        setLinkref("https://staging.zionn.trade/signup?utm={username}");
+        setLinkref(uname);
         setrefon(true);
         navigator.clipboard.writeText(linkref)
         setTimeout(() => {
@@ -141,11 +144,11 @@ const Home = () => {
 
                             </div>
                         </div>
-                        <br/>
+                        <br />
                         <div className="row mt-5 mb-5 ">
                             <Slider />
                         </div>
-                        <br/>
+                        <br />
                         <div className="mt-5 mb-5">
                             <Delayed waitBeforeShow={500}>
                                 <Carousel interval={9000} controls={false} indicators={false}>
