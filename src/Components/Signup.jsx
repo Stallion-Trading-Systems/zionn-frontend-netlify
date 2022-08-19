@@ -261,7 +261,7 @@ const Signup = (props) => {
                     </div>
                   </form>
                 ) : (
-                  <form id="form2" autocomplete="off" onSubmit={verify}>
+                  <form id="form2" onSubmit={verify}>
                     <div className="container">
                       <div className="row">
                         <div className="col"></div>
@@ -275,7 +275,6 @@ const Signup = (props) => {
                                 setErrorotp(false);
                                 setOtp(e.target.value);
                               }}
-                              autocomplete="false"
                               type="text"
                               className="butto-2"
                               placeholder="enter otp (check email)"

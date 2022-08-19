@@ -19,14 +19,15 @@ import pic2 from "../assets/Pic2.svg"
 import pic3 from "../assets/Pic3.svg"
 import Carousel from 'react-bootstrap/Carousel';
 import { useNavigate } from "react-router";
-  
+import Slider from "./Slider";
+
 const Home = () => {
-    const user=localStorage.getItem("user");
+    const user = localStorage.getItem("user");
     const navigate = useNavigate();
-    if (user===null) {
-        setTimeout(()=>{
+    if (user === null) {
+        setTimeout(() => {
             navigate("/signup");
-        },500)
+        }, 500)
     }
     const [linkref, setLinkref] = useState("");
     const [refon, setrefon] = useState(false);
@@ -37,7 +38,7 @@ const Home = () => {
         navigator.clipboard.writeText(linkref)
         setTimeout(() => {
             setrefon(false);
-        }, 5000);
+        }, 1000);
     }
     const items = [
         <SidebarItem>
@@ -102,7 +103,7 @@ const Home = () => {
                     </div>
 
                     <div className="container con-abs">
-                        <div className="row">
+                        <div className="row ">
                             <div className="container">
                                 <div className="row">
                                     <div className="col-1"></div>
@@ -140,6 +141,11 @@ const Home = () => {
 
                             </div>
                         </div>
+                        <br/>
+                        <div className="row mt-5 mb-5 ">
+                            <Slider />
+                        </div>
+                        <br/>
                         <div className="mt-5 mb-5">
                             <Delayed waitBeforeShow={500}>
                                 <Carousel interval={9000} controls={false} indicators={false}>

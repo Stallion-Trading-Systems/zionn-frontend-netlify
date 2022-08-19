@@ -44,7 +44,7 @@ const SidebarP = (props) => {
     navigator.clipboard.writeText(linkref)
     setTimeout(() => {
       setrefon(false);
-    }, 5000);
+    }, 1000);
   }
   const reflinkfunf = (e) => {
     e.preventDefault();
@@ -53,7 +53,7 @@ const SidebarP = (props) => {
     navigator.clipboard.writeText(linkref)
     setTimeout(() => {
       setrefonf(false);
-    }, 5000);
+    }, 1000);
   }
   const [isActive, setIsActive] = useState(false);
   const handleClick = (event) => {

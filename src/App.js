@@ -30,6 +30,7 @@ function App() {
           <Route exact path="/company/:cname" element={<SidebarP curruser={user} />} />
           <Route exact path="/scoops" element={<Scoops curruser={user} />} />
           <Route exact path="/privacy-policy" element={<PrivacyPolicy curruser={user} />} />
+          <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
       </BrowserRouter>
     </div>
