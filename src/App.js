@@ -13,7 +13,7 @@ import Onboardingflow from "./Components/Onboardingflow";
 import SellBuy from "./Components/SellBuy";
 import Scoops from "./Components/Scoops";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
-
+//app check
 function App() {
   const user=localStorage.getItem("user")
 
