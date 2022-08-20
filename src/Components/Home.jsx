@@ -24,8 +24,10 @@ import Slider from "./Slider";
 const Home = () => {
     const user = localStorage.getItem("user");
     const userobj = JSON.parse(localStorage.getItem('user'));
-    var uname = userobj.email.substring(0, userobj.email.indexOf('@'));
-    uname = "https://staging.zionn.trade/signup?utm=" + uname;
+    var uname="zionn";
+    if(user!==null)
+    {uname = userobj.email.substring(0, userobj.email.indexOf('@'));
+    uname = "https://staging.zionn.trade/signup?utm=" + uname;}
     const navigate = useNavigate();
     if (user === null) {
         setTimeout(() => {
