@@ -21,7 +21,7 @@ import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router";
 
 const SidebarP = (props) => {
-  const user = props.curruser;
+  const user = localStorage.getItem("user");
   const userobj = JSON.parse(localStorage.getItem('user'));
   var uname="zionn";
     if(user!==null)

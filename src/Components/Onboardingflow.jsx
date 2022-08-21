@@ -6,8 +6,8 @@ import { useNavigate } from "react-router";
 
 import * as api from "../axios";
 
-const Onboardingflow = (props) => {
-    const curruser = props.curruser;
+const Onboardingflow = () => {
+    const curruser = localStorage.getItem("user");
     const navigate = useNavigate();
     if (curruser !== null) {
         setTimeout(() => {

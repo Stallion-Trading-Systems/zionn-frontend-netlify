@@ -7,8 +7,8 @@ import Button from "./Button";
 import monkey from "../assets/monkey.svg";
 import * as api from "../axios";
 
-const SellBuy = (props) => {
-  const curruser=props.curruser;
+const SellBuy = () => {
+  const curruser = localStorage.getItem("user");
   const navigate = useNavigate();
     if (curruser===null) {
         setTimeout(()=>{

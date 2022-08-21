@@ -5,8 +5,8 @@ import "./scoops.css"
 import { useNavigate } from "react-router";
 
 
-const Scoops = (props) => {
-    const user=props.curruser;
+const Scoops = () => {
+    const user = localStorage.getItem("user");
     const navigate = useNavigate();
     if (user===null) {
         setTimeout(()=>{

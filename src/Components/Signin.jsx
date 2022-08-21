@@ -12,8 +12,8 @@ import { useNavigate } from "react-router";
 
 import * as api from "../axios";
 
-const Signin = (props) => {
-  const curruser = props.curruser;
+const Signin = () => {
+  const curruser = localStorage.getItem("user");
   const navigate = useNavigate();
   if (curruser !== null) {
     setTimeout(() => {
