@@ -9,6 +9,7 @@ import wrongep from "../assets/wrongep.gif";
 import userne from "../assets/usernotexists.gif";
 import { GoogleLogin } from "react-google-login";
 import { useNavigate } from "react-router";
+import slider from "../assets/slider.svg"
 
 import * as api from "../axios";
 
@@ -78,7 +79,7 @@ const Signin = () => {
       {curruser ? (<></>) : (<div>
         <div className="container ">
           <div className="row">
-            <div className="col order-2 order-lg-1">
+            <div className="col-md-6 order-2 order-lg-1">
               <div className="con-image mt-5">
                 {error ? (
                   <></>
@@ -95,8 +96,21 @@ const Signin = () => {
                 ) : <></>}
               </div>
             </div>
-            <div className="txt col pt-0 pt-lg-0 order-1 order-lg-1 d-flex justify-content-center flex-column">
-              <div className="container">
+            <div className="form-css-su col-md-6 order-1">
+              <div className="mob-v-only" >
+                <img className='img-slider' src={slider} alt="slider" />
+                <div className='txt-slider'>
+                  <div class="ticker-wrapper-h">
+                    <ul class="news-ticker-h">
+                      <li><p>&nbsp;&nbsp;liquidate your ESOPs.&nbsp;&nbsp;</p></li>
+                      <li><p>&nbsp;&nbsp;be rich.&nbsp;&nbsp;</p></li>
+                      <li><p>&nbsp;&nbsp;build long term wealth.&nbsp;&nbsp;</p></li>
+                      <li><p>&nbsp;&nbsp;finalize that trip to the baltics.&nbsp;&nbsp;</p></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className="container form-si">
                 <form id="form1" onSubmit={signinfun}>
                   <div className="container">
                     <div className="row">
@@ -138,64 +152,51 @@ const Signin = () => {
                       <p className="txt-2">sign in using </p>
                     </div>
                     <div className="row">
-                      <div className="col"></div>
-                      <div className="col-8">
-                        <div className="row">
-                          <div className="col-4"></div>
-                          <div className="col-2">
-                            <GoogleLogin
+                      <div className="col d-flex justify-content-center">
+                        <GoogleLogin
+                          form="form322"
+                          clientId="1002474588776-p7fi5pd1hpf1fjp1p9v33iet3i9u1fco.apps.googleusercontent.com"
+                          render={(renderProps) => (
+                            <button
+                              className="social-btn"
+                              onClick={renderProps.onClick}
+                              disabled={renderProps.disabled}
                               form="form322"
-                              clientId="1002474588776-p7fi5pd1hpf1fjp1p9v33iet3i9u1fco.apps.googleusercontent.com"
-                              render={(renderProps) => (
-                                <button
-                                  className="social-btn"
-                                  onClick={renderProps.onClick}
-                                  disabled={renderProps.disabled}
-                                  form="form322"
-                                >
-                                  <img
-                                    className="social-media-google"
-                                    src={google}
-                                  />
-                                </button>
-                              )}
-                              buttonText="Login"
-                              onSuccess={responseGoogle}
-                              onFailure={responseGoogleFail}
-                              cookiePolicy={"single_host_origin"}
-                            />
-                          </div>
-                          <div className="col-2">
+                            >
+                              <img
+                                className="social-media-google"
+                                src={google}
+                              />
+                            </button>
+                          )}
+                          buttonText="Login"
+                          onSuccess={responseGoogle}
+                          onFailure={responseGoogleFail}
+                          cookiePolicy={"single_host_origin"}
+                        />
+                      </div>
+                      {/* <div className="col-2">
                             <button className="social-btn" form="form2">
                               <img
                                 className="social-media-linkedin"
                                 src={linkedin}
                               />
                             </button>
-                          </div>
-                          <div className="col-4"></div>
-                        </div>
-                      </div>
-                      <div className="col"></div>
+                          </div> */}
                     </div>
                     <div className="row">
-                      <div className="col-3"></div>
-                      <div className="col"></div>
-                      <div className="col">
+                      <div className="col d-flex justify-content-center">
                         <div className="sign-btn">
                           <button
                             form="form1"
                             type="submit"
-                            className="btn-2-su"
+                            className="btn-2-suu"
                             onSubmit={signinfun}
                           >
                             sign in
                           </button>
                         </div>
                       </div>
-                      <div className="col"></div>
-                      <div className="col"></div>
-                      <div className="col-4"></div>
                     </div>
                   </div>
                 </form>

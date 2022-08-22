@@ -71,7 +71,6 @@
 .logo-top-size {
   height: 50px;
   width: 50px;
-  position: absolute;
 }
 .last-but {
   margin-right: 100px;
@@ -189,4 +188,39 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.66));
 .butt-fref-ac{
   transform: translateY(4px) translateX(-4px);
   box-shadow: 0px 0px 0px #000000;
+}
+
+.dropdown-monkey {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content-monkey {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: rgb(249, 249, 249,0);
+  z-index: 1;
+  width: 100%;
+  margin-top: 10px;
+  right: 25%;
+}
+
+.monkey-click{
+  display: block;
+}
+.monkey-btn-css{
+  -webkit-appearance: none;
+    -moz-appearance: none;
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+.logout-btn-css{
+  margin-top: 10px;
 }

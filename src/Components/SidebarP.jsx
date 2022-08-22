@@ -23,10 +23,11 @@ import { useNavigate } from "react-router";
 const SidebarP = (props) => {
   const user = localStorage.getItem("user");
   const userobj = JSON.parse(localStorage.getItem('user'));
-  var uname="zionn";
-    if(user!==null)
-    {uname = userobj.email.substring(0, userobj.email.indexOf('@'));
-    uname = "https://staging.zionn.trade/signup?utm=" + uname;}
+  var uname = "zionn";
+  if (user !== null) {
+    uname = userobj.email.substring(0, userobj.email.indexOf('@'));
+    uname = "https://staging.zionn.trade/signup?utm=" + uname;
+  }
   const navigate = useNavigate();
   if (user === null) {
     setTimeout(() => {
@@ -40,8 +41,14 @@ const SidebarP = (props) => {
     setCname(params.cname);
   }, [])
   const [linkref, setLinkref] = useState("");
+  const [openlogout, setOpenlogout] = useState(false);
   const [refon, setrefon] = useState(false);
   const [refonf, setrefonf] = useState(false);
+  let logOut = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("user");
+    navigate("/signup");
+  };
   const reflinkfun = (e) => {
     e.preventDefault();
     setLinkref(uname);
@@ -53,7 +60,7 @@ const SidebarP = (props) => {
   }
   const reflinkfunf = (e) => {
     e.preventDefault();
-    
+
     setLinkref(uname);
     setrefonf(true);
     navigator.clipboard.writeText(linkref)
@@ -62,11 +69,12 @@ const SidebarP = (props) => {
     }, 1000);
   }
   const [isActive, setIsActive] = useState(false);
-  const handleClick = (event) => {
+  const handleClick = (e) => {
+    e.preventDefault();
     setIsActive((current) => !current);
   };
-  const x = props.widthv;
   const defaultClick = (e) => {
+    e.preventDefault();
     setIsActive(false);
   };
   const items = [
@@ -123,18 +131,36 @@ const SidebarP = (props) => {
             <div className="fix-nav">
               <div className="container">
                 <div className="row">
+                  <div className="col-1"></div>
                   <div className="col-6">
                     <TitleButton name="search pricing, analyst updates, etc ( cmd + K)" />
                   </div>
-                  <div className="col-4"></div>
+                  <div className="col-2"></div>
                   <div className="col-2 logo-top">
-                    <img className="logo-top-size" src={monkey} />
+                    <div className={openlogout ? "dropdown-monkey monkey-click" : "dropdown-monkey"}>
+                      <button className="monkey-btn-css" onClick={() => { setOpenlogout(current => !current) }}><img className="logo-top-size " src={monkey} /></button>
+                      <div className={openlogout ? "dropdown-content-monkey monkey-click" : "dropdown-content-monkey"}>
+                        <Button name="contact" />
+                        <button
+                          onPointerLeave={defaultClick}
+                          onPointerDown={handleClick}
+                          onPointerUp={handleClick}
+                          onClick={logOut}
+                          className={isActive ? "butt butt-ac logout-btn-css" : "butt logout-btn-css"}
+                        >
+                          logout&nbsp;
+                          <i class="bi bi-arrow-up-right"></i>
+                        </button>
+                      </div>
+                    </div>
+
                   </div>
+                  <div className="col-1"></div>
                 </div>
               </div>
             </div>
 
-            <div className="container con-abs">
+            <div onClick={()=>setOpenlogout(false)} className="container con-abs">
               <div className="row">
                 <div className="col-6">
                   <div className="row">
@@ -148,16 +174,17 @@ const SidebarP = (props) => {
                 </div>
               </div>
               <div className="row">
-                <div className="col-md-6 pt-0 pt-lg-0 order-1 order-lg-1 d-flex justify-content-center flex-column animated">
+                <div className="col-5">
                   <div className="pie-size">
                     <PieChartP />
                   </div>
                 </div>
-                <div className="col-lg-6 order-2 order-lg-1 header-img mt-4 mb-5">
+                <div className="col-6">
                   <div className="table-top ">
                     <TableTop price={10000} />
                   </div>
                 </div>
+                <div className="col-1"></div>
               </div>
               <div className="row">
                 <div className="grid-mar">

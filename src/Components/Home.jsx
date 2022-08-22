@@ -24,16 +24,23 @@ import Slider from "./Slider";
 const Home = () => {
     const user = localStorage.getItem("user");
     const userobj = JSON.parse(localStorage.getItem('user'));
-    var uname="zionn";
-    if(user!==null)
-    {uname = userobj.email.substring(0, userobj.email.indexOf('@'));
-    uname = "https://staging.zionn.trade/signup?utm=" + uname;}
+    var uname = "zionn";
+    if (user !== null) {
+        uname = userobj.email.substring(0, userobj.email.indexOf('@'));
+        uname = "https://staging.zionn.trade/signup?utm=" + uname;
+    }
     const navigate = useNavigate();
     if (user === null) {
         setTimeout(() => {
             navigate("/signup");
         }, 500)
     }
+    let logOut = (e) => {
+        e.preventDefault();
+        localStorage.removeItem("user");
+        navigate("/signup");
+    };
+    const [openlogout, setOpenlogout] = useState(false);
     const [linkref, setLinkref] = useState("");
     const [refon, setrefon] = useState(false);
     const reflinkfun = (e) => {
@@ -45,6 +52,15 @@ const Home = () => {
             setrefon(false);
         }, 1000);
     }
+    const [isActive, setIsActive] = useState(false);
+    const handleClick = (e) => {
+        e.preventDefault();
+        setIsActive((current) => !current);
+    };
+    const defaultClick = (e) => {
+        e.preventDefault();
+        setIsActive(false);
+    };
     const items = [
         <SidebarItem>
             <div className="">
@@ -93,21 +109,39 @@ const Home = () => {
                     hoverHighlight={"#FFF"}
                     textAlign={"center"}
                 >
-                    <div className="fix-nav">
+                    <div  className="fix-nav ">
                         <div className="container">
                             <div className="row">
+                                <div className="col-1"></div>
                                 <div className="col-6">
                                     <TitleButton name="search pricing, analyst updates, etc ( cmd + K)" />
                                 </div>
-                                <div className="col-4"></div>
+                                <div className="col-2"></div>
                                 <div className="col-2 logo-top">
-                                    <img className="logo-top-size" src={monkey} />
+                                    <div className={openlogout ? "dropdown-monkey monkey-click" : "dropdown-monkey"}>
+                                        <button className="monkey-btn-css" onClick={() => { setOpenlogout(current => !current) }}><img className="logo-top-size " src={monkey} /></button>
+                                        <div className={openlogout ? "dropdown-content-monkey monkey-click" : "dropdown-content-monkey"}>
+                                            <Button name="contact" />
+                                            <button
+                                                onPointerLeave={defaultClick}
+                                                onPointerDown={handleClick}
+                                                onPointerUp={handleClick}
+                                                onClick={logOut}
+                                                className={isActive ? "butt butt-ac logout-btn-css" : "butt logout-btn-css"}
+                                            >
+                                                logout&nbsp;
+                                                <i class="bi bi-arrow-up-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
                                 </div>
+                                <div className="col-1"></div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="container con-abs">
+                    <div onClick={()=>setOpenlogout(false)} className="container con-abs">
                         <div className="row ">
                             <div className="container">
                                 <div className="row">

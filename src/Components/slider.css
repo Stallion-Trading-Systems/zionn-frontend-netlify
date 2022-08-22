@@ -13,7 +13,7 @@
     align-content: center;
     justify-content: center;
 
-    padding-left: 90%;
+    padding-left: 45%;
     
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -31,7 +31,6 @@
     justify-content: center;
     color: white;
     white-space: nowrap;
-    font-family: 'PP Cirka';
     font-style: normal;
     font-weight: 700;
     font-size: 40px;

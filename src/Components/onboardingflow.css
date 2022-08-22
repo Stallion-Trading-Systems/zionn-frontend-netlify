@@ -100,4 +100,18 @@
     font-size: 15px;
     text-align: left;
   }
+  .form-on{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @media screen and (max-width: 768px) {
+    .mob-v-only {
+      display: block;
+      overflow-x: hidden;
+    }
+    .form-on{
+      margin-top: 120px;
+    }
+  }
   

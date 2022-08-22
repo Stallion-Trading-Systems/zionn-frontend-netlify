@@ -93,4 +93,14 @@
     border: 1px solid green;
     box-shadow: -4px 4px 0px green;
   }
+
+  @media screen and (max-width: 768px) {
+    .mob-v-only {
+      display: block;
+      overflow-x: hidden;
+    }
+    .form-si{
+      margin-top: 150px;
+    }
+  }
   
