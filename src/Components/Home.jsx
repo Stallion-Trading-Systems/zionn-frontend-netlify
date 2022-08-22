@@ -41,16 +41,19 @@ const Home = () => {
         navigate("/signup");
     };
     const [openlogout, setOpenlogout] = useState(false);
-    const [linkref, setLinkref] = useState("");
+    const [linkref, setLinkref] = useState(uname);
     const [refon, setrefon] = useState(false);
     const reflinkfun = (e) => {
         e.preventDefault();
         setLinkref(uname);
+        navigator.clipboard.writeText(linkref)
         setrefon(true);
         navigator.clipboard.writeText(linkref)
         setTimeout(() => {
+            navigator.clipboard.writeText(linkref)
             setrefon(false);
         }, 1000);
+        navigator.clipboard.writeText(linkref)
     }
     const [isActive, setIsActive] = useState(false);
     const handleClick = (e) => {

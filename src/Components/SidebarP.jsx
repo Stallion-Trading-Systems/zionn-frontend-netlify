@@ -40,7 +40,7 @@ const SidebarP = (props) => {
 
     setCname(params.cname);
   }, [])
-  const [linkref, setLinkref] = useState("");
+  const [linkref, setLinkref] = useState(uname);
   const [openlogout, setOpenlogout] = useState(false);
   const [refon, setrefon] = useState(false);
   const [refonf, setrefonf] = useState(false);
