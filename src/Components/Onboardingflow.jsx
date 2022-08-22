@@ -7,12 +7,7 @@ import slider from "../assets/slider.svg"
 import * as api from "../axios";
 
 const Onboardingflow = () => {
-    const curruser = localStorage.getItem("user");
     const navigate = useNavigate();
-    if (curruser !== null) {
-        setTimeout(() => {
-            navigate("/");
-        }, 500)
     }
     const [curr_employer, setEmployer] = useState("");
     const [designation, setDesignation] = useState("");
@@ -52,7 +47,7 @@ const Onboardingflow = () => {
     }
     return (
         <>
-            {(<div>
+            (<div>
                 <div className="container ">
                     <div className="row">
                         <div className="col-md-6 order-2 order-lg-1">
@@ -146,7 +141,7 @@ const Onboardingflow = () => {
                         </div>
                     </div>
                 </div>
-            </div>)}
+            </div>)
         </>
     );
 };
