@@ -10,7 +10,7 @@ const Slider = () => {
                 <img className='img-slider' src={slider} alt="slider" />
                 <div className='txt-slider'>
                     <div class="ticker-wrapper-h">
-                        <ul class="news-ticker-h">
+                        <ul class="news-ticker-h" >
                             <li><p>&nbsp;&nbsp;liquidate your ESOPs.&nbsp;&nbsp;</p></li>
                             <li><p>&nbsp;&nbsp;be rich.&nbsp;&nbsp;</p></li>
                             <li><p>&nbsp;&nbsp;build long term wealth.&nbsp;&nbsp;</p></li>

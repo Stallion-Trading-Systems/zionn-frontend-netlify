@@ -52,7 +52,7 @@ const Onboardingflow = () => {
     }
     return (
         <>
-            {curruser ? (<></>) : (<div>
+            {(<div>
                 <div className="container ">
                     <div className="row">
                         <div className="col-md-6 order-2 order-lg-1">

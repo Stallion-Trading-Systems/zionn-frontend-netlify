@@ -58,19 +58,15 @@ const Signup = () => {
   const responseGoogleFail = (err) => {
     console.log(err);
   };
-
+const [ut,setUT]=useState();
   const signupfun = async (e) => {
     e.preventDefault();
     setOtp("");
     let user_token = await api.userSignUp({ name, email, phone, password });
     setOtp("");
     // storing user token in local storage
-    localStorage.setItem(
-      "user",
-      JSON.stringify({ name: name, email: email, token: user_token.data.token })
-    );
     setOtp("");
-    console.log(user_token.data.message);
+    setUT(user_token.data.message);
     if (user_token.data.message === "User already exit") {
       setError(true);
       setErroruae(true);
@@ -92,16 +88,20 @@ const Signup = () => {
     let res = await api.otpVerify({ email, otp });
 
     if (res.data.message.includes("not")) {
-      console.log(e.target.value);
       setError(true);
       setErrorotp(true);
-    } else
+    } else {
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ name: name, email: email, token: ut })
+      );
+      setError(false);
+      setErroruae(false);
+      setErrorotp(false);
       setTimeout(() => {
-        setError(false);
-        setErroruae(false);
-        setErrorotp(false);
-        navigate("/onboarding");
+        navigate("/onboarding"); 
       }, 500);
+    }
   };
 
   return (
