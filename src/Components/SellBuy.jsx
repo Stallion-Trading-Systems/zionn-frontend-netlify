@@ -10,18 +10,26 @@ import * as api from "../axios";
 const SellBuy = () => {
   const curruser = localStorage.getItem("user");
   const navigate = useNavigate();
-    if (curruser===null) {
-        setTimeout(()=>{
-            navigate("/signup");
-        },500)
-    }
+  if (curruser === null) {
+    setTimeout(() => {
+      navigate("/signup");
+    }, 500)
+  }
   const [c_name, setCname] = useState("");
   const [no_of_shares, setNshares] = useState("");
   const [secu_type, setSecutype] = useState("");
   const [user, setUser] = useState(false);
   const [doc, setDoc] = useState(null);
   const [issub, setIssub] = useState(false);
-
+  const [isActive, setIsActive] = useState(false);
+  const handleClick = (e) => {
+    e.preventDefault();
+    setIsActive((current) => !current);
+  };
+  const defaultClick = (e) => {
+    e.preventDefault();
+    setIsActive(false);
+  };
   const storeSellBuy = async () => {
     let data = JSON.parse(localStorage.getItem("user"));
 
@@ -34,9 +42,9 @@ const SellBuy = () => {
     formData.append("no_of_shares", no_of_shares);
     let res = await api.storeShares(formData)
     // console.log(res);
-    setTimeout(()=>{
+    setTimeout(() => {
       navigate("/scoops");
-  },1)
+    }, 1)
   };
 
   const handleFileInput = (e) => {
@@ -53,127 +61,130 @@ const SellBuy = () => {
 
   return (
     <>
-      {curruser?(<div>
-      <div id="leftHalf"></div>
-      <div id="rightHalf">
-        <div className="top-right-css">
-          <img className="mon-img-sb" src={monkey} />
-        </div>
-        <form
-          id="form1"
-          onSubmit={(e) => {
-            e.preventDefault();
-            storeSellBuy(e);
-          }}
-        >
-          <div className="row no-mar-sb"></div>
-          <div className="row mt-4">
-            <div className="col">
-              <div className="inp-css">
-                <input
-                  onChange={(e) => {
-                    setCname(e.target.value);
-                  }}
-                  type="text"
-                  className="butto-2 input-form"
-                  placeholder="company name"
-                  required
-                />
-              </div>
-              <div className="inp-css mt-4">
-                <input
-                  onChange={(e) => {
-                    setNshares(e.target.value);
-                  }}
-                  type="number"
-                  className="butto-2 input-form"
-                  placeholder="# of securities"
-                  required
-                />
+      {curruser ? (<div>
+        <div id="leftHalf"></div>
+        <div id="rightHalf">
+          <div className="top-right-css">
+            <img className="mon-img-sb" src={monkey} />
+          </div>
+          <form
+            id="form1"
+            onSubmit={(e) => {
+              e.preventDefault();
+              storeSellBuy(e);
+            }}
+          >
+            <div className="row no-mar-sb"></div>
+            <div className="row mt-4">
+              <div className="col">
+                <div className="inp-css">
+                  <input
+                    onChange={(e) => {
+                      setCname(e.target.value);
+                    }}
+                    type="text"
+                    className="butto-2 input-form"
+                    placeholder="company name"
+                    required
+                  />
+                </div>
+                <div className="inp-css mt-4">
+                  <input
+                    onChange={(e) => {
+                      setNshares(e.target.value);
+                    }}
+                    type="number"
+                    className="butto-2 input-form"
+                    placeholder="# of securities"
+                    required
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div className="row mt-4">
-            <div className="col">
-              <p>security type:</p>
-              <div class="form-check">
-                <input
-                  value="esop"
-                  checked={secu_type == "esop"}
-                  onChange={(e) => {
-                    setSecutype(e.target.value);
-                  }}
-                  class="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                  required
-                />
-                <label class="form-check-label" for="flexRadioDefault1">
-                  ESOP's
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  value="stockunits"
-                  checked={secu_type == "stockunits"}
-                  onChange={setStockunits}
-                  class="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault2"
-                />
-                <label class="form-check-label" for="flexRadioDefault2">
-                  stock units
-                </label>
-              </div>
-            </div>
-          </div>
-          <div className="row mt-4">
-            <div className="col">
-              <p>
-                proof of ownership:
-                <br /> i.e. grant letter, share certificate.
-              </p>
-              <div className="row">
-                <div className="col"></div>
-                <div className="col-5 mt-2">
-
-                  <label for="file-doc" className={issub ? "butto-2 file-label uploaded-file-css" : "butto-2 file-label"}>
-                    <input
-                      type="file"
-                      onChange={handleFileInput}
-                      id="file-doc"
-                      className="upload-form-sb"
-                      placeholder="# of securities"
-                      name="file"
-                      accept="application/pdf,application/msword,
-  application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                    />
-                    {issub ? <>uploaded  <i class="bi bi-check"></i></> : <>upload <i class="bi bi-arrow-up-right"></i></>}
+            <div className="row mt-4">
+              <div className="col">
+                <p>security type:</p>
+                <div class="form-check">
+                  <input
+                    value="esop"
+                    checked={secu_type == "esop"}
+                    onChange={(e) => {
+                      setSecutype(e.target.value);
+                    }}
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault1"
+                    required
+                  />
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    ESOP's
                   </label>
                 </div>
-                <div className="col"></div>
+                <div class="form-check">
+                  <input
+                    value="stockunits"
+                    checked={secu_type == "stockunits"}
+                    onChange={setStockunits}
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault2"
+                  />
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    stock units
+                  </label>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="row mt-3">
-            <div className="col">
-              <div className="sign-btn btn-cen-doc">
-                <button
-                  form="form1"
-                  type="submit"
-                  className="btn-2-su"
-                  onSubmit={storeSellBuy}
-                >
-                  sell
-                </button>
+            <div className="row mt-4">
+              <div className="col">
+                <p>
+                  proof of ownership:
+                  <br /> i.e. grant letter, share certificate.
+                </p>
+                <div className="row">
+                  <div className="col"></div>
+                  <div className="col-5 mt-2">
+
+                    <label for="file-doc" className={issub ? "butto-2 file-label uploaded-file-css" : "butto-2 file-label"}>
+                      <input
+                        type="file"
+                        onChange={handleFileInput}
+                        id="file-doc"
+                        className="upload-form-sb"
+                        placeholder="# of securities"
+                        name="file"
+                        accept="application/pdf,application/msword,
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                      />
+                      {issub ? <>uploaded  <i class="bi bi-check"></i></> : <>upload <i class="bi bi-arrow-up-right"></i></>}
+                    </label>
+                  </div>
+                  <div className="col"></div>
+                </div>
               </div>
             </div>
-          </div>
-        </form>
-      </div>
-      {/* <div className="container con-sb">
+            <div className="row mt-3">
+              <div className="col">
+                <div className="sign-btn btn-cen-doc">
+                  <button
+                    form="form1"
+                    type="submit"
+                    onPointerLeave={defaultClick}
+                    onPointerDown={handleClick}
+                    onPointerUp={handleClick}
+                    className={isActive ? "btn-2-suu btn-2-suu-pressed" : "btn-2-suu"}
+                    onSubmit={storeSellBuy}
+                  >
+                    sell
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        {/* <div className="container con-sb">
                 <div className="row">
                     <div className="col-6">
                         <div className="con-image-sb">
@@ -257,7 +268,7 @@ const SellBuy = () => {
                     </div>
                 </div>
             </div> */}
-    </div>):(<></>)}
+      </div>) : (<></>)}
     </>
   );
 };

@@ -9,7 +9,7 @@ import LineChartP from "../Components/LineChartP";
 import PieChartP from "../Components/PieChartP";
 import Grid from "../Components/Grid";
 import unacademy from "../assets/unacademy.png";
-import TableTop from "./TableTop";
+import TableTop from "./TableTop"; 
 import Button2 from "./Button2";
 import Footer from "./Footer";
 import NewsCard from "./NewsCard";

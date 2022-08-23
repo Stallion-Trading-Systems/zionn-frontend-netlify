@@ -58,7 +58,16 @@ const Signup = () => {
   const responseGoogleFail = (err) => {
     console.log(err);
   };
-const [ut,setUT]=useState();
+  const [isActive, setIsActive] = useState(false);
+  const handleClick = (e) => {
+    e.preventDefault();
+    setIsActive((current) => !current);
+  };
+  const defaultClick = (e) => {
+    e.preventDefault();
+    setIsActive(false);
+  };
+  const [ut, setUT] = useState();
   const signupfun = async (e) => {
     e.preventDefault();
     setOtp("");
@@ -95,7 +104,7 @@ const [ut,setUT]=useState();
       setError(false);
       setErroruae(false);
       setErrorotp(false);
-      navigate("/onboarding"); 
+      navigate("/onboarding");
       localStorage.setItem(
         "user",
         JSON.stringify({ name: name, email: email, token: ut })
@@ -251,7 +260,10 @@ const [ut,setUT]=useState();
                             <button
                               form="form1"
                               type="submit"
-                              className="btn-2-suu"
+                              onPointerLeave={defaultClick}
+                              onPointerDown={handleClick}
+                              onPointerUp={handleClick}
+                              className={isActive ? "btn-2-suu btn-2-suu-pressed" : "btn-2-suu"}
                               onSubmit={signupfun}
                             >
                               sign up

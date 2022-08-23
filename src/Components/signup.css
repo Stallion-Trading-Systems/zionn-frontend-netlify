@@ -7,7 +7,7 @@
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+  -webkit-appearance: none; 
   margin: 0;
 }
 
@@ -80,19 +80,29 @@ input[type="number"] {
 }
 
 .btn-2-suu {
-  /* Rectangle 1 */
+  box-sizing: border-box;
+/* Fallback */
+background: #7b61ff;
+width: 140px;
+height: 50px;
+font-size: 10px;
+color: white;
+font-weight: 500;
+border: none;
+/* Cut the corner */
+background: linear-gradient(-45deg, transparent 7px, #7b61ff 7px);
+transition: background 2s ease;
 
-  /* Fallback */
-  background: #7b61ff;
-  width: 140px;
-  height: 50px;
-  font-size: 10px;
-  color: white;
-  font-weight: 500;
-  border: none;
-  /* Cut the corner */
-  background: linear-gradient(-45deg, transparent 7px, #7b61ff 7px);
-  transition: background 2s ease;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.66));
+}
+.btn-2-suu-pressed{
+  filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.66));
+
+/* transform: translateY(4px) translateX(4px); */
+transform: translateY(4px) ;
+
+/* transform:  translateX(-4px); */
+
 }
 
 .input-form:invalid:focus {

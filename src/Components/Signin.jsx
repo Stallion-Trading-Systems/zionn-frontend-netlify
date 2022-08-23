@@ -27,6 +27,15 @@ const Signin = () => {
   const [errorwep, setErrorwep] = useState(false); //wrong email password
   const [errorune, setErrorune] = useState(false); //user not exists
   const [user, setUser] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+  const handleClick = (e) => {
+    e.preventDefault();
+    setIsActive((current) => !current);
+  };
+  const defaultClick = (e) => {
+    e.preventDefault();
+    setIsActive(false);
+  };
   const responseGoogle = async (res) => {
     let em = res.profileObj.email;
     let user_token = await api.userSignIn({ email: em });
@@ -190,7 +199,10 @@ const Signin = () => {
                           <button
                             form="form1"
                             type="submit"
-                            className="btn-2-suu"
+                            onPointerLeave={defaultClick}
+                            onPointerDown={handleClick}
+                            onPointerUp={handleClick}
+                            className={isActive ? "btn-2-suu btn-2-suu-pressed" : "btn-2-suu"}
                             onSubmit={signinfun}
                           >
                             sign in

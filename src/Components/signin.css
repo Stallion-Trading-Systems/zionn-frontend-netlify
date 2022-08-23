@@ -68,23 +68,6 @@
     align-self: stretch;
     flex-grow: 1;
   }
-  .btn-2-su {
-    /* Rectangle 1 */
-  
-    position: absolute;
-  
-    /* Fallback */
-    background: #7b61ff;
-    width: 140px;
-    height: 50px;
-    font-size: 10px;
-    color: white;
-    font-weight: 500;
-    border: none;
-    /* Cut the corner */
-    background: linear-gradient(-45deg, transparent 7px, #7b61ff 7px);
-    transition: background 2s ease;
-  }
   .input-form:invalid:focus {
     border: 1px solid #7b61ff;
     box-shadow: -4px 4px 0px #7b61ff;
