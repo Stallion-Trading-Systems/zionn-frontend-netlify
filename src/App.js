@@ -25,7 +25,7 @@ function App() {
           <Route exact path="/company" element={<SidebarP curruser={user} />} />
           <Route exact path="/signup" element={<Signup curruser={user} />} />
           <Route exact path="/signin" element={<Signin curruser={user} />} />
-          <Route exact path="/onboarding" element={<Onboardingflow curruser={user} />} />
+          <Route exact path="/onboarding" element={<Onboardingflow />} />
           <Route exact path="/sellbuy" element={<SellBuy curruser={user} />} />
           <Route exact path="/company/:cname" element={<SidebarP curruser={user} />} />
           <Route exact path="/scoops" element={<Scoops curruser={user} />} />

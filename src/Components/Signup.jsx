@@ -92,16 +92,14 @@ const [ut,setUT]=useState();
       setError(true);
       setErrorotp(true);
     } else {
+      setError(false);
+      setErroruae(false);
+      setErrorotp(false);
+      navigate("/onboarding"); 
       localStorage.setItem(
         "user",
         JSON.stringify({ name: name, email: email, token: ut })
       );
-      setError(false);
-      setErroruae(false);
-      setErrorotp(false);
-      setTimeout(() => {
-        navigate("/onboarding"); 
-      }, 500);
     }
   };
 
