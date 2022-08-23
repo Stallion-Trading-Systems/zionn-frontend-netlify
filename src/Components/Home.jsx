@@ -102,7 +102,7 @@ const Home = () => {
         <>
             {user && <div>
                 <Sidebar
-                    className="side-bar"
+                    className="side-bar z-s-i-css"
                     content={items}
                     width={200}
                     background={"#FFF"}
@@ -116,7 +116,7 @@ const Home = () => {
                         <div className="container">
                             <div className="row">
                                 <div className="col-1"></div>
-                                <div className="col-6">
+                                <div className="col-6 til-mob-css">
                                     <TitleButton name="search pricing, analyst updates, etc ( cmd + K)" />
                                 </div>
                                 <div className="col-2"></div>
@@ -153,25 +153,23 @@ const Home = () => {
 
                                         <div className="container">
                                             <div className="row">
-                                                <div className="col-4 ml-2 mt-5 ">
+                                                <div className="col-lg-4 col ml-2 mt-5 ">
                                                     <Card imgl={lenskart} name="Lenskart" ev="$5B" in="Sequoia, Tiger" cname="Lenskart" />
                                                 </div>
-                                                <div className="col-4 ml-5 mt-5">
+                                                <div className="col col-lg-4 ml-5 mt-5">
                                                     <Card imgl={ola} name="OLA" ev="$5B" in="Sequoia, Tiger" cname="OLA" />
                                                 </div>
-                                                <div className="col-4 ml-5 mt-5">
+                                                <div className="col col-lg-4 ml-5 mt-5">
                                                     <Card imgl={unacademy} name="Unacademy" ev="$5B" in="Sequoia, Tiger" cname="Unacademy" />
                                                 </div>
 
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-4 ml-5 mt-5">
+                                                <div className="col col-lg-4 ml-5 mt-5">
                                                     <Card imgl={ola} name="GoDigit" ev="$5B" in="Sequoia, Tiger" cname="GoDigit" />
                                                 </div>
-                                                <div className="col-4 ml-5 mt-5">
+                                                <div className="col col-lg-4 ml-5 mt-5">
                                                     <Card imgl={swiggy} name="Swiggy" ev="$5B" in="Sequoia, Tiger" cname="Swiggy" />
                                                 </div>
-                                                <div className="col-4 ml-5 mt-5">
+                                                <div className="col col-lg-4 ml-5 mt-5">
                                                     <Card imgl={ola} name="OfBusiness" ev="$5B" in="Sequoia, Tiger" cname="OfBusiness" />
                                                 </div>
                                             </div>
