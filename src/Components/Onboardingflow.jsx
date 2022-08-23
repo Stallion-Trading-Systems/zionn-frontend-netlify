@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import signuppic from "../assets/helloworld.gif";
 import "./onboardingflow.css";
-import Button2 from "./Button2";
 import { useNavigate } from "react-router";
 import slider from "../assets/slider.svg"
 import * as api from "../axios";
@@ -28,7 +27,7 @@ const onboard = async (e) => {
     console.log(res.data.message);
     if (res.data.message === "Details saved") {
         setTimeout(() => {
-            navigate("/");
+            navigate("/scoops");
         }, 500);
     } else {
         alert(res.data.message)
