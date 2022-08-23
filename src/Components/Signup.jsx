@@ -66,7 +66,8 @@ const [ut,setUT]=useState();
     setOtp("");
     // storing user token in local storage
     setOtp("");
-    setUT(user_token.data.message);
+    console.log(user_token);
+    setUT(user_token.data.taken);
     if (user_token.data.message === "User already exit") {
       setError(true);
       setErroruae(true);
