@@ -222,7 +222,7 @@ const SidebarP = (props) => {
               <div className="row mt-5">
                 <Tables cname={params.cname} />
               </div>
-              <div className="row mt-5">
+              <div className="row mt-5 mb-5">
                 <NewsCard company={cname}
                 />
               </div>

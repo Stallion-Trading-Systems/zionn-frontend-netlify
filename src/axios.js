@@ -61,6 +61,6 @@ export const scoopsData = async ()=>{
 }
 
 export const newsData = async (company)=>{
-    let res=await API.post("/getnews/get",company)
+    let res=await API.post("/getnews/get",{company})
     return res;
 }

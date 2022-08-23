@@ -3,21 +3,22 @@ import "./newscard.css";
 import * as api from "../axios"
 
 const NewsCard = (props) => {
-  const cname=props.company;
+  const company = props.company;
+
   const [cdetails, setDetails] = useState([])
   useEffect(() => {
 
     async function f() {
-      let res = await api.newsData(cname)
+      let res = await api.newsData(company)
 
-      // setDetails(res.data.result2);
-      console.log(res);
+      setDetails(res.data.news_details);
+
     }
 
     f()
 
-  }, [cname]);
-
+  }, [company]);
+  console.log(cdetails);
   return (
     <div className="container">
       <div className="row">
@@ -26,21 +27,14 @@ const NewsCard = (props) => {
           <div className="container">
             <div className="row">
               <div className="news-bor">
-                <div className="row">
-                  <h3 className="heading-trun">{props.hone}</h3>
-                  <p className="user-trun">by: {props.uone}</p>
-                  <p className="content-trun">{props.cone}</p>
-                </div>
-                <div className="row">
-                  <h3 className="heading-trun">{props.htwo}</h3>
-                  <p className="user-trun">by: {props.utwo}</p>
-                  <p className="content-trun">{props.ctwo}</p>
-                </div>
-                <div className="row">
-                  <h3 className="heading-trun">{props.hthr}</h3>
-                  <p className="user-trun">by: {props.uthr}</p>
-                  <p className="content-trun">{props.cthr}</p>
-                </div>
+                {cdetails.map((detail) => {
+                  return(<div className="row">
+                    <a className="scoop-link" target="__blank" href={detail.new_url} ><h3 className="scoop-title heading-trun">{detail.new_title}</h3></a>
+                    {/* <p className="user-trun scoop-tag">by: {props.uone}</p> */}
+                    <p className="content-trun">{detail.news_content}</p>
+                  </div>)
+                })}
+
               </div>
             </div>
           </div>
