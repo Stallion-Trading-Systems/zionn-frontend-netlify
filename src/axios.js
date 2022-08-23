@@ -59,3 +59,8 @@ export const scoopsData = async ()=>{
     let res=await API.get("/getnews/getscoop")
     return res;
 }
+
+export const newsData = async (company)=>{
+    let res=await API.post("/getnews/get",company)
+    return res;
+}

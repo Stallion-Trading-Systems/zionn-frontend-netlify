@@ -223,16 +223,7 @@ const SidebarP = (props) => {
                 <Tables cname={params.cname} />
               </div>
               <div className="row mt-5">
-                <NewsCard
-                  hone="Abhinavjdhgdgvfsdgfvkjjdhfvudkjfbkdjbfckjdbfcdjkfbdcjkfbcdjkhfbciudkjfchnfiucvdsg"
-                  uone="Abhinav Awasthi"
-                  cone="kjgjhiugvbhjkfsdhkgvuhsdvgdkgvbsdjsgbfvkjdsbfvkjdssgfvjkdsgsfvbhvdhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhkvbkdj"
-                  htwo="Abhinavjdhgdgvfsdgfvkjjdhfvudkjfbkdjbfckjdbfcdjkfbdcjkfbcdjkhfbciudkjfchnfiucvdsg"
-                  utwo="Abhinav Awasthi"
-                  ctwo="kjgjhiugvbhkvbkdj"
-                  hthr="Abhinavjdhgdgvfsdgfvkjjdhfvudkjfbkdjbfckjdbfcdjkfbdcjkfbcdjkhfbciudkjfchnfiucvdsg"
-                  uthr="Abhinav Awasthi"
-                  cthr="kjgjhiugvbhkvbkdj"
+                <NewsCard company={cname}
                 />
               </div>
             </div>

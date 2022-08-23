@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./newscard.css";
+import * as api from "../axios"
 
 const NewsCard = (props) => {
+  const cname=props.company;
+  const [cdetails, setDetails] = useState([])
+  useEffect(() => {
+
+    async function f() {
+      let res = await api.newsData(cname)
+
+      // setDetails(res.data.result2);
+      console.log(res);
+    }
+
+    f()
+
+  }, [cname]);
+
   return (
     <div className="container">
       <div className="row">
