@@ -229,7 +229,7 @@ const Signup = () => {
                         <div className="col d-flex justify-content-center">
                           <GoogleLogin
                             form="form322"
-                            clientId="1002474588776-p7fi5pd1hpf1fjp1p9v33iet3i9u1fco.apps.googleusercontent.com"
+                            clientId="996239129131-q9s3srbpod0s7vat2g1ufj6o87enmtu0.apps.googleusercontent.com"
                             render={(renderProps) => (
                               <button
                                 className="social-btn"
@@ -277,7 +277,7 @@ const Signup = () => {
                         </div>
                       </div>
                       <div className="row mt-3">
-                        <p className="txt-2">already a user? <NavLink style={{textDecoration:"none"}} className="pur-nav-css" to="/signin">sign in</NavLink> </p>
+                        <p className="txt-2">already a user? <NavLink style={{ textDecoration: "none" }} className="pur-nav-css" to="/signin">sign in</NavLink> </p>
                       </div>
                     </div>
                   </form>
