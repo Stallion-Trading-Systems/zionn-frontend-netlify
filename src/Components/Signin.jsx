@@ -13,6 +13,7 @@ import slider from "../assets/slider.svg"
 
 import * as api from "../axios";
 import Loading from "./Loading";
+import { NavLink } from "react-router-dom";
 
 const Signin = () => {
   const curruser = localStorage.getItem("user");
@@ -216,6 +217,9 @@ const Signin = () => {
                           </button></>}
                         </div>
                       </div>
+                    </div>
+                    <div className="row mt-3">
+                      <p className="txt-2">not registered with us? <NavLink style={{ textDecoration: "none" }} className="pur-nav-css" to="/signup">sign up</NavLink> </p>
                     </div>
                   </div>
                 </form>

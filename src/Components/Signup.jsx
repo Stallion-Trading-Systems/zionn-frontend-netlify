@@ -16,6 +16,7 @@ import { useNavigate } from "react-router";
 
 import * as api from "../axios";
 import Loading from "./Loading";
+import { NavLink } from "react-router-dom";
 
 const Signup = () => {
   const curruser = localStorage.getItem("user");
@@ -257,7 +258,7 @@ const Signup = () => {
                               </button>
                             </div> */}
                       </div>
-                      <div className="row">
+                      <div className="row ">
                         <div className="col d-flex justify-content-center">
                           <div className="sign-btn ">
                             {loading ? (<><Loading /></>) : <><button
@@ -274,6 +275,9 @@ const Signup = () => {
                             {/* <Loading/> */}
                           </div>
                         </div>
+                      </div>
+                      <div className="row mt-3">
+                        <p className="txt-2">already a user? <NavLink style={{textDecoration:"none"}} className="pur-nav-css" to="/signin">sign in</NavLink> </p>
                       </div>
                     </div>
                   </form>

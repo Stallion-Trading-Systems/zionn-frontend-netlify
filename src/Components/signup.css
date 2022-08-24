@@ -104,7 +104,10 @@ transform: translateY(4px) ;
 /* transform:  translateX(-4px); */
 
 }
-
+.pur-nav-css{
+  font-weight: bold;
+  color: #7b61ff;
+}
 .input-form:invalid:focus {
   border: 1px solid #7b61ff;
   box-shadow: -4px 4px 0px #7b61ff;
