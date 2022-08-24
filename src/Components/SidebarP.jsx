@@ -6,6 +6,8 @@ import TitleButton from "./TitleButton";
 import monkey from "../assets/monkey.svg"
 import Tables from "../Components/Tables";
 import LineChartP from "../Components/LineChartP";
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 import Delayed from "./Delayed";
 import PieChartP from "../Components/PieChartP";
 import Grid from "../Components/Grid";
@@ -29,6 +31,7 @@ import * as api from "../axios"
 import Table2 from "./Table2";
 
 const SidebarP = (props) => {
+  const [sloading, setSloading] = useState(false);
   const user = localStorage.getItem("user");
   const userobj = JSON.parse(localStorage.getItem('user'));
   const [sharePrice, setSharePrice] = useState();
@@ -48,20 +51,26 @@ const SidebarP = (props) => {
   const [cdetails, setDetails] = useState([])
   useEffect(() => {
     setCname(params.cname);
+    setSloading(true);
     async function f() {
+      
       let res = await api.getLastSharePrice(params.cname)
 
       setSharePrice(parseInt(res.data.result[0].last_share_price));
       // console.log(parseInt(res.data.result[0].last_share_price));
+      setSloading(false);
     }
 
     f()
+    
   }, [])
+  // setSloading(false);
   console.log(sharePrice);
   const [linkref, setLinkref] = useState(uname);
   const [openlogout, setOpenlogout] = useState(false);
   const [refon, setrefon] = useState(false);
   const [refonf, setrefonf] = useState(false);
+
   let logOut = (e) => {
     e.preventDefault();
     localStorage.removeItem("user");
@@ -86,7 +95,7 @@ const SidebarP = (props) => {
       setrefonf(false);
     }, 1000);
   }
-  const scname=cname.toLowerCase();
+  const scname = cname.toLowerCase();
   const [isActive, setIsActive] = useState(false);
   const handleClick = (e) => {
     e.preventDefault();
@@ -134,6 +143,8 @@ const SidebarP = (props) => {
   ];
   return (
     <>
+      {/* <Skeleton/> */}
+      {/* {sloading&&<Skeleton/>} */}
       {user ? (
         <div>
           <Sidebar
@@ -195,14 +206,15 @@ const SidebarP = (props) => {
               <div className="row">
                 <div className="col-5">
                   <div className="pie-size">
-                    <div className="heading-cp-css pie-head-css">share holding pattern</div>
-                    <PieChartP heading="share holding pattern" company={params.cname} />
+
+                    {sloading ? (<><div className="heading-cp-css mt-5">share holding pattern</div><Skeleton
+                      count={5} /></>) : (<><div className="heading-cp-css pie-head-css">share holding pattern</div><PieChartP heading="share holding pattern" company={params.cname} /></>)}
                   </div>
                 </div>
                 <div className="col-6">
                   <div className="table-top ">
-                    {/* <div className="heading-cp-css">bid / ask spread</div> */}
-                    <TableTop heading="bid / ask spread" price={sharePrice} />
+
+                    {sloading ? <><div className="heading-cp-css">bid / ask spread</div><Skeleton count={5} /></> : (<TableTop heading="bid / ask spread" price={sharePrice} />)}
                   </div>
                 </div>
                 <div className="col-1"></div>
@@ -211,11 +223,11 @@ const SidebarP = (props) => {
                 <div className="row">
                   <div className="grid-mar">
                     <div className="heading-cp-css">price history</div>
-                    <Grid company={params.cname} />
+                    {sloading ? (<><Skeleton count={10} /></>) : (<><Grid company={params.cname} /></>)}
                   </div>
                 </div>
               </Delayed>
-              <div className="row">
+              <div className="row mt-3">
                 <div className="col-4">
                   <div className="but-below">
                     <NavLink to="/sellbuy" style={{ textDecoration: 'none' }}><Button widthv={200} name="sell/buy" /></NavLink>
