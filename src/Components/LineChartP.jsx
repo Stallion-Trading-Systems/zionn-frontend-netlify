@@ -118,7 +118,7 @@ export default function LineChartP(props) {
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
-        <div >
+        <div className="tooltip-lc-css" >
           <p>{`${label}`}</p>
           <p >{`${payload[0].name} : ${payload[0].value}`}</p>
         </div>

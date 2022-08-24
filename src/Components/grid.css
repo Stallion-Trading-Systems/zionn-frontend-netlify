@@ -1,12 +1,23 @@
-.con-grid{
+.con-grid {
     position: absolute;
     /* width: 90%; */
 }
 
-.chart{
+.chart {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.chart-div{
+.tooltip-lc-css{
+    padding: 5%;
+background-color:rgba(255, 255, 255) ;
+color:rgb(123, 97, 255) ;
+border-radius: 10%;
+}
+.chart-div {
+    margin: 0;
+    margin-right: 12%;
     display: flex;
     justify-content: center;
     align-items: center;
