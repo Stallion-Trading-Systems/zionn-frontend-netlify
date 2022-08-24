@@ -16,7 +16,7 @@ const Tables = (props) => {
       let res = await api.getCompanyData(cname)
 
       setDetails(res.data.result2);
-      // console.log(res);
+      // console.log(res.data.result2);
     }
 
     f()
@@ -30,8 +30,10 @@ const Tables = (props) => {
         <div className="row">
           <div className="col-1"></div>
           <div className="col-10">
+
             <div className="container">
               <div className="row">
+                <div className="heading-cp-css">{props.heading}</div>
                 <div className="bor-table">
                   <div className="">
                     <div className="container-sm  main-con">
@@ -68,7 +70,7 @@ const Tables = (props) => {
                         c={cdetails[1]?.revenue}
                         d={cdetails[0]?.revenue}
                         e="POSITIVE"
-                        f="true"
+                        f={cdetails[0]?.revenue_check==1?"true":""} 
                       />
                       <Row
                         a="revenue growth"
@@ -76,7 +78,7 @@ const Tables = (props) => {
                         c={cdetails[1]?.revenue_growth}
                         d={cdetails[0]?.revenue_growth}
                         e="POSITIVE"
-                        f="true"
+                        f={cdetails[0]?.revenue_growth_check==1?"true":""} 
                       />
                       <Row
                         a="EBITDA margin"
@@ -84,7 +86,7 @@ const Tables = (props) => {
                         c={cdetails[1]?.ebitda_margin}
                         d={cdetails[0]?.ebitda_margin}
                         e="POSITIVE"
-                        f="true"
+                        f={cdetails[0]?.ebidta_growth_check==1?"true":""} 
                       />
                       <Row
                         a="net margin"
@@ -92,7 +94,7 @@ const Tables = (props) => {
                         c={cdetails[1]?.net_margin + "%"}
                         d={cdetails[0]?.net_margin + "%"}
                         e="POSITIVE"
-                        f="true"
+                        f={cdetails[0]?.net_proft_check==1?"true":""} 
                       />
                       <Row
                         a="return on equity"

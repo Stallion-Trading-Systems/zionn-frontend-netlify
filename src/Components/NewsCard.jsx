@@ -26,9 +26,10 @@ const NewsCard = (props) => {
         <div className="col-10">
           <div className="container">
             <div className="row">
+              <div className="heading-cp-css">{props.heading}</div>
               <div className="news-bor">
                 {cdetails.map((detail) => {
-                  return(<div className="row">
+                  return (<div className="row">
                     <a className="scoop-link" target="__blank" href={detail.new_url} ><h3 className="scoop-title heading-trun">{detail.new_title}</h3></a>
                     {/* <p className="user-trun scoop-tag">by: {props.uone}</p> */}
                     <p className="content-trun">{detail.news_content}</p>

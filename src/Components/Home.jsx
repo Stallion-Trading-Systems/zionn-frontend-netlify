@@ -9,6 +9,7 @@ import lenskart from "../assets/lenskart.svg";
 import unacademy from "../assets/unacademy.png";
 import Button2 from "./Button2";
 import ofbusiness from "../assets/ofbusiness.svg"
+import pharmeasy from "../assets/pharmeasy.png"
 import logo from "../assets/Vector.svg";
 import { NavLink } from "react-router-dom";
 import Card from "./Card";
@@ -166,7 +167,7 @@ const Home = () => {
                                                 </div>
 
                                                 <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
-                                                    <Card imgl={ola} name="Pharmeasy" ev=" $5B" in=" Sequoia, Tiger" cname="Pharmeasy" />
+                                                    <Card imgl={pharmeasy} name="Pharmeasy" ev=" $5B" in=" Sequoia, Tiger" cname="Pharmeasy" />
                                                 </div>
                                                 <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
                                                     <Card imgl={swiggy} name="Swiggy" ev=" $10.7B" in=" Prosus, Accel" cname="Swiggy" />
