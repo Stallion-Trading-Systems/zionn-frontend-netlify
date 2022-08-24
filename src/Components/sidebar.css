@@ -85,7 +85,10 @@
   margin-left: 70px;
 }
 .home-footer-css{
-  overflow: hidden;
+  width: 100%;
+}
+.card-com-css{
+  min-height: 100%;
 }
 NavLink{
   text-decoration: none;

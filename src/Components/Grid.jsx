@@ -4,12 +4,12 @@ import "./grid.css";
 import Lottie from 'lottie-react'
 import gridd from '../assets/grid.json'
 
-const Grid = () => {
+const Grid = (props) => {
   return (
     <div>
     <Lottie className="con-grid" animationData={gridd}/>
     <div className="chart-div"> 
-    <LineChartP className="chart"/>
+    <LineChartP company={props.company} className="chart"/>
     </div>
     </div>
   );

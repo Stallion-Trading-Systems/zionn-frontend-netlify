@@ -5,14 +5,15 @@ import Button from "./Button";
 import TitleButton from "./TitleButton";
 import ola from "../assets/ola.png";
 import swiggy from "../assets/swiggy.png";
-import lenskart from "../assets/lenskart.jpg";
+import lenskart from "../assets/lenskart.svg";
 import unacademy from "../assets/unacademy.png";
 import Button2 from "./Button2";
+import ofbusiness from "../assets/ofbusiness.svg"
 import logo from "../assets/Vector.svg";
 import { NavLink } from "react-router-dom";
 import Card from "./Card";
 import Delayed from './Delayed';
-import Footer from './Footer';
+import FooterP from './FooterP';
 import monkey from "../assets/monkey.svg"
 import pic1 from "../assets/Pic1.svg"
 import pic2 from "../assets/Pic2.svg"
@@ -20,6 +21,7 @@ import pic3 from "../assets/Pic3.svg"
 import Carousel from 'react-bootstrap/Carousel';
 import { useNavigate } from "react-router";
 import Slider from "./Slider";
+import Loading from "./Loading";
 
 const Home = () => {
     const user = localStorage.getItem("user");
@@ -112,12 +114,12 @@ const Home = () => {
                     hoverHighlight={"#FFF"}
                     textAlign={"center"}
                 >
-                    <div  className="fix-nav ">
+                    <div className="fix-nav ">
                         <div className="container">
                             <div className="row">
                                 <div className="col-1"></div>
                                 <div className="col-6 til-mob-css">
-                                    <TitleButton name="search pricing, analyst updates, etc ( cmd + K)" />
+                                    <TitleButton name="we are still in beta. apologies for the half cooked experience" />
                                 </div>
                                 <div className="col-2"></div>
                                 <div className="col-2 logo-top">
@@ -144,7 +146,7 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div onClick={()=>setOpenlogout(false)} className="container con-abs">
+                    <div onClick={() => setOpenlogout(false)} className="container con-abs">
                         <div className="row ">
                             <div className="container">
                                 <div className="row">
@@ -152,25 +154,25 @@ const Home = () => {
                                     <div className="col-10">
 
                                         <div className="container">
-                                            <div className="row">
-                                                <div className="col-lg-4 col ml-2 mt-5 ">
-                                                    <Card imgl={lenskart} name="Lenskart" ev="$5B" in="Sequoia, Tiger" cname="Lenskart" />
+                                            <div className="row ">
+                                                <div className="card-com-css col-lg-4 col ml-2 mt-5 d-flex align-items-stretch">
+                                                    <Card imgl={lenskart} name="Lenskart" ev=" $4.5B" in=" SoftBank, Premji Invest" cname="Lenskart" />
                                                 </div>
-                                                <div className="col col-lg-4 ml-5 mt-5">
-                                                    <Card imgl={ola} name="OLA" ev="$5B" in="Sequoia, Tiger" cname="OLA" />
+                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
+                                                    <Card imgl={ola} name="OLA" ev=" $5B" in=" Softbank, Tencent" cname="OLA" />
                                                 </div>
-                                                <div className="col col-lg-4 ml-5 mt-5">
-                                                    <Card imgl={unacademy} name="Unacademy" ev="$5B" in="Sequoia, Tiger" cname="Unacademy" />
+                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
+                                                    <Card imgl={unacademy} name="Unacademy" ev=" $3.44B" in=" Sequoia, Softbank" cname="Unacademy" />
                                                 </div>
 
-                                                <div className="col col-lg-4 ml-5 mt-5">
-                                                    <Card imgl={ola} name="GoDigit" ev="$5B" in="Sequoia, Tiger" cname="GoDigit" />
+                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
+                                                    <Card imgl={ola} name="Pharmeasy" ev=" $5B" in=" Sequoia, Tiger" cname="Pharmeasy" />
                                                 </div>
-                                                <div className="col col-lg-4 ml-5 mt-5">
-                                                    <Card imgl={swiggy} name="Swiggy" ev="$5B" in="Sequoia, Tiger" cname="Swiggy" />
+                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
+                                                    <Card imgl={swiggy} name="Swiggy" ev=" $10.7B" in=" Prosus, Accel" cname="Swiggy" />
                                                 </div>
-                                                <div className="col col-lg-4 ml-5 mt-5">
-                                                    <Card imgl={ola} name="OfBusiness" ev="$5B" in="Sequoia, Tiger" cname="OfBusiness" />
+                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
+                                                    <Card imgl={ofbusiness} name="OfBusiness" ev=" $5B" in=" Creation Investments, Matrix Partners" cname="OfBusiness" />
                                                 </div>
                                             </div>
                                         </div>
@@ -214,7 +216,7 @@ const Home = () => {
                             </Delayed>
                         </div>
                         <div className="home-footer-css">
-                            <Footer />
+                            <FooterP />
                         </div>
                     </div>
                 </Sidebar>

@@ -15,6 +15,7 @@ import { GoogleLogin } from "react-google-login";
 import { useNavigate } from "react-router";
 
 import * as api from "../axios";
+import Loading from "./Loading";
 
 const Signup = () => {
   const curruser = localStorage.getItem("user");
@@ -34,7 +35,7 @@ const Signup = () => {
   const [errorotp, setErrorotp] = useState(false);  //OTP Invalid
   const [user, setUser] = useState(false);
   const [otp, setOtp] = useState("");
-
+  const [loading, setLoading] = useState(false);
   const responseGoogle = async (res) => {
     console.log(res.profileObj.name);
     let nm = res.profileObj.name;
@@ -69,18 +70,17 @@ const Signup = () => {
   };
   const [ut, setUT] = useState();
   const signupfun = async (e) => {
+    setLoading(true);
     e.preventDefault();
-    setOtp("");
     let user_token = await api.userSignUp({ name, email, phone, password });
-    setOtp("");
     // storing user token in local storage
-    setOtp("");
     console.log(user_token);
     setUT(user_token.data.taken);
     if (user_token.data.message === "User already exit") {
       setError(true);
       setErroruae(true);
       setOtp("");
+      setLoading(false);
     }
     else {
       setError(false);
@@ -88,18 +88,20 @@ const Signup = () => {
       setErrorotp(false);
       setUser(true);
       setOtp("");
-      console.log(otp);
+      setLoading(false);
     }
 
   };
 
   const verify = async (e) => {
+    setLoading(true);
     e.preventDefault();
     let res = await api.otpVerify({ email, otp });
 
     if (res.data.message.includes("not")) {
       setError(true);
       setErrorotp(true);
+      setLoading(false);
     } else {
       setError(false);
       setErroruae(false);
@@ -109,6 +111,7 @@ const Signup = () => {
         "user",
         JSON.stringify({ name: name, email: email, token: ut })
       );
+      setLoading(false);
     }
   };
 
@@ -257,7 +260,7 @@ const Signup = () => {
                       <div className="row">
                         <div className="col d-flex justify-content-center">
                           <div className="sign-btn ">
-                            <button
+                            {loading ? (<><Loading /></>) : <><button
                               form="form1"
                               type="submit"
                               onPointerLeave={defaultClick}
@@ -267,7 +270,8 @@ const Signup = () => {
                               onSubmit={signupfun}
                             >
                               sign up
-                            </button>
+                            </button></>}
+                            {/* <Loading/> */}
                           </div>
                         </div>
                       </div>
@@ -302,14 +306,14 @@ const Signup = () => {
                       <div className="row">
                         <div className="col  d-flex justify-content-center">
                           <div className="sign-btn">
-                            <button
+                            {loading ? <><Loading /></> : <button
                               form="form2"
                               type="submit"
                               className="btn-2-suu"
                               onSubmit={verify}
                             >
                               verify OTP
-                            </button>
+                            </button>}
                           </div>
                         </div>
                       </div>

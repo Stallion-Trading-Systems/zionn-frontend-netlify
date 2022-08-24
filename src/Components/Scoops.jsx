@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import * as api from '../axios'
 import "./scoops.css"
 import { useNavigate } from "react-router";
+import FooterP from './FooterP';
 
 
 const Scoops = () => {
@@ -28,7 +29,7 @@ const Scoops = () => {
         <>
             {user?(<div>
             <div className='container'>
-                <div>
+                <div className='row'>
                     <h1>
                         Scoops
                     </h1>
@@ -48,6 +49,7 @@ const Scoops = () => {
                     </>
                 </div>
             </div>
+            <FooterP/>
         </div>):(<></>)}
         </>
     )

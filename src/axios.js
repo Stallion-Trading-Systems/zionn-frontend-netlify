@@ -64,3 +64,18 @@ export const newsData = async (company)=>{
     let res=await API.post("/getnews/get",{company})
     return res;
 }
+
+export const getInvesData = async (company)=>{
+    let res=await API.post("/investments/getinv",{company})
+    return res;
+}
+
+export const getSharePriceHis = async (company)=>{
+    let res=await API.post("/investments/getshareprice",{company})
+    return res;
+}
+
+export const getLastSharePrice = async (company)=>{
+    let res=await API.post("/investments/lastshareprice",{company})
+    return res;
+}

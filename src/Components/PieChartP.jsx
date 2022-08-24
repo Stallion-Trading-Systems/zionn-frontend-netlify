@@ -1,15 +1,17 @@
 import "./pieChartP.css";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { PieChart, Pie, Sector, Cell } from "recharts";
+import * as api from "../axios"
 
-const data = [
-  { name: "Group A", value: 800},
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
-  { name: "Others", value: 200 },
-];
-const COLORS = ['#45F6E1', '#7B61FF', '#A1FF9F', '#ED2B2B','#F6BF45'];
+// const data = [
+//   { name: "Group A", value: 800},
+//   { name: "Group B", value: 300 },
+//   { name: "Group C", value: 300 },
+//   { name: "Group D", value: 200 },
+//   { name: "Group E", value: 300 },
+//   { name: "Others", value: 200 },
+// ];
+const COLORS = ['#45F6E1', '#7B61FF', '#A1FF9F', '#ED2B2B','#F6BF45','#A1FF9F'];
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
   const {
@@ -84,7 +86,30 @@ const renderActiveShape = (props) => {
   );
 };
 
-export default function PieChartP() {
+export default function PieChartP(props) {
+  const [cname,setCname]=useState(props.company)
+  const [cdetails, setDetails] = useState([]) 
+
+  useEffect(() => {
+
+    async function f() {
+      let res = await api.getInvesData(cname)
+
+      setDetails(res.data.result);
+      // console.log(res);
+    }
+
+    f()
+
+  }, []);
+  const data=[];
+  cdetails.map((index)=>{
+    var x=index.name;
+    var y=parseFloat(index.stake);
+    y*=100;
+    data.push({name:x,value:y});
+  })
+  console.log(data);
   const [activeIndex, setActiveIndex] = useState(0);
   const onPieEnter = useCallback(
     (_, index) => {

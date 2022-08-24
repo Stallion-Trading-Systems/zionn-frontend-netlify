@@ -4,6 +4,7 @@ import "./onboardingflow.css";
 import { useNavigate } from "react-router";
 import slider from "../assets/slider.svg"
 import * as api from "../axios";
+import Loading from "./Loading"
 
 const Onboardingflow = () => {
     const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Onboardingflow = () => {
     const [user, setUser] = useState(false);
     const [slidervalue, setSlidervalue] = useState(false);
     const [isActive, setIsActive] = useState(false);
+    const [loading, setLoading]=useState(false);
     const handleClick = (e) => {
         e.preventDefault();
         setIsActive((current) => !current);
@@ -23,6 +25,7 @@ const Onboardingflow = () => {
         setIsActive(false);
     };
     const onboard = async (e) => {
+        setLoading(true)
         e.preventDefault();
         let data = JSON.parse(localStorage.getItem("user"));
 
@@ -36,6 +39,7 @@ const Onboardingflow = () => {
         if (res.data.message === "Details saved") {
             setTimeout(() => {
                 navigate("/");
+                setLoading(false)
             }, 500);
         } else {
             alert(res.data.message)
@@ -130,7 +134,7 @@ const Onboardingflow = () => {
                                         <div className="row ">
                                             <div className="col d-flex justify-content-center">
                                                 <div className="sign-btn">
-                                                    <button
+                                                    {loading?(<><Loading/></>):<button
                                                         form="form1"
                                                         type="submit"
                                                         onPointerLeave={defaultClick}
@@ -140,7 +144,7 @@ const Onboardingflow = () => {
                                                         onSubmit={onboard}
                                                     >
                                                         getstarted
-                                                    </button>
+                                                    </button>}
                                                 </div>
                                             </div>
                                         </div>

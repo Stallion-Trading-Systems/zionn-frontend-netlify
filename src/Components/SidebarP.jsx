@@ -9,9 +9,9 @@ import LineChartP from "../Components/LineChartP";
 import PieChartP from "../Components/PieChartP";
 import Grid from "../Components/Grid";
 import unacademy from "../assets/unacademy.png";
-import TableTop from "./TableTop"; 
-import Button2 from "./Button2";
-import Footer from "./Footer";
+import TableTop from "./TableTop";
+import Button2 from "./Button2"; 
+import FooterP from "./FooterP";
 import NewsCard from "./NewsCard";
 import logo from "../assets/Vector.svg";
 import { useParams } from "react-router-dom";
@@ -19,10 +19,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightDots } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router";
+import * as api from "../axios"
 
 const SidebarP = (props) => {
   const user = localStorage.getItem("user");
   const userobj = JSON.parse(localStorage.getItem('user'));
+  const [sharePrice, setSharePrice] = useState();
   var uname = "zionn";
   if (user !== null) {
     uname = userobj.email.substring(0, userobj.email.indexOf('@'));
@@ -36,10 +38,19 @@ const SidebarP = (props) => {
   }
   const params = useParams();
   const [cname, setCname] = useState("");
+  const [cdetails, setDetails] = useState([])
   useEffect(() => {
-
     setCname(params.cname);
+    async function f() {
+      let res = await api.getLastSharePrice(params.cname)
+
+      setSharePrice(parseInt(res.data.result[0].last_share_price));
+      // console.log(parseInt(res.data.result[0].last_share_price));
+    }
+
+    f()
   }, [])
+  console.log(sharePrice);
   const [linkref, setLinkref] = useState(uname);
   const [openlogout, setOpenlogout] = useState(false);
   const [refon, setrefon] = useState(false);
@@ -133,7 +144,7 @@ const SidebarP = (props) => {
                 <div className="row">
                   <div className="col-1"></div>
                   <div className="col-6">
-                    <TitleButton name="search pricing, analyst updates, etc ( cmd + K)" />
+                    <TitleButton name="we are still in beta. apologies for the half cooked experience" />
                   </div>
                   <div className="col-2"></div>
                   <div className="col-2 logo-top">
@@ -160,7 +171,7 @@ const SidebarP = (props) => {
               </div>
             </div>
 
-            <div onClick={()=>setOpenlogout(false)} className="container con-abs">
+            <div onClick={() => setOpenlogout(false)} className="container con-abs">
               <div className="row">
                 <div className="col-6">
                   <div className="row">
@@ -176,19 +187,19 @@ const SidebarP = (props) => {
               <div className="row">
                 <div className="col-5">
                   <div className="pie-size">
-                    <PieChartP />
+                    <PieChartP company={params.cname} />
                   </div>
                 </div>
                 <div className="col-6">
                   <div className="table-top ">
-                    <TableTop price={10000} />
+                    <TableTop price={sharePrice} />
                   </div>
                 </div>
                 <div className="col-1"></div>
               </div>
               <div className="row">
                 <div className="grid-mar">
-                  <Grid />
+                  <Grid company={params.cname} />
                 </div>
               </div>
               <div className="row g-0">
@@ -225,6 +236,9 @@ const SidebarP = (props) => {
               <div className="row mt-5 mb-5">
                 <NewsCard company={cname}
                 />
+              </div>
+              <div>
+                <FooterP/>
               </div>
             </div>
           </Sidebar>
