@@ -53,9 +53,7 @@ const Signup = () => {
       "user",
       JSON.stringify({ name: nm, email: em, token: user_token.data.token })
     );
-    setTimeout(() => {
-      navigate("/onboarding");
-    }, 2000);
+    navigate("/onboarding");
   };
   const responseGoogleFail = (err) => {
     console.log(err);

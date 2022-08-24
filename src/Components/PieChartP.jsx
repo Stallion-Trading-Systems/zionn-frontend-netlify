@@ -40,7 +40,7 @@ const renderActiveShape = (props) => {
   return (
     <g>
       <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
-        {payload.name}
+      {`(${(percent * 100).toFixed(2)}%)`}
       </text>
       <Sector
         cx={cx}
@@ -80,7 +80,7 @@ const renderActiveShape = (props) => {
         y={ey}
         textAnchor={textAnchor}
         fill="#333"
-      >{`(${(percent * 100).toFixed(2)}%)`}
+      >{payload.name}
       </text>
     </g>
   );

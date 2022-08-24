@@ -202,14 +202,14 @@ const SidebarP = (props) => {
                   <Grid company={params.cname} />
                 </div>
               </div>
-              <div className="row g-0">
+              <div className="row">
                 <div className="col-4">
                   <div className="but-below">
                     <NavLink to="/sellbuy" style={{ textDecoration: 'none' }}><Button widthv={200} name="sell/buy" /></NavLink>
 
                   </div>
                 </div>
-                <div className="col">
+                <div className="col-4">
                   <div className="but-below">
                     <button
                       style={{ width: 200 }}

@@ -12,7 +12,7 @@ const Grid = (props) => {
     <LineChartP company={props.company} className="chart"/>
     </div>
     </div>
-  );
+  ); 
 };
 
 export default Grid;
