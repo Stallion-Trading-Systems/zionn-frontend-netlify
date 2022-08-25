@@ -22,15 +22,12 @@ const Table2 = (props) => {
         f()
 
     }, [cname]);
-
-    console.log(cdetails);
     return (
         <div>
             <div className="container">
                 <div className="row">
                     <div className="col-1"></div>
                     <div className="col-10">
-
                         <div className="container">
                             <div className="row">
                                 <div className="heading-cp-css">{props.heading}</div>

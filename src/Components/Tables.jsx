@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import "../Components/Tables.css";
 import Row from "./Row";
 import * as api from "../axios"
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const Tables = (props) => {
 
 
   const [cname, setCname] = useState(props.cname)
   const [cdetails, setDetails] = useState([])
-
+  const [sloading,setSloading]=useState(true);
 
   useEffect(() => {
 
@@ -16,14 +18,19 @@ const Tables = (props) => {
       let res = await api.getCompanyData(cname)
 
       setDetails(res.data.result2);
+      
       // console.log(res.data.result2);
     }
 
     f()
-
+    setSloading(false);
   }, [cname]);
-
-  console.log(cdetails);
+  var nma;
+  if(cdetails[2]?.net_margin)nma=cdetails[2]?.net_margin+"%";
+  var nmb;
+  if(cdetails[1]?.net_margin)nmb=cdetails[1]?.net_margin+"%";
+  var nmc;
+  if(cdetails[0]?.net_margin)nmc=cdetails[0]?.net_margin+"%";
   return (
     <div>
       <div className="container">
@@ -90,9 +97,9 @@ const Tables = (props) => {
                       />
                       <Row
                         a="net margin"
-                        b={cdetails[2]?.net_margin + "%"}
-                        c={cdetails[1]?.net_margin + "%"}
-                        d={cdetails[0]?.net_margin + "%"}
+                        b={nma}
+                        c={nmb}
+                        d={nmc}
                         e="POSITIVE"
                         f={cdetails[0]?.net_proft_check==1?"true":""} 
                       />

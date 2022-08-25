@@ -65,3 +65,7 @@ mark {
 .main-con{
   margin: 25px 40px 25px 0px;
 }
+.tb-txt-css{
+  min-width: 100%;
+  min-height: 100%;
+}

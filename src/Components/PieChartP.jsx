@@ -2,6 +2,8 @@ import "./pieChartP.css";
 import React, { useCallback, useState, useEffect } from "react";
 import { PieChart, Pie, Sector, Cell } from "recharts";
 import * as api from "../axios"
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 // const data = [
 //   { name: "Group A", value: 800},
@@ -11,7 +13,7 @@ import * as api from "../axios"
 //   { name: "Group E", value: 300 },
 //   { name: "Others", value: 200 },
 // ];
-const COLORS = ['#45F6E1', '#7B61FF', '#A1FF9F', '#ED2B2B','#F6BF45','#A1FF9F'];
+const COLORS = ['#45F6E1', '#7B61FF', '#A1FF9F', '#ED2B2B', '#F6BF45', '#A1FF9F'];
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
   const {
@@ -40,7 +42,7 @@ const renderActiveShape = (props) => {
   return (
     <g>
       <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
-      {`(${(percent * 100).toFixed(2)}%)`}
+        {`(${(percent * 100).toFixed(2)}%)`}
       </text>
       <Sector
         cx={cx}
@@ -75,7 +77,7 @@ const renderActiveShape = (props) => {
         {`${value}`}
         </text> */}
       <text
-        
+
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
         textAnchor={textAnchor}
@@ -87,9 +89,9 @@ const renderActiveShape = (props) => {
 };
 
 export default function PieChartP(props) {
-  const [cname,setCname]=useState(props.company)
-  const [cdetails, setDetails] = useState([]) 
-
+  const [cname, setCname] = useState(props.company)
+  const [cdetails, setDetails] = useState([])
+  const [sloading, setSloading] = useState(true);
   useEffect(() => {
 
     async function f() {
@@ -100,14 +102,14 @@ export default function PieChartP(props) {
     }
 
     f()
-
+    setSloading(false);
   }, []);
-  const data=[];
-  cdetails.map((index)=>{
-    var x=index.name;
-    var y=parseFloat(index.stake);
-    y*=100;
-    data.push({name:x,value:y});
+  const data = [];
+  cdetails.map((index) => {
+    var x = index.name;
+    var y = parseFloat(index.stake);
+    y *= 100;
+    data.push({ name: x, value: y });
   })
   console.log(data);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -119,27 +121,30 @@ export default function PieChartP(props) {
   );
 
   return (
-    <PieChart width={500} height={400}>
-      <Pie
-        activeIndex={activeIndex}
-        activeShape={renderActiveShape}
-        data={data}
-        cx={250}
-        cy={200}
-        innerRadius={50}
-        outerRadius={90}
-        fill="F6BF45"
-        dataKey="value"
-        onMouseEnter={onPieEnter}
-        startAngle={90}
-        endAngle={-360}
-        paddingAngle={2}
-        cornerRadius={10}
-      >
-        {data.map((entry, index) => (
-          <Cell fill={COLORS[index % COLORS.length]} />
-        ))}
-      </Pie>
-    </PieChart>
+    <>
+      {sloading ? (<> <Skeleton width={500} height={400} /></>) : (<PieChart width={500} height={400}>
+        <Pie
+          activeIndex={activeIndex}
+          activeShape={renderActiveShape}
+          data={data}
+          cx={250}
+          cy={200}
+          innerRadius={50}
+          outerRadius={90}
+          fill="F6BF45"
+          dataKey="value"
+          onMouseEnter={onPieEnter}
+          startAngle={90}
+          endAngle={-360}
+          paddingAngle={2}
+          cornerRadius={10}
+        >
+          {data.map((entry, index) => (
+            <Cell fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+      </PieChart>)
+      }
+    </>
   );
 }

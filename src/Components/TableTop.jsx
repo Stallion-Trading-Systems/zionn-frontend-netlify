@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Row from "./RowTop";
 import "../Components/TableTop.css";
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 class TableTop extends Component {
   constructor(props) {
@@ -69,22 +71,22 @@ class TableTop extends Component {
           </div>
           <Row
             a="#value"
-            b={this.state.bida}
-            c={this.state.aska}
+            b={this.props.price?this.state.bida:<Skeleton width={80} height={15}/>}
+            c={this.props.price?this.state.aska:<Skeleton width={80} height={15}/>}
             d="#value"
             e="#value"
           />
           <Row
             a="#value"
-            b={this.state.bidb}
-            c={this.state.askb}
+            b={this.props.price?this.state.bidb:<Skeleton width={80} height={15}/>}
+            c={this.props.price?this.state.askb:<Skeleton width={80} height={15}/>}
             d="#value"
             e="#value"
           />
           <Row
             a="#value"
-            b={this.state.bidc}
-            c={this.state.askc}
+            b={this.props.price?this.state.bidc:<Skeleton width={80} height={15}/>}
+            c={this.props.price?this.state.askc:<Skeleton width={80} height={15}/>}
             d="#value"
             e="#value"
           />
