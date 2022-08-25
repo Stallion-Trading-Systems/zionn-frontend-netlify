@@ -13,7 +13,7 @@
   padding: 16px 18px;
   gap: 10px;
 
-  width: 145px;
+  width: 100%;
   height: 39px;
 
   background: #ffffff;
@@ -26,17 +26,6 @@
   align-self: stretch;
   flex-grow: 1;
   text-align: left;
-}
-.cell-wide {
-  width: 230px;
-}
-.cell-last {
-  width: 175px;
-}
-.cell-mid {
-  width: 100px;
-  gap: 0;
-  margin: 0px;
 }
 .purple-b {
   background-color: #7b61ff;

@@ -62,7 +62,6 @@ export default function LineChartP(props) {
       let res = await api.getSharePriceHis(cname)
 
       setDetails(res.data.result);
-      console.log(res);
     }
 
     f()

@@ -65,7 +65,6 @@ const SidebarP = (props) => {
     
   }, [])
   // setSloading(false);
-  console.log(sharePrice);
   const [linkref, setLinkref] = useState(uname);
   const [openlogout, setOpenlogout] = useState(false);
   const [refon, setrefon] = useState(false);
@@ -252,15 +251,16 @@ const SidebarP = (props) => {
               <br />
               <br />
               <div className="row mt-5">
-                <Tables heading="financials" cname={params.cname} />
+                <Tables heading1="financials" heading2="analyst rating" cname={params.cname} />
               </div>
-              <div className="row mt-5">
+              {/* <div className="row mt-5">
                 <Table2 heading="peer comparison" cname={params.cname} />
-              </div>
+              </div> */}
               <div className="row mt-5 mb-5">
                 <NewsCard heading="scoops" company={cname}
                 />
               </div>
+              
               <div>
                 <FooterP />
               </div>

@@ -111,7 +111,6 @@ export default function PieChartP(props) {
     y *= 100;
     data.push({ name: x, value: y });
   })
-  console.log(data);
   const [activeIndex, setActiveIndex] = useState(0);
   const onPieEnter = useCallback(
     (_, index) => {
