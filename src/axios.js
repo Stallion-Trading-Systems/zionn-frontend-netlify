@@ -47,7 +47,7 @@ export const getCompanyData = async (cname) => {
         cname
     })
     return res;
-}
+} 
 
 export const storeShares = async (sharedata) => {
    
