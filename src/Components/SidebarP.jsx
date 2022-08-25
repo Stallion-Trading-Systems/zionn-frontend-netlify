@@ -220,14 +220,12 @@ const SidebarP = (props) => {
                 </div>
                 <div className="col-1"></div>
               </div>
-              <Delayed waitBeforeShow={1000}>
                 <div className="row">
                   <div className="grid-mar">
                     <div className="heading-cp-css">price history</div>
                     {sloading ? (<><Skeleton count={1} width="80%" height={200} /></>) : (<><Grid company={params.cname} /></>)}
                   </div>
                 </div>
-              </Delayed>
               <div className="row mt-3">
                 <div className="col-4">
                   <div className="but-below">

@@ -4,15 +4,17 @@ import * as api from '../axios'
 import "./scoops.css"
 import { useNavigate } from "react-router";
 import FooterP from './FooterP';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 
 const Scoops = () => {
     const user = localStorage.getItem("user");
+    const [sloading,setSloading]=useState(true);
     const navigate = useNavigate();
     if (user===null) {
-        setTimeout(()=>{
-            navigate("/signup");
-        },500)
+        
+        navigate("/signup");
     }
     const [details, setDetails] = useState([]);
     useEffect(() => {
@@ -23,8 +25,11 @@ const Scoops = () => {
         }
 
         f()
-
+        // setSloading(false);
     }, []);
+    setTimeout(()=>{
+        setSloading(false);
+    },1000)
     return (
         <>
             {user?(<div>
@@ -33,16 +38,81 @@ const Scoops = () => {
                     <h1>
                         Scoops
                     </h1>
+                    {sloading?<>
+                        <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    <hr/>
+                    <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    <hr/>
+                    <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    <hr/>
+                    <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    <hr/>
+                    <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    <hr/>
+                    <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    <hr/>
+                    <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    <hr/>
+                    <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    <hr/>
+                    <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    <hr/>
+                    <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    <hr/>
+                    <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    <hr/>
+                    <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    <hr/>
+                    <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    <hr/>
+                    <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    <hr/>
+                    <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    <hr/>
+                    <Skeleton width={100}/>
+                    <Skeleton width={600} />
+                    <Skeleton />
+                    
+                    </>:<></>}
                     <>
                         {details.map((detail) => {
                             return (
                                 <div>
-                                    <p className='scoop-tag'>{detail.tag}</p>
-                                    <h6 className='scoop-title'><a className='scoop-link' target="__blank" href={detail.url}>{detail.title}</a></h6>
-                                    <p>{detail.para}</p>
+                                    <p className='scoop-tag'>{sloading?<Skeleton/>:detail.tag}</p>
+                                    <h6 className='scoop-title'><a className='scoop-link' target="__blank" href={detail.url}>{sloading?<Skeleton/>:detail.title}</a></h6>
+                                    <p>{sloading?<Skeleton/>:detail.para}</p>
                                     <hr />
                                 </div>
-
                             )
 
                         })}

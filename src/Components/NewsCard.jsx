@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./newscard.css";
 import * as api from "../axios"
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const NewsCard = (props) => {
   const company = props.company;
-
+  const [sloading, setSloading] = useState(true);
   const [cdetails, setDetails] = useState([])
   useEffect(() => {
 
@@ -16,9 +18,10 @@ const NewsCard = (props) => {
     }
 
     f()
-
   }, [company]);
-  console.log(cdetails);
+  setTimeout(() => {
+    setSloading(false);
+  }, 1000)
   return (
     <div className="container">
       <div className="row">
@@ -28,11 +31,33 @@ const NewsCard = (props) => {
             <div className="row">
               <div className="heading-cp-css">{props.heading}</div>
               <div className="news-bor">
+                {sloading ? <>
+                  <Skeleton width={100} />
+                  <Skeleton width={600} />
+                  <Skeleton />
+                  <hr /><Skeleton width={100} />
+                  <Skeleton width={600} />
+                  <Skeleton />
+                  <hr /><Skeleton width={100} />
+                  <Skeleton width={600} />
+                  <Skeleton />
+                  <hr />
+                </> : <></>}
+                {cdetails[0]?.news_content ? <>
+                </> : <><Skeleton width={100} />
+                  <Skeleton width={600} />
+                  <Skeleton />
+                  <Skeleton width={100} />
+                  <Skeleton width={600} />
+                  <Skeleton />
+                  <Skeleton width={100} />
+                  <Skeleton width={600} />
+                  <Skeleton /></>}
                 {cdetails.map((detail) => {
                   return (<div className="row">
-                    <a className="scoop-link" target="__blank" href={detail.new_url} ><h3 className="scoop-title heading-trun">{detail.new_title}</h3></a>
+                    <a className="scoop-link" target="__blank" href={detail.new_url} ><h3 className="scoop-title heading-trun">{detail.new_title || <Skeleton />}</h3></a>
                     {/* <p className="user-trun scoop-tag">by: {props.uone}</p> */}
-                    <p className="content-trun">{detail.news_content}</p>
+                    <p className="content-trun">{detail.news_content || <Skeleton />}</p>
                   </div>)
                 })}
 
