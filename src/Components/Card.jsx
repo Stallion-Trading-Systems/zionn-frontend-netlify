@@ -9,14 +9,14 @@ const Card = (props) => {
       <div className="con">
         <div className="container">
           <div className="row">
-            <div className="col-4">
+            <div className="col-2">
               <img className="logo-card-css" src={props.imgl} />
             </div>
-            <div className="col-8">
+            <div className="col-10">
               <div className="logo-name-div-css"><h3 className="logo-name-card-css">{props.cname}</h3></div>
-            </div> 
+            </div>
           </div>
-          <div className="row mt-3">
+          <div className="row">
             <div className="container">
               <div className="row">
                 <p className="text-1">
@@ -24,24 +24,20 @@ const Card = (props) => {
                   {props.ev}
                 </p>
               </div>
-              <div className="row mt-2">
+              <div className="row">
                 <p className="text-1">
-                  Top Investors :  
+                  Top Investors :
                   {props.in}
                 </p>
               </div>
             </div>
           </div>
-          <div className="row mt-4 btn-card-css">
-          <div className="col">
-
-          </div>
+          <div className="row">
+            <div className="col"></div>
             <div className="col">
               <NavLink to={`/company/${props.cname}`} style={{ textDecoration: 'none' }} ><Button name="sell/buy" /></NavLink>
             </div>
-            <div className="col">
-
-          </div>
+            <div className="col"></div>
           </div>
         </div>
       </div>

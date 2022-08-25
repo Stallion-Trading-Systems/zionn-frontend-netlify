@@ -6,12 +6,20 @@ import TitleButton from "./TitleButton";
 import monkey from "../assets/monkey.svg"
 import Tables from "../Components/Tables";
 import LineChartP from "../Components/LineChartP";
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import Delayed from "./Delayed";
 import PieChartP from "../Components/PieChartP";
 import Grid from "../Components/Grid";
-import unacademy from "../assets/unacademy.png";
+import Unacademy from "../assets/unacademy.png";
+import Swiggy from "../assets/swiggy.png";
+import Lenskart from "../assets/lenskart.svg"
+import OfBusiness from "../assets/ofbusiness.svg"
+import Ola from "../assets/ola.png"
+import Pharmeasy from "../assets/pharmeasy.png"
 import TableTop from "./TableTop";
 import Button2 from "./Button2";
-import Footer from "./Footer";
+import FooterP from "./FooterP";
 import NewsCard from "./NewsCard";
 import logo from "../assets/Vector.svg";
 import { useParams } from "react-router-dom";
@@ -19,10 +27,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightDots } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router";
+import * as api from "../axios"
+import Table2 from "./Table2";
 
 const SidebarP = (props) => {
+  const [sloading, setSloading] = useState(false);
   const user = localStorage.getItem("user");
   const userobj = JSON.parse(localStorage.getItem('user'));
+  const [sharePrice, setSharePrice] = useState();
   var uname = "zionn";
   if (user !== null) {
     uname = userobj.email.substring(0, userobj.email.indexOf('@'));
@@ -36,14 +48,28 @@ const SidebarP = (props) => {
   }
   const params = useParams();
   const [cname, setCname] = useState("");
+  const [cdetails, setDetails] = useState([])
   useEffect(() => {
-
     setCname(params.cname);
+    setSloading(true);
+    async function f() {
+      
+      let res = await api.getLastSharePrice(params.cname)
+
+      setSharePrice(parseInt(res.data.result[0].last_share_price));
+      // console.log(parseInt(res.data.result[0].last_share_price));
+      setSloading(false);
+    }
+
+    f()
+    
   }, [])
+  // setSloading(false);
   const [linkref, setLinkref] = useState(uname);
   const [openlogout, setOpenlogout] = useState(false);
   const [refon, setrefon] = useState(false);
   const [refonf, setrefonf] = useState(false);
+
   let logOut = (e) => {
     e.preventDefault();
     localStorage.removeItem("user");
@@ -68,6 +94,7 @@ const SidebarP = (props) => {
       setrefonf(false);
     }, 1000);
   }
+  const scname = cname.toLowerCase();
   const [isActive, setIsActive] = useState(false);
   const handleClick = (e) => {
     e.preventDefault();
@@ -115,6 +142,8 @@ const SidebarP = (props) => {
   ];
   return (
     <>
+      {/* <Skeleton/> */}
+      {/* {sloading&&<Skeleton/>} */}
       {user ? (
         <div>
           <Sidebar
@@ -133,7 +162,7 @@ const SidebarP = (props) => {
                 <div className="row">
                   <div className="col-1"></div>
                   <div className="col-6">
-                    <TitleButton name="search pricing, analyst updates, etc ( cmd + K)" />
+                    <TitleButton name="we are still in beta. apologies for the half cooked experience" />
                   </div>
                   <div className="col-2"></div>
                   <div className="col-2 logo-top">
@@ -160,45 +189,50 @@ const SidebarP = (props) => {
               </div>
             </div>
 
-            <div onClick={()=>setOpenlogout(false)} className="container con-abs">
+            <div onClick={() => setOpenlogout(false)} className="container con-abs">
               <div className="row">
                 <div className="col-6">
                   <div className="row">
                     <div className="col-2">
-                      <img className="img-size" src={unacademy} />
+                      <img className="img-size" src={Unacademy} />
                     </div>
                     <div className="col-6">
                       <h3 className="title-name">{cname}</h3>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> 
               <div className="row">
-                <div className="col-5">
-                  <div className="pie-size">
-                    <PieChartP />
+              <div className={sloading?"col-1":""}></div>
+                <div className={sloading?"col-4":"col-5"}>
+                  <div className="pie-size ">
+
+                    {sloading ? (<div  ><div className="heading-cp-css ml-5 mt-5">share holding pattern</div><Skeleton containerClassName="skel-z-css"
+                      count={1} borderRadius={10}  width="80%" height={150} /></div>) : (<><div className="heading-cp-css pie-head-css">share holding pattern</div><PieChartP heading="share holding pattern" company={params.cname} /></>)}
                   </div>
                 </div>
                 <div className="col-6">
                   <div className="table-top ">
-                    <TableTop price={10000} />
+
+                    <TableTop heading="bid / ask spread" price={sharePrice} />
                   </div>
                 </div>
                 <div className="col-1"></div>
               </div>
-              <div className="row">
-                <div className="grid-mar">
-                  <Grid />
+                <div className="row">
+                  <div className="grid-mar">
+                    <div className="heading-cp-css">price history</div>
+                    {sloading ? (<><Skeleton count={1} width="80%" height={200} /></>) : (<><Grid company={params.cname} /></>)}
+                  </div>
                 </div>
-              </div>
-              <div className="row g-0">
+              <div className="row mt-3">
                 <div className="col-4">
                   <div className="but-below">
                     <NavLink to="/sellbuy" style={{ textDecoration: 'none' }}><Button widthv={200} name="sell/buy" /></NavLink>
 
                   </div>
                 </div>
-                <div className="col">
+                <div className="col-4">
                   <div className="but-below">
                     <button
                       style={{ width: 200 }}
@@ -217,23 +251,18 @@ const SidebarP = (props) => {
               <br />
               <br />
               <div className="row mt-5">
-                <Tables cname={params.cname} />
+                <Tables heading1="financials" heading2="analyst rating" cname={params.cname} />
               </div>
-              <div className="row mt-5">
-                <Tables cname={params.cname} />
-              </div>
-              <div className="row mt-5">
-                <NewsCard
-                  hone="Abhinavjdhgdgvfsdgfvkjjdhfvudkjfbkdjbfckjdbfcdjkfbdcjkfbcdjkhfbciudkjfchnfiucvdsg"
-                  uone="Abhinav Awasthi"
-                  cone="kjgjhiugvbhjkfsdhkgvuhsdvgdkgvbsdjsgbfvkjdsbfvkjdssgfvjkdsgsfvbhvdhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhkvbkdj"
-                  htwo="Abhinavjdhgdgvfsdgfvkjjdhfvudkjfbkdjbfckjdbfcdjkfbdcjkfbcdjkhfbciudkjfchnfiucvdsg"
-                  utwo="Abhinav Awasthi"
-                  ctwo="kjgjhiugvbhkvbkdj"
-                  hthr="Abhinavjdhgdgvfsdgfvkjjdhfvudkjfbkdjbfckjdbfcdjkfbdcjkfbcdjkhfbciudkjfchnfiucvdsg"
-                  uthr="Abhinav Awasthi"
-                  cthr="kjgjhiugvbhkvbkdj"
+              {/* <div className="row mt-5">
+                <Table2 heading="peer comparison" cname={params.cname} />
+              </div> */}
+              <div className="row mt-5 mb-5">
+                <NewsCard heading="scoops" company={cname}
                 />
+              </div>
+              
+              <div>
+                <FooterP />
               </div>
             </div>
           </Sidebar>

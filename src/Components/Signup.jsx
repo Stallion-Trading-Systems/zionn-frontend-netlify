@@ -15,6 +15,8 @@ import { GoogleLogin } from "react-google-login";
 import { useNavigate } from "react-router";
 
 import * as api from "../axios";
+import Loading from "./Loading";
+import { NavLink } from "react-router-dom";
 
 const Signup = () => {
   const curruser = localStorage.getItem("user");
@@ -34,7 +36,7 @@ const Signup = () => {
   const [errorotp, setErrorotp] = useState(false);  //OTP Invalid
   const [user, setUser] = useState(false);
   const [otp, setOtp] = useState("");
-
+  const [loading, setLoading] = useState(false);
   const responseGoogle = async (res) => {
     console.log(res.profileObj.name);
     let nm = res.profileObj.name;
@@ -51,26 +53,33 @@ const Signup = () => {
       "user",
       JSON.stringify({ name: nm, email: em, token: user_token.data.token })
     );
-    setTimeout(() => {
-      navigate("/onboarding");
-    }, 2000);
+    navigate("/onboarding");
   };
   const responseGoogleFail = (err) => {
     console.log(err);
   };
-const [ut,setUT]=useState();
-  const signupfun = async (e) => {
+  const [isActive, setIsActive] = useState(false);
+  const handleClick = (e) => {
     e.preventDefault();
-    setOtp("");
+    setIsActive((current) => !current);
+  };
+  const defaultClick = (e) => {
+    e.preventDefault();
+    setIsActive(false);
+  };
+  const [ut, setUT] = useState();
+  const signupfun = async (e) => {
+    setLoading(true);
+    e.preventDefault();
     let user_token = await api.userSignUp({ name, email, phone, password });
-    setOtp("");
     // storing user token in local storage
-    setOtp("");
-    setUT(user_token.data.message);
+    console.log(user_token);
+    setUT(user_token.data.taken);
     if (user_token.data.message === "User already exit") {
       setError(true);
       setErroruae(true);
       setOtp("");
+      setLoading(false);
     }
     else {
       setError(false);
@@ -78,29 +87,30 @@ const [ut,setUT]=useState();
       setErrorotp(false);
       setUser(true);
       setOtp("");
-      console.log(otp);
+      setLoading(false);
     }
 
   };
 
   const verify = async (e) => {
+    setLoading(true);
     e.preventDefault();
     let res = await api.otpVerify({ email, otp });
 
     if (res.data.message.includes("not")) {
       setError(true);
       setErrorotp(true);
+      setLoading(false);
     } else {
+      setError(false);
+      setErroruae(false);
+      setErrorotp(false);
+      navigate("/onboarding");
       localStorage.setItem(
         "user",
         JSON.stringify({ name: name, email: email, token: ut })
       );
-      setError(false);
-      setErroruae(false);
-      setErrorotp(false);
-      setTimeout(() => {
-        navigate("/onboarding"); 
-      }, 500);
+      setLoading(false);
     }
   };
 
@@ -217,7 +227,7 @@ const [ut,setUT]=useState();
                         <div className="col d-flex justify-content-center">
                           <GoogleLogin
                             form="form322"
-                            clientId="1002474588776-p7fi5pd1hpf1fjp1p9v33iet3i9u1fco.apps.googleusercontent.com"
+                            clientId="996239129131-q9s3srbpod0s7vat2g1ufj6o87enmtu0.apps.googleusercontent.com"
                             render={(renderProps) => (
                               <button
                                 className="social-btn"
@@ -246,19 +256,26 @@ const [ut,setUT]=useState();
                               </button>
                             </div> */}
                       </div>
-                      <div className="row">
+                      <div className="row ">
                         <div className="col d-flex justify-content-center">
                           <div className="sign-btn ">
-                            <button
+                            {loading ? (<><Loading /></>) : <><button
                               form="form1"
                               type="submit"
-                              className="btn-2-suu"
+                              onPointerLeave={defaultClick}
+                              onPointerDown={handleClick}
+                              onPointerUp={handleClick}
+                              className={isActive ? "btn-2-suu btn-2-suu-pressed" : "btn-2-suu"}
                               onSubmit={signupfun}
                             >
                               sign up
-                            </button>
+                            </button></>}
+                            {/* <Loading/> */}
                           </div>
                         </div>
+                      </div>
+                      <div className="row mt-3">
+                        <p className="txt-2">already a user? <NavLink style={{ textDecoration: "none" }} className="pur-nav-css" to="/signin">sign in</NavLink> </p>
                       </div>
                     </div>
                   </form>
@@ -291,14 +308,14 @@ const [ut,setUT]=useState();
                       <div className="row">
                         <div className="col  d-flex justify-content-center">
                           <div className="sign-btn">
-                            <button
+                            {loading ? <><Loading /></> : <button
                               form="form2"
                               type="submit"
                               className="btn-2-suu"
                               onSubmit={verify}
                             >
                               verify OTP
-                            </button>
+                            </button>}
                           </div>
                         </div>
                       </div>

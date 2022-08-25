@@ -12,6 +12,8 @@ import { useNavigate } from "react-router";
 import slider from "../assets/slider.svg"
 
 import * as api from "../axios";
+import Loading from "./Loading";
+import { NavLink } from "react-router-dom";
 
 const Signin = () => {
   const curruser = localStorage.getItem("user");
@@ -27,6 +29,16 @@ const Signin = () => {
   const [errorwep, setErrorwep] = useState(false); //wrong email password
   const [errorune, setErrorune] = useState(false); //user not exists
   const [user, setUser] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const handleClick = (e) => {
+    e.preventDefault();
+    setIsActive((current) => !current);
+  };
+  const defaultClick = (e) => {
+    e.preventDefault();
+    setIsActive(false);
+  };
   const responseGoogle = async (res) => {
     let em = res.profileObj.email;
     let user_token = await api.userSignIn({ email: em });
@@ -50,6 +62,7 @@ const Signin = () => {
   };
 
   const signinfun = async (e) => {
+    setLoading(true);
     e.preventDefault();
     let res = await api.userSignIn({ email, password });
     console.log(res);
@@ -61,15 +74,19 @@ const Signin = () => {
       setTimeout(() => {
         navigate("/");
       }, 500);
+      setLoading(false);
     } else {
       console.log(res.data.message);
       if (res.data.message === "user doesn't exist") {
         setError(true);
         setErrorune(true);
+        setLoading(false);
+
       }
       else if (res.data.message === "Wrong password or email") {
         setError(true);
         setErrorwep(true);
+        setLoading(false);
       }
     }
   };
@@ -187,16 +204,22 @@ const Signin = () => {
                     <div className="row">
                       <div className="col d-flex justify-content-center">
                         <div className="sign-btn">
-                          <button
+                          {loading ? <><Loading /></> : <><button
                             form="form1"
                             type="submit"
-                            className="btn-2-suu"
+                            onPointerLeave={defaultClick}
+                            onPointerDown={handleClick}
+                            onPointerUp={handleClick}
+                            className={isActive ? "btn-2-suu btn-2-suu-pressed" : "btn-2-suu"}
                             onSubmit={signinfun}
                           >
                             sign in
-                          </button>
+                          </button></>}
                         </div>
                       </div>
+                    </div>
+                    <div className="row mt-3">
+                      <p className="txt-2">not registered with us? <NavLink style={{ textDecoration: "none" }} className="pur-nav-css" to="/signup">sign up</NavLink> </p>
                     </div>
                   </div>
                 </form>

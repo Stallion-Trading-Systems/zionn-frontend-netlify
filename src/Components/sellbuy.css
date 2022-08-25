@@ -1,7 +1,3 @@
-
-.img-sb {
-}
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -39,8 +35,31 @@ input[type="number"] {
   background: none;
 }
 
+.img-lock-css {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-right: 0%;
+}
+
+.txt-lock-css {
+  padding-left: 0%;
+  margin-top: 5%;
+  font-family: 'PP Cirka';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  color: #216F32;
+}
+
+.form-sellbuy-css {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
 .sign-btn {
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 .butto-2 {
@@ -137,36 +156,42 @@ input[type="number"] {
   height: 100%;
 }
 
-.btn-cen-doc{
+.btn-cen-doc {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.mon-img-sb{
+.mon-img-sb {
   width: 50px;
   height: 50px;
 }
-.no-mar-sb{
+
+.no-mar-sb {
   margin-top: 0px;
 }
-.upload-form-sb{
+
+.upload-form-sb {
   -webkit-appearance: none;
   cursor: pointer;
   display: none;
 }
-.file-label{
+
+.file-label {
   cursor: pointer;
 }
-.uploaded-file-css{
+
+.uploaded-file-css {
   background-color: rgb(129, 250, 129);
   color: black;
 }
+
 .upload-form-sb::-webkit-file-upload-button {
   visibility: hidden;
 }
-.top-right-css{
-  top:4%;
-  right:4%;
+
+.top-right-css {
+  top: 4%;
+  right: 4%;
   position: absolute;
 }

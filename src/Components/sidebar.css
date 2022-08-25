@@ -2,50 +2,60 @@
   align-items: center;
   margin-left: 100px;
 }
+
 .sidebar-btn {
   margin-left: 30px;
   color: blue;
   font-size: 14px;
 }
+
 .sidebar-logo {
   margin-top: 30px;
   margin-left: 30px;
 }
+
 .mar-top {
   margin-top: 30px;
 }
+
 .mar-mid-top {
   margin-top: 5px;
 }
+
 .img-logo {
   width: 89px;
   height: 89px;
   margin-right: 1106px;
 }
+
 .row-2 {
   margin-top: 66px;
   max-width: 600px;
 }
+
 .fix-nav {
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   padding-top: 30px;
   padding-bottom: 30px;
   top: 0;
   background-color: #fff;
   width: 100%;
 }
+
 .con-abs {
   position: absolute;
   margin-top: 120px;
   overflow-x: hidden;
 }
+
 .img-size {
   height: 103px;
   width: 89px;
   margin-top: 40px;
   margin-left: 45px;
 }
+
 .title-name {
   margin-top: 60px;
   margin-left: 60px;
@@ -58,6 +68,7 @@
 .but-below {
   margin-left: 270px;
 }
+
 .box-bor {
   position: absolute;
   width: 450px;
@@ -65,99 +76,117 @@
   border: 2px solid #000000;
   border-radius: 20px;
 }
+
 .table-top {
   margin-top: 80px;
 }
+
 .logo-top-size {
   height: 50px;
   width: 50px;
 }
+
 .last-but {
   margin-right: 100px;
   margin-top: 110px;
 }
-.logo-size{
+
+.logo-size {
   width: 50px;
   height: 90px;
   margin-left: 40px;
 }
-.grid-mar{
+
+.grid-mar {
   margin-left: 70px;
 }
-.home-footer-css{
-  overflow: hidden;
+
+.home-footer-css {
+  width: 100%;
 }
-NavLink{
+
+.card-com-css {
+  min-height: 100%;
+}
+
+NavLink {
   text-decoration: none;
 }
-.close-btn-noti{
+
+.close-btn-noti {
   -webkit-appearance: none;
-    -moz-appearance: none;
+  -moz-appearance: none;
 }
-.close-btn-noti{
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-}
-/* button default remove */
-.btn-def-rem{ 
+
+.close-btn-noti {
   background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
-.alert-css{
+
+/* button default remove */
+.btn-def-rem {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.alert-css {
   height: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   border-color: #7b61ff;
-  background-color: rgb(123, 97, 255,.8);
+  background-color: rgb(123, 97, 255, .8);
 }
-.refon{
+
+.refon {
   position: absolute;
 
-/* Fallback */
-background: rgb(129, 250, 129);
-width: 140px;
-height: 50px;
-font-size: 10px;
-color:black;
-font-weight: 500;
-border: none;
-/* Cut the corner */
-background: linear-gradient(-45deg, transparent 7px, rgb(129, 250, 129) 7px);
-transition: background 2s ease;
-transform: translateY(4px) translateX(-4px);
+  /* Fallback */
+  background: rgb(129, 250, 129);
+  width: 140px;
+  height: 50px;
+  font-size: 10px;
+  color: black;
+  font-weight: 500;
+  border: none;
+  /* Cut the corner */
+  background: linear-gradient(-45deg, transparent 7px, rgb(129, 250, 129) 7px);
+  transition: background 2s ease;
+  transform: translateY(4px) translateX(-4px);
 }
-.btn-2-ref{
+
+.btn-2-ref {
   /* Rectangle 1 */
 
 
-position: absolute;
+  position: absolute;
 
-/* Fallback */
-background: #7b61ff;
-width: 140px;
-height: 50px;
-font-size: 10px;
-color: white;
-font-weight: 500;
-border: none;
-/* Cut the corner */
-background: linear-gradient(-45deg, transparent 7px, #7b61ff 7px);
-transition: background 2s ease;
+  /* Fallback */
+  background: #7b61ff;
+  width: 140px;
+  height: 50px;
+  font-size: 10px;
+  color: white;
+  font-weight: 500;
+  border: none;
+  /* Cut the corner */
+  background: linear-gradient(-45deg, transparent 7px, #7b61ff 7px);
+  transition: background 2s ease;
 
-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.66));
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.66));
 }
+
 .butt-fref {
   /* Button */
 
@@ -185,7 +214,8 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.66));
   align-self: stretch;
   flex-grow: 1;
 }
-.butt-fref-ac{
+
+.butt-fref-ac {
   transform: translateY(4px) translateX(-4px);
   box-shadow: 0px 0px 0px #000000;
 }
@@ -200,27 +230,48 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.66));
   justify-content: center;
   align-items: center;
   position: absolute;
-  background-color: rgb(249, 249, 249,0);
+  background-color: rgb(249, 249, 249, 0);
   z-index: 1;
   width: 100%;
   margin-top: 10px;
   right: 25%;
 }
 
-.monkey-click{
+.monkey-click {
   display: block;
 }
-.monkey-btn-css{
+
+.monkey-btn-css {
   -webkit-appearance: none;
-    -moz-appearance: none;
-    background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+  -moz-appearance: none;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
-.logout-btn-css{
+
+.logout-btn-css {
   margin-top: 10px;
+}
+
+.heading-cp-css {
+  font-family: 'PP Cirka';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 22px;
+  color: #949E94;
+  margin-bottom: 10px;
+}
+.pie-head-css{
+  margin-top: 4%;
+  margin-left: 4%;
+  position: absolute;
+
+}
+.skel-z-css{
+  z-index: 1;
 }
