@@ -119,18 +119,18 @@ const SidebarP = (props) => {
       </div>
     </SidebarItem>,
     <SidebarItem>
-      <div className="sidebar-btn mar-mid-top">
-        <Button widthv={120} name="calculator" />
+      <div className="sidebar-btn mar-mid-top mb-4">
+      <p data-tooltip-location="right" data-tooltip="we are still in beta. apologies for the half cooked experience"><Button widthv={120} name="calculator" /></p>
       </div>
     </SidebarItem>,
     <SidebarItem>
-      <div className="sidebar-btn mar-mid-top">
+      <div className="sidebar-btn mar-mid-top mt-3">
         <NavLink to="/scoops" style={{ textDecoration: 'none' }}><Button widthv={120} name="scoops" /></NavLink>
       </div>
     </SidebarItem>,
     <SidebarItem>
       <div className="sidebar-btn mar-mid-top">
-        <Button widthv={120} name="Learn Centre" />
+      <p data-tooltip-location="right" data-tooltip="we are still in beta. apologies for the half cooked experience"><Button widthv={120} name="learn" /></p>
       </div>
     </SidebarItem>,
     <SidebarItem>
@@ -169,7 +169,7 @@ const SidebarP = (props) => {
                     <div className={openlogout ? "dropdown-monkey monkey-click" : "dropdown-monkey"}>
                       <button className="monkey-btn-css" onClick={() => { setOpenlogout(current => !current) }}><img className="logo-top-size " src={monkey} /></button>
                       <div className={openlogout ? "dropdown-content-monkey monkey-click" : "dropdown-content-monkey"}>
-                        <Button name="contact" />
+                        <a style={{ textDecoration: "none" }} href="https://www.linkedin.com/company/zionn/" target="__blank"><Button name="contact" /></a>
                         <button
                           onPointerLeave={defaultClick}
                           onPointerDown={handleClick}
