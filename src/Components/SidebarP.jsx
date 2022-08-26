@@ -208,11 +208,11 @@ const SidebarP = (props) => {
                   <div className="pie-size ">
 
                     {sloading ? (<div  ><div className="heading-cp-css ml-5 mt-5">share holding pattern</div><Skeleton containerClassName="skel-z-css"
-                      count={1} borderRadius={10}  width="80%" height={150} /></div>) : (<><div className="heading-cp-css pie-head-css">share holding pattern</div><PieChartP heading="share holding pattern" company={params.cname} /></>)}
+                      count={1} borderRadius={10}  width="80%" height={175} /></div>) : (<><div className="heading-cp-css pie-head-css">share holding pattern</div><PieChartP heading="share holding pattern" company={params.cname} /></>)}
                   </div>
                 </div>
                 <div className="col-6">
-                  <div className="table-top mt-5">
+                  <div className={sloading?"table-top mt-5":"table-top"}>
 
                     <TableTop heading="bid / ask spread" price={sharePrice} />
                   </div>
@@ -221,8 +221,8 @@ const SidebarP = (props) => {
               </div>
                 <div className="row">
                   <div className="grid-mar">
-                    <div className="heading-cp-css">price history</div>
-                    {sloading ? (<><Skeleton count={1} width="80%" height={200} /></>) : (<><Grid company={params.cname} /></>)}
+                    <div className="heading-cp-css mt-5">price history</div>
+                    {sloading ? (<><Skeleton count={1} width="90%" height={200} /></>) : (<><Grid company={params.cname} /></>)}
                   </div>
                 </div>
               <div className="row mt-3">
