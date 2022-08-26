@@ -1,4 +1,4 @@
-.con {
+.con-card {
   /* background box: */
   /* Frame 5 */
   margin: auto;
@@ -16,15 +16,15 @@
   margin-top: 30%;
   justify-content: center;
   align-items: center;
-  max-width: 250%;
-  max-height: 250%;
+  width: 50px;
+  height: 50px;
 }
 
 .logo-name-card-css {
   display: flex;
   justify-content: left;
   vertical-align: middle;
-  align-items: left;
+  align-items: center;
   font-family: 'Sarala';
   font-style: normal;
   font-weight: bolder;
@@ -33,7 +33,10 @@
 }
 
 .logo-name-div-css {
-  margin-top: 4%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 15px;
   margin-left: 0%;
   padding-left: 0;
   text-align: left;
@@ -48,4 +51,21 @@
   padding-top: 5%;
   padding-left: 10%;
   padding-right: 10%;
+}
+
+.card-img-css {
+  min-height: 350%;
+  max-height: 350%;
+}
+
+.card-btn-css {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  gap: 0;
+}
+
+.content-card-css {
+  height: 280px;
+  
+  
 }

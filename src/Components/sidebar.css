@@ -275,3 +275,8 @@ NavLink {
 .skel-z-css{
   z-index: 1;
 }
+
+.home-slider-css{
+  min-width: 100%;
+}
+

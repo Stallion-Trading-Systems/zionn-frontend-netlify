@@ -47,7 +47,7 @@ class TableTop extends Component {
       <div>
         <div className="container-sm">
           <div className="row mb-1">
-            <div className="heading-cp-css">bid / ask spread</div>
+            <div className="heading-cp-css mb-3">bid / ask spread</div>
             <div className="col-3">
               <div className="cell-wide-t cell-t purple-b">
                 <strong>buy side</strong>

@@ -63,7 +63,7 @@ export default function LineChartP(props) {
 
       setDetails(res.data.result);
     }
-
+ 
     f()
 
   }, []);
@@ -129,13 +129,13 @@ export default function LineChartP(props) {
   return (
     // <ResponsiveContainer width="100%" height="100%">
     <LineChart
-      width={700}
+      width={750}
       height={300}
       data={data}
       margin={{
         top: 0,
-        right: 0,
-        left: 0,
+        right: 20,
+        left: 20,
         bottom: 0,
       }}
     >

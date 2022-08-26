@@ -156,23 +156,23 @@ const Home = () => {
 
                                         <div className="container">
                                             <div className="row ">
-                                                <div className="card-com-css col-lg-4 col ml-2 mt-5 d-flex align-items-stretch">
+                                                <div className="card-com-css col-lg-4 col ml-2 mt-5 d-flex">
                                                     <Card imgl={lenskart} name="Lenskart" ev=" $4.5B" in=" SoftBank, Premji Invest" cname="Lenskart" />
                                                 </div>
-                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
+                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex">
                                                     <Card imgl={ola} name="OLA" ev=" $5B" in=" Softbank, Tencent" cname="OLA" />
                                                 </div>
-                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
+                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex">
                                                     <Card imgl={unacademy} name="Unacademy" ev=" $3.44B" in=" Sequoia, Softbank" cname="Unacademy" />
                                                 </div>
 
-                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
+                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex">
                                                     <Card imgl={pharmeasy} name="Pharmeasy" ev=" $5B" in=" Sequoia, Tiger" cname="Pharmeasy" />
                                                 </div>
-                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
+                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex">
                                                     <Card imgl={swiggy} name="Swiggy" ev=" $10.7B" in=" Prosus, Accel" cname="Swiggy" />
                                                 </div>
-                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
+                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex">
                                                     <Card imgl={ofbusiness} name="OfBusiness" ev=" $5B" in=" Creation Investments, Matrix Partners" cname="OfBusiness" />
                                                 </div>
                                             </div>
@@ -185,7 +185,7 @@ const Home = () => {
                             </div>
                         </div>
                         <br />
-                        <div className="row mt-5 mb-5 ">
+                        <div className="row mt-5 mb-5 home-slider-css">
                             <Slider />
                         </div>
                         <br />
