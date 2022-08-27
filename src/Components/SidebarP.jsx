@@ -212,7 +212,7 @@ const SidebarP = (props) => {
                   </div>
                 </div>
                 <div className="col-6">
-                  <div className={sloading?"table-top mt-5":"table-top"}>
+                  <div className="table-top mt-5">
 
                     <TableTop heading="bid / ask spread" price={sharePrice} />
                   </div>
