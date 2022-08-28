@@ -67,35 +67,35 @@ const Tables = (props) => {
                       </div>
                       <Row
                         a="assets"
-                        b={(cdetails[2]?.assets/10000000).toFixed(2)}
+                        b={(cdetails[0]?.assets/10000000).toFixed(2)}
                         c={(cdetails[1]?.assets/10000000).toFixed(2)}
-                        d={(cdetails[0]?.assets/10000000).toFixed(2)}
+                        d={(cdetails[2]?.assets/10000000).toFixed(2)}
                         e="POSITIVE"
-                        f={cdetails[0]?.assets_check == 1 ? "true" : ""}
+                        f={cdetails[2]?.assets_check == 1 ? "true" : ""}
                       />
                       <Row
                         a="liabilities"
-                        b={(cdetails[2]?.total_curr_lb/10000000).toFixed(2)}
+                        b={(cdetails[0]?.total_curr_lb/10000000).toFixed(2)}
                         c={(cdetails[1]?.total_curr_lb/10000000).toFixed(2)}
-                        d={(cdetails[0]?.total_curr_lb/10000000).toFixed(2)}
+                        d={(cdetails[2]?.total_curr_lb/10000000).toFixed(2)}
                         e="POSITIVE"
-                        f={cdetails[0]?.total_curr_lib_check == 1 ? "true" : ""}
+                        f={cdetails[2]?.total_curr_lib_check == 1 ? "true" : ""}
                       />
                       <Row
                         a="revenue"
-                        b={cdetails[2]?.revenue.toFixed(2)}
+                        b={cdetails[0]?.revenue.toFixed(2)}
                         c={cdetails[1]?.revenue.toFixed(2)}
-                        d={cdetails[0]?.revenue.toFixed(2)}
+                        d={cdetails[2]?.revenue.toFixed(2)}
                         e="POSITIVE"
-                        f={cdetails[0]?.revenue_check == 1 ? "true" : ""}
+                        f={cdetails[2]?.revenue_check == 1 ? "true" : ""}
                       />
                       <Row
                         a="net profit"
-                        b={(cdetails[2]?.net_margin/10000000).toFixed(2)}
+                        b={(cdetails[0]?.net_margin/10000000).toFixed(2)}
                         c={(cdetails[1]?.net_margin/10000000).toFixed(2)}
-                        d={(cdetails[0]?.net_margin/10000000).toFixed(2)}
+                        d={(cdetails[2]?.net_margin/10000000).toFixed(2)}
                         e="POSITIVE"
-                        f={cdetails[0]?.net_proft_check == 1 ? "true" : ""}
+                        f={cdetails[2]?.net_proft_check == 1 ? "true" : ""}
                       />
                       {/* <Row
                         a="return on equity"
@@ -158,30 +158,30 @@ const Tables = (props) => {
                       /> */}
                       <Row
                         a="revenue growth"
-                        b={cdetails[2]?.revenue_growth}
+                        b={cdetails[0]?.revenue_growth}
                         c={cdetails[1]?.revenue_growth}
-                        d={cdetails[0]?.revenue_growth}
-                        f={cdetails[0]?.revenue_growth_check == 1 ? "true" : ""}
+                        d={cdetails[2]?.revenue_growth}
+                        f={cdetails[2]?.revenue_growth_check == 1 ? "true" : ""}
                       />
                       <Row
                         a="return on equity"
-                        b={cdetails[2]?.return_on_equity}
+                        b={cdetails[0]?.return_on_equity}
                         c={cdetails[1]?.return_on_equity}
-                        d={cdetails[0]?.return_on_equity}
+                        d={cdetails[2]?.return_on_equity}
                       />
                       <Row
                         a="operating cost"
-                        b={(cdetails[2]?.op/10000000).toFixed(2)}
+                        b={(cdetails[0]?.op/10000000).toFixed(2)}
                         c={(cdetails[1]?.op/10000000).toFixed(2)}
-                        d={(cdetails[0]?.op/10000000).toFixed(2)}
-                        f={cdetails[0]?.op_cost_check == 1 ? "true" : ""}
+                        d={(cdetails[2]?.op/10000000).toFixed(2)}
+                        f={cdetails[2]?.op_cost_check == 1 ? "true" : ""}
                       />
                       <Row
                         a="EBITDA"
-                        b={(cdetails[2]?.ebitda_margin/10000000).toFixed(2)}
+                        b={(cdetails[0]?.ebitda_margin/10000000).toFixed(2)}
                         c={(cdetails[1]?.ebitda_margin/10000000).toFixed(2)}
-                        d={(cdetails[0]?.ebitda_margin/10000000).toFixed(2)}
-                        f={cdetails[0]?.ebidta_growth_check == 1 ? "true" : ""}
+                        d={(cdetails[2]?.ebitda_margin/10000000).toFixed(2)}
+                        f={cdetails[2]?.ebidta_growth_check == 1 ? "true" : ""}
                       />
                       
 
