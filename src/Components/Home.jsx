@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import "./sidebar.css";
 import { Sidebar, SidebarItem } from "react-responsive-sidebar";
 import Button from "./Button";
+import Open from "../assets/Open.png";
 import TitleButton from "./TitleButton";
 import ola from "../assets/ola.png";
 import swiggy from "../assets/swiggy.png";
@@ -176,7 +177,7 @@ const Home = () => {
                                                 </div>
 
                                                 <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex">
-                                                    <Card imgl={pharmeasy} name="Pharmeasy" ev=" $5B" in=" Sequoia, Tiger" cname="Pharmeasy" />
+                                                    <Card imgl={Open} name="Open" ev=" $5B" in=" Sequoia, Tiger" cname="Open" />
                                                 </div>
                                                 <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex">
                                                     <Card imgl={swiggy} name="Swiggy" ev=" $10.7B" in=" Prosus, Accel" cname="Swiggy" />

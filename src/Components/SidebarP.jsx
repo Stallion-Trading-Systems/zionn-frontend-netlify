@@ -5,6 +5,7 @@ import Button from "./Button";
 import TitleButton from "./TitleButton";
 import monkey from "../assets/monkey.svg"
 import Tables from "../Components/Tables";
+import Open from "../assets/Open.png";
 import LineChartP from "../Components/LineChartP";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -194,7 +195,12 @@ const SidebarP = (props) => {
                 <div className="col-6">
                   <div className="row">
                     <div className="col-2">
-                      <img className="img-size" src={Unacademy} />
+                    {cname=="Lenskart"&&<img className="img-size" src={Lenskart} />}
+                    {cname=="Swiggy"&&<img className="img-size" src={Swiggy} />}
+                    {cname=="OfBusiness"&&<img className="img-size" src={OfBusiness} />}
+                    {cname=="OLA"&&<img className="img-size" src={Ola} />}
+                    {cname=="Open"&&<img className="img-size" src={Open} />}
+                    {cname=="Unacademy"&&<img className="img-size" src={Unacademy} />}
                     </div>
                     <div className="col-6">
                       <h3 className="title-name">{cname}</h3>

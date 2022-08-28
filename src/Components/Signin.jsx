@@ -170,7 +170,7 @@ const Signin = () => {
                     </div>
                     <div className="row">
                       <div className="col d-flex justify-content-center">
-                        <GoogleLogin
+                      <GoogleLogin
                           form="form322"
                           clientId="1002474588776-p7fi5pd1hpf1fjp1p9v33iet3i9u1fco.apps.googleusercontent.com"
                           render={(renderProps) => (

@@ -67,33 +67,33 @@ const Tables = (props) => {
                       </div>
                       <Row
                         a="assets"
-                        b={cdetails[2]?.assets}
-                        c={cdetails[1]?.assets}
-                        d={cdetails[0]?.assets}
+                        b={(cdetails[2]?.assets/10000000).toFixed(2)}
+                        c={(cdetails[1]?.assets/10000000).toFixed(2)}
+                        d={(cdetails[0]?.assets/10000000).toFixed(2)}
                         e="POSITIVE"
                         f={cdetails[0]?.assets_check == 1 ? "true" : ""}
                       />
                       <Row
                         a="liabilities"
-                        b={cdetails[2]?.total_curr_lb}
-                        c={cdetails[1]?.total_curr_lb}
-                        d={cdetails[0]?.total_curr_lb}
+                        b={(cdetails[2]?.total_curr_lb/10000000).toFixed(2)}
+                        c={(cdetails[1]?.total_curr_lb/10000000).toFixed(2)}
+                        d={(cdetails[0]?.total_curr_lb/10000000).toFixed(2)}
                         e="POSITIVE"
                         f={cdetails[0]?.total_curr_lib_check == 1 ? "true" : ""}
                       />
                       <Row
                         a="revenue"
-                        b={cdetails[2]?.revenue}
-                        c={cdetails[1]?.revenue}
-                        d={cdetails[0]?.revenue}
+                        b={cdetails[2]?.revenue.toFixed(2)}
+                        c={cdetails[1]?.revenue.toFixed(2)}
+                        d={cdetails[0]?.revenue.toFixed(2)}
                         e="POSITIVE"
                         f={cdetails[0]?.revenue_check == 1 ? "true" : ""}
                       />
                       <Row
                         a="net profit"
-                        b={cdetails[2]?.net_margin}
-                        c={cdetails[1]?.net_margin}
-                        d={cdetails[0]?.net_margin}
+                        b={(cdetails[2]?.net_margin/10000000).toFixed(2)}
+                        c={(cdetails[1]?.net_margin/10000000).toFixed(2)}
+                        d={(cdetails[0]?.net_margin/10000000).toFixed(2)}
                         e="POSITIVE"
                         f={cdetails[0]?.net_proft_check == 1 ? "true" : ""}
                       />
@@ -171,16 +171,16 @@ const Tables = (props) => {
                       />
                       <Row
                         a="operating cost"
-                        b={cdetails[2]?.op}
-                        c={cdetails[1]?.op}
-                        d={cdetails[0]?.op}
+                        b={(cdetails[2]?.op/10000000).toFixed(2)}
+                        c={(cdetails[1]?.op/10000000).toFixed(2)}
+                        d={(cdetails[0]?.op/10000000).toFixed(2)}
                         f={cdetails[0]?.op_cost_check == 1 ? "true" : ""}
                       />
                       <Row
                         a="EBITDA"
-                        b={cdetails[2]?.ebitda_margin}
-                        c={cdetails[1]?.ebitda_margin}
-                        d={cdetails[0]?.ebitda_margin}
+                        b={(cdetails[2]?.ebitda_margin/10000000).toFixed(2)}
+                        c={(cdetails[1]?.ebitda_margin/10000000).toFixed(2)}
+                        d={(cdetails[0]?.ebitda_margin/10000000).toFixed(2)}
                         f={cdetails[0]?.ebidta_growth_check == 1 ? "true" : ""}
                       />
                       
