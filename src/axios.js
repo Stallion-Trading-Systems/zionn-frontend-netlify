@@ -3,8 +3,7 @@ import axios from 'axios'
 
 
 const API = axios.create({
-    baseURL: 'https://zionn-prod.herokuapp.com/'
-    //baseURL: 'https://zionn-stage.herokuapp.com/'
+    baseURL: 'https://zionn-stage.herokuapp.com/'
     // baseURL: 'http://localhost:8080/'
 
 })
@@ -48,7 +47,7 @@ export const getCompanyData = async (cname) => {
         cname
     })
     return res;
-}
+} 
 
 export const storeShares = async (sharedata) => {
    

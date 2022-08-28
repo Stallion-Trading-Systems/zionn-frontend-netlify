@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import "./sidebar.css";
 import { Sidebar, SidebarItem } from "react-responsive-sidebar";
 import Button from "./Button";
+import Open from "../assets/Open.png";
 import TitleButton from "./TitleButton";
 import ola from "../assets/ola.png";
 import swiggy from "../assets/swiggy.png";
@@ -67,11 +68,19 @@ const Home = () => {
         e.preventDefault();
         setIsActive(false);
     };
+    const handleKeyPress = useCallback((event) => {
+        // check if the Shift key is pressed
+        if (event.shiftKey === true) {
+            console.log(`Key pressed: ${event.key}`);
+            alert(`Key pressed: ${event.key}`);
+        }
+    }, []);
     const items = [
         <SidebarItem>
             <div className="">
                 <div>
-                    <img className="logo-size" src={logo} />
+                    <NavLink to="/" style={{ textDecoration: 'none' }}><img className="logo-size" src={logo} /></NavLink>
+
                 </div>
             </div>
         </SidebarItem>,
@@ -81,23 +90,24 @@ const Home = () => {
             </div>
         </SidebarItem>,
         <SidebarItem>
-            <div className="sidebar-btn mar-mid-top">
-                <Button widthv={120} name="calculator" />
+            <div className="sidebar-btn mar-mid-top mb-4">
+                <p data-tooltip-location="right" data-tooltip="we are still in beta. apologies for the half cooked experience"><Button widthv={120} name="calculator" /></p>
             </div>
         </SidebarItem>,
         <SidebarItem>
-            <div className="sidebar-btn mar-mid-top">
+            <div className="sidebar-btn mar-mid-top mt-3">
                 <NavLink to="/scoops" style={{ textDecoration: 'none' }}><Button widthv={120} name="scoops" /></NavLink>
             </div>
         </SidebarItem>,
         <SidebarItem>
             <div className="sidebar-btn mar-mid-top">
-                <Button widthv={120} name="Learn Centre" />
+                <p data-tooltip-location="right" data-tooltip="we are still in beta. apologies for the half cooked experience"><Button widthv={120} name="learn" /></p>
             </div>
         </SidebarItem>,
         <SidebarItem>
             <div className="last-but mar-mid-top">
                 <button onClick={reflinkfun} className={refon ? "refon" : "btn-2-ref"}>{refon ? "link copied!" : "refer to get $"}</button>
+
             </div>
         </SidebarItem>,
     ];
@@ -127,7 +137,7 @@ const Home = () => {
                                     <div className={openlogout ? "dropdown-monkey monkey-click" : "dropdown-monkey"}>
                                         <button className="monkey-btn-css" onClick={() => { setOpenlogout(current => !current) }}><img className="logo-top-size " src={monkey} /></button>
                                         <div className={openlogout ? "dropdown-content-monkey monkey-click" : "dropdown-content-monkey"}>
-                                            <Button name="contact" />
+                                            <a style={{ textDecoration: "none" }} href="https://www.linkedin.com/company/zionn/" target="__blank"><Button name="contact" /></a>
                                             <button
                                                 onPointerLeave={defaultClick}
                                                 onPointerDown={handleClick}
@@ -156,23 +166,23 @@ const Home = () => {
 
                                         <div className="container">
                                             <div className="row ">
-                                                <div className="card-com-css col-lg-4 col ml-2 mt-5 d-flex align-items-stretch">
+                                                <div className="card-com-css col-lg-4 col ml-2 mt-5 d-flex">
                                                     <Card imgl={lenskart} name="Lenskart" ev=" $4.5B" in=" SoftBank, Premji Invest" cname="Lenskart" />
                                                 </div>
-                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
+                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex">
                                                     <Card imgl={ola} name="OLA" ev=" $5B" in=" Softbank, Tencent" cname="OLA" />
                                                 </div>
-                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
+                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex">
                                                     <Card imgl={unacademy} name="Unacademy" ev=" $3.44B" in=" Sequoia, Softbank" cname="Unacademy" />
                                                 </div>
 
-                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
-                                                    <Card imgl={pharmeasy} name="Pharmeasy" ev=" $5B" in=" Sequoia, Tiger" cname="Pharmeasy" />
+                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex">
+                                                    <Card imgl={Open} name="Open" ev=" $1B" in=" Tiger, Temasek" cname="Open" />
                                                 </div>
-                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
+                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex">
                                                     <Card imgl={swiggy} name="Swiggy" ev=" $10.7B" in=" Prosus, Accel" cname="Swiggy" />
                                                 </div>
-                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex align-items-stretch">
+                                                <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex">
                                                     <Card imgl={ofbusiness} name="OfBusiness" ev=" $5B" in=" Creation Investments, Matrix Partners" cname="OfBusiness" />
                                                 </div>
                                             </div>
@@ -185,7 +195,7 @@ const Home = () => {
                             </div>
                         </div>
                         <br />
-                        <div className="row mt-5 mb-5 ">
+                        <div className="row mt-5 mb-5 home-slider-css">
                             <Slider />
                         </div>
                         <br />

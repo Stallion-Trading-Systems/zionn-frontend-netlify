@@ -5,6 +5,7 @@ import Button from "./Button";
 import TitleButton from "./TitleButton";
 import monkey from "../assets/monkey.svg"
 import Tables from "../Components/Tables";
+import Open from "../assets/Open.png";
 import LineChartP from "../Components/LineChartP";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -119,18 +120,18 @@ const SidebarP = (props) => {
       </div>
     </SidebarItem>,
     <SidebarItem>
-      <div className="sidebar-btn mar-mid-top">
-        <Button widthv={120} name="calculator" />
+      <div className="sidebar-btn mar-mid-top mb-4">
+      <p data-tooltip-location="right" data-tooltip="we are still in beta. apologies for the half cooked experience"><Button widthv={120} name="calculator" /></p>
       </div>
     </SidebarItem>,
     <SidebarItem>
-      <div className="sidebar-btn mar-mid-top">
+      <div className="sidebar-btn mar-mid-top mt-3">
         <NavLink to="/scoops" style={{ textDecoration: 'none' }}><Button widthv={120} name="scoops" /></NavLink>
       </div>
     </SidebarItem>,
     <SidebarItem>
       <div className="sidebar-btn mar-mid-top">
-        <Button widthv={120} name="Learn Centre" />
+      <p data-tooltip-location="right" data-tooltip="we are still in beta. apologies for the half cooked experience"><Button widthv={120} name="learn" /></p>
       </div>
     </SidebarItem>,
     <SidebarItem>
@@ -169,7 +170,7 @@ const SidebarP = (props) => {
                     <div className={openlogout ? "dropdown-monkey monkey-click" : "dropdown-monkey"}>
                       <button className="monkey-btn-css" onClick={() => { setOpenlogout(current => !current) }}><img className="logo-top-size " src={monkey} /></button>
                       <div className={openlogout ? "dropdown-content-monkey monkey-click" : "dropdown-content-monkey"}>
-                        <Button name="contact" />
+                        <a style={{ textDecoration: "none" }} href="https://www.linkedin.com/company/zionn/" target="__blank"><Button name="contact" /></a>
                         <button
                           onPointerLeave={defaultClick}
                           onPointerDown={handleClick}
@@ -194,7 +195,12 @@ const SidebarP = (props) => {
                 <div className="col-6">
                   <div className="row">
                     <div className="col-2">
-                      <img className="img-size" src={Unacademy} />
+                    {cname=="Lenskart"&&<img className="img-size" src={Lenskart} />}
+                    {cname=="Swiggy"&&<img className="img-size" src={Swiggy} />}
+                    {cname=="OfBusiness"&&<img className="img-size" src={OfBusiness} />}
+                    {cname=="OLA"&&<img className="img-size" src={Ola} />}
+                    {cname=="Open"&&<img className="img-size" src={Open} />}
+                    {cname=="Unacademy"&&<img className="img-size" src={Unacademy} />}
                     </div>
                     <div className="col-6">
                       <h3 className="title-name">{cname}</h3>
@@ -208,11 +214,11 @@ const SidebarP = (props) => {
                   <div className="pie-size ">
 
                     {sloading ? (<div  ><div className="heading-cp-css ml-5 mt-5">share holding pattern</div><Skeleton containerClassName="skel-z-css"
-                      count={1} borderRadius={10}  width="80%" height={150} /></div>) : (<><div className="heading-cp-css pie-head-css">share holding pattern</div><PieChartP heading="share holding pattern" company={params.cname} /></>)}
+                      count={1} borderRadius={10}  width="80%" height={175} /></div>) : (<><div className="heading-cp-css pie-head-css">share holding pattern</div><PieChartP heading="share holding pattern" company={params.cname} /></>)}
                   </div>
                 </div>
                 <div className="col-6">
-                  <div className="table-top ">
+                  <div className="table-top mt-5">
 
                     <TableTop heading="bid / ask spread" price={sharePrice} />
                   </div>
@@ -221,8 +227,8 @@ const SidebarP = (props) => {
               </div>
                 <div className="row">
                   <div className="grid-mar">
-                    <div className="heading-cp-css">price history</div>
-                    {sloading ? (<><Skeleton count={1} width="80%" height={200} /></>) : (<><Grid company={params.cname} /></>)}
+                    <div className="heading-cp-css mt-5">price history</div>
+                    {sloading ? (<><Skeleton count={1} width="90%" height={200} /></>) : (<><Grid company={params.cname} /></>)}
                   </div>
                 </div>
               <div className="row mt-3">

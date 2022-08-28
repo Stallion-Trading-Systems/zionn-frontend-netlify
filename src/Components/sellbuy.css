@@ -145,6 +145,16 @@ input[type="number"] {
   left: 0px;
   height: 100%;
 }
+#leftHalf-loading{
+  background: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50%;
+  position: absolute;
+  left: 0px;
+  height: 100%;
+}
 
 #rightHalf {
   display: flex;

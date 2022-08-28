@@ -25,6 +25,8 @@ const SellBuy = () => {
   const [issub, setIssub] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [sloading,setSloading]=useState(true);
+
   const handleClick = (e) => {
     e.preventDefault();
     setIsActive((current) => !current);
@@ -46,12 +48,12 @@ const SellBuy = () => {
     formData.append("no_of_shares", no_of_shares);
     let res = await api.storeShares(formData)
     // console.log(res);
-    setTimeout(() => {
-      navigate("/scoops");
+    navigate("/scoops");
       setLoading(false);
-    }, 1)
   };
-
+setTimeout(() => {
+      setSloading(false);
+    }, 2000)
   const handleFileInput = (e) => {
     setDoc({
       selectedFile: e.target.files[0],
@@ -67,7 +69,8 @@ const SellBuy = () => {
   return (
     <>
       {curruser ? (<div>
-        <div id="leftHalf"></div>
+      {sloading?<div id="leftHalf-loading"><Loading /></div>:<div id="leftHalf"></div>}
+        
         <div id="rightHalf">
           <div className="top-right-css">
             <img className="mon-img-sb" src={monkey} />
@@ -203,7 +206,7 @@ const SellBuy = () => {
                             onSubmit={storeSellBuy}
                           >
                             sell
-                          </button>)}
+                          </button>)} 
                         </div>
                       </div>
                     </div>
