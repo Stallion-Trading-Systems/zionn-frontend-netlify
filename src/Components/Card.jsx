@@ -13,7 +13,7 @@ const Card = (props) => {
               <img className="logo-card-css align-items-stretch" src={props.imgl} />
             </div>
             <div className="col-9">
-              <div className="logo-name-div-css"><h3 className="logo-name-card-css">{props.cname}</h3></div>
+              <div className="logo-name-div-css"><h3 className="logo-name-card-css">{props.name}</h3></div>
             </div>
           </div>
           <div className="row content-card-css">
@@ -35,7 +35,7 @@ const Card = (props) => {
           <div className="row card-btn-css">
             <div className="col"></div>
             <div className="col">
-              <NavLink to={`/company/${props.cname}`} style={{ textDecoration: 'none' }} ><Button name="sell/buy" /></NavLink>
+            {props.cname=="Open"?(<div ><Button data-tooltip-location="right" data-tooltip="we are still in beta. apologies for the half cooked experience" name="sell/buy" /></div>):(<NavLink to={`/company/${props.cname}`} style={{ textDecoration: 'none' }} ><Button name="sell/buy" /></NavLink>)}
             </div>
             <div className="col"></div>
           </div>

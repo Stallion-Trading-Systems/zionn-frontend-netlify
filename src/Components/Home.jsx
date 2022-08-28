@@ -177,7 +177,7 @@ const Home = () => {
                                                 </div>
 
                                                 <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex">
-                                                    <Card imgl={Open} name="Open" ev=" $5B" in=" Sequoia, Tiger" cname="Open" />
+                                                    <Card imgl={Open} name="Open" ev=" $1B" in=" Tiger, Temasek" cname="Open" />
                                                 </div>
                                                 <div className="card-com-css col col-lg-4 ml-5 mt-5 d-flex">
                                                     <Card imgl={swiggy} name="Swiggy" ev=" $10.7B" in=" Prosus, Accel" cname="Swiggy" />

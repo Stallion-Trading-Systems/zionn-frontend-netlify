@@ -183,8 +183,6 @@ const Tables = (props) => {
                         d={(cdetails[2]?.ebitda_margin/10000000).toFixed(2)}
                         f={cdetails[2]?.ebidta_growth_check == 1 ? "true" : ""}
                       />
-                      
-
                     </div>
                   </div>
                 </div>
