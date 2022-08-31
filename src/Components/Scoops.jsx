@@ -104,7 +104,7 @@ const Scoops = () => {
                     <Skeleton />
                     
                     </>:<></>}
-                    <>
+                    <div className='scoop-txt'>
                         {details.map((detail) => {
                             return (
                                 <div>
@@ -116,7 +116,7 @@ const Scoops = () => {
                             )
 
                         })}
-                    </>
+                    </div>
                 </div>
             </div>
             <FooterP/>
