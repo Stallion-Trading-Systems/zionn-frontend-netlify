@@ -10,6 +10,8 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@lottiefiles/lottie-interactivity": "^1.6.1",
     "@lottiefiles/lottie-player": "^1.5.7",
+    "@sentry/react": "^7.11.1",
+    "@sentry/tracing": "^7.11.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",

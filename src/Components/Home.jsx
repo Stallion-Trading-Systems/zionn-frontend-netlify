@@ -68,13 +68,6 @@ const Home = () => {
         e.preventDefault();
         setIsActive(false);
     };
-    const handleKeyPress = useCallback((event) => {
-        // check if the Shift key is pressed
-        if (event.shiftKey === true) {
-            console.log(`Key pressed: ${event.key}`);
-            alert(`Key pressed: ${event.key}`);
-        }
-    }, []);
     const items = [
         <SidebarItem>
             <div className="">
