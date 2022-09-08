@@ -3,13 +3,37 @@ import { useEffect } from 'react'
 import "./signatureauth.css"
 import { useNavigate } from "react-router";
 import SignatureCanvas from 'react-signature-canvas'
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 const SignatureAuth = () => {
+
+
+    let docToPrint = React.createRef();
+
+
+
+
     const user = localStorage.getItem("user");
     const [sloading, setSloading] = useState(true);
     const [sigPad,setsigPad]=useState();
     const [trimmedDataURL,settrimmedDataURL]=useState(null);
     const navigate = useNavigate();
+
+    const printDocument = () => {
+        const input = docToPrint.current;
+        html2canvas(input).then(canvas => {
+          const imgData = canvas.toDataURL("image/png");
+          const pdf = new jsPDF({
+            orientation: "p",
+            unit: "mm",
+            format: [297, 300]
+          });
+          pdf.addImage(imgData, "JPEG", 0, 0);
+          pdf.save("zionn_agreement.pdf");
+        });
+      };
+
     if (user === null) {
 
         navigate("/signup");
@@ -39,7 +63,7 @@ const SignatureAuth = () => {
                 </div>
                 <div className='row signauth-content-css'>
                     <div className='col signauth-doc-css '>
-                        <p className='mt-3'>
+                        <p className='mt-3' ref={docToPrint}>
                             It is really a moment of happiness for all the members of [ company name] to inform you that [ company name ] has accepted the contract of working on the project of [ mention project name ] on [ date]. The final decision for the approval of work contract with your company has been taken by Mr./Ms. [ name]. He/she is the [ designation] of the [ company name].
 
                             This is very important to let you know that the terms and conditions for the work contract that you have sent in the last mail has been viewed thoroughly by the higher authority of [ company name]. They have agreed to  whatever has been mentioned over there. For your better understanding, we have agreed to following terms and conditions mentioned in the document:
@@ -93,6 +117,7 @@ const SignatureAuth = () => {
                         onPointerDown={handleClick}
                         onPointerUp={handleClick}
                         className={isActive ? "butt butt-ac" : "butt"}
+                        onClick={printDocument}
                     >
                         submit
                         <i class="bi bi-arrow-up-right"></i>
