@@ -21,7 +21,7 @@
     max-height: 500px;
   overflow-y: auto !important;
   box-shadow: 1px 1px #888888;
-  background-color: #efd5bf;
+  /* background-color: #efd5bf; */
 }
 
 .signauth-check-css{
@@ -49,5 +49,5 @@
   .sign-img-css{
     min-width: 500px;
     min-height: 200px;
-    background-color:#efd5bf ;
+    /* background-color:#efd5bf ; */
   }

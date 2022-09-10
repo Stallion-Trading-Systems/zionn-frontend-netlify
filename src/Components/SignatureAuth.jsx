@@ -6,24 +6,37 @@ import SignatureCanvas from "react-signature-canvas";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import * as api from "../axios";
+import Loading from "./Loading"
 
 const SignatureAuth = () => {
   let docToPrint = React.createRef();
 
   const user = localStorage.getItem("user");
-  const [sloading, setSloading] = useState(true);
+  const userobj = JSON.parse(localStorage.getItem('user'));
   const [sigPad, setsigPad] = useState();
   const [trimmedDataURL, settrimmedDataURL] = useState(null);
   const navigate = useNavigate();
-
+ const [error,setError]=useState(false);
+const [sloading,setSloading]=useState(false);
   const printDocument = () => {
+    if(!agreeho){
+      setError(true);
+      setTimeout(() => {
+      
+        setError(false);
+      }, 2000);
+      return;
+    }
+    setSloading(true);
     const input = docToPrint.current;
-    html2canvas(input).then((canvas) => {
+    let date = new Date()
+    let showTime = date.getTime()+ 19800000;
+    html2canvas(input).then(async(canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF({
         orientation: "p",
         unit: "mm",
-        format: [297, 300],
+        format: [700, 300],
       });
 
       pdf.addImage(imgData, "JPEG", 0, 0);
@@ -31,9 +44,13 @@ const SignatureAuth = () => {
 
       let formData = new FormData();
       formData.append("file", blob);
-
-      let res = api.agreement(formData);
+      formData.append("email", userobj.email);
+      formData.append("time", showTime);
+      if (trimmedDataURL) formData.append("sign_check",1); else formData.append("sign_check", 0);
+      let res = await api.agreement(formData);
+      console.log(res);
       pdf.save("zionn_agreement.pdf");
+      navigate("/");
     });
   };
 
@@ -55,6 +72,16 @@ const SignatureAuth = () => {
     setsigPad();
     sigPad.clear();
   };
+  const [agreeho,setAgreeho]=useState(false);
+  const setAgree=(e)=>{
+    e.preventDefault();
+    if(e.target.value=="on"){
+      setAgreeho(true);
+    }
+    else {
+      setAgreeho(false);
+    }
+  }
   return (
     <div>
       <div className="container signauth-con-css">
@@ -68,7 +95,7 @@ const SignatureAuth = () => {
               company name] to inform you that [ company name ] has accepted the
               contract of working on the project of [ mention project name ] on
               [ date]. The final decision for the approval of work contract with
-              your company has been taken by Mr./Ms. [ name]. He/she is the [
+              your company has been taken by Mr./Ms. {userobj.email}. He/she is the [
               designation] of the [ company name]. This is very important to let
               you know that the terms and conditions for the work contract that
               you have sent in the last mail has been viewed thoroughly by the
@@ -112,8 +139,8 @@ const SignatureAuth = () => {
               Signature
             </p>
             <SignatureCanvas
-              backgroundColor="white"
-              penColor="green"
+              backgroundColor="#efd5bf"
+              penColor="black"
               ref={(ref) => {
                 setsigPad(ref);
               }}
@@ -137,12 +164,13 @@ const SignatureAuth = () => {
           </div>
         </div>
         <div className="row signauth-check-css mt-5 mb-5">
+          {error?<><div style={{color:"red"}}>select the accept checkbox</div></>:""}
           <div class="form-check signauth-check-css">
             <input
-              class=" form-check-input"
+              // class=" form-check-input"
               type="checkbox"
-              value=""
               id="flexCheckDefault"
+              onChange={(e)=>{setAgree(e)}}
             />
             <label class=" form-check-label" for="flexCheckDefault">
               &nbsp;i agree
@@ -150,7 +178,7 @@ const SignatureAuth = () => {
           </div>
         </div>
         <div className="row signauth-submit-css">
-          <button
+          {sloading?<Loading/>:<button
             onPointerLeave={defaultClick}
             onPointerDown={handleClick}
             onPointerUp={handleClick}
@@ -159,7 +187,7 @@ const SignatureAuth = () => {
           >
             submit
             <i class="bi bi-arrow-up-right"></i>
-          </button>
+          </button>}
         </div>
       </div>
     </div>
