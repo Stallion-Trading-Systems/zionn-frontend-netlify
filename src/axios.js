@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 const API = axios.create({
-    // baseURL: 'https://zionn-stage.herokuapp.com/'
+// baseURL: 'https://zionn-stage.herokuapp.com/'
     baseURL: 'https://zionn-prod.herokuapp.com/'
     // baseURL: 'http://localhost:8080/'
 
@@ -87,28 +87,4 @@ export const getLastSharePrice = async (company) => {
         company
     })
     return res;
-}
-
-export const agreement = async (onBoardData) => {
-
-    let res = await API.post('/auth/agreement', onBoardData)
-    return res
-}
-
-export const emailfp = async (email) => {
-
-    let res = await API.post('/auth/forgetPassword', email)
-    return res
-}
-
-export const otpfp = async (otp) => {
-
-    let res = await API.post('/auth/fpotpverify', otp)
-    return res
-}
-
-export const passfp = async (newpass) => {
-
-    let res = await API.post('/auth/resetpassword', newpass)
-    return res
 }
