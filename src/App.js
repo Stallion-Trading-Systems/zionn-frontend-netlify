@@ -16,7 +16,7 @@ import PrivacyPolicy from "./Components/PrivacyPolicy";
 import SignatureAuth from "./Components/SignatureAuth";
 import ForgotPassword from "./auth/forgotpassword/ForgotPassword"
 import ResetPassword from "./auth/forgotpassword/ResetPassword"
-//app check
+//app check 2
 function App() {
   const user=localStorage.getItem("user")
 
