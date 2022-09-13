@@ -94,3 +94,21 @@ export const agreement = async (onBoardData) => {
     let res = await API.post('/auth/agreement', onBoardData)
     return res
 }
+
+export const emailfp = async (email) => {
+
+    let res = await API.post('/auth/forgetPassword', email)
+    return res
+}
+
+export const otpfp = async (otp) => {
+
+    let res = await API.post('/auth/fpotpverify', otp)
+    return res
+}
+
+export const passfp = async (newpass) => {
+
+    let res = await API.post('/auth/resetpassword', newpass)
+    return res
+}
