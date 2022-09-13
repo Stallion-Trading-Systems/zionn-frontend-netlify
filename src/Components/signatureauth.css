@@ -1,0 +1,53 @@
+.signauth-heading-css{
+
+    text-align: center;
+
+}
+.signauth-con-css{
+    margin-bottom: 50px;
+    max-height: 100%;
+}
+.signauth-doc-css{
+    max-width: 80%;
+    font-size: larger;
+    
+}
+.signauth-content-css{
+    margin-top: 50px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 500px;
+  overflow-y: auto !important;
+  box-shadow: 1px 1px #888888;
+  /* background-color: #efd5bf; */
+}
+
+.signauth-check-css{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+}
+.signauth-submit-css{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-custom-btn{
+    background: none;
+      color: inherit;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      outline: inherit;
+  }
+
+  .sign-img-css{
+    min-width: 500px;
+    min-height: 200px;
+    /* background-color:#efd5bf ; */
+  }

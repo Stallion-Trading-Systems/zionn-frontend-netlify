@@ -20,12 +20,14 @@ class TableTop extends Component {
       sella: 0,
       sellb: 0,
       sellc: 0,
+      check:true,
     };
     this.makeTimer();
   }
   makeTimer() {
     setInterval(() => {
-      let x = Math.random() * 5 + 4;
+      if(this.state.check){
+        let x = Math.random() * 5 + 4;
       let aa = (this.props.price - (this.props.price * x) / 100).toFixed(2);
       x = Math.random() * 5 + 4;
       let bb = (this.props.price + (this.props.price * x) / 100).toFixed(2);
@@ -80,7 +82,9 @@ class TableTop extends Component {
         buya: ddd,
         buyb: eee,
         buyc: fff,
+        check:false,
       });
+      }
     }, 2000);
   }
 

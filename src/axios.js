@@ -3,8 +3,8 @@ import axios from 'axios'
 
 
 const API = axios.create({
-       baseURL: 'https://zionn-prod.herokuapp.com/'
-//     baseURL: 'https://zionn-stage.herokuapp.com/'
+// baseURL: 'https://zionn-stage.herokuapp.com/'
+    baseURL: 'https://zionn-prod.herokuapp.com/'
     // baseURL: 'http://localhost:8080/'
 
 })
@@ -48,35 +48,43 @@ export const getCompanyData = async (cname) => {
         cname
     })
     return res;
-} 
+}
 
 export const storeShares = async (sharedata) => {
-   
+
     let res = await API.post("/transaction/sell", sharedata)
     return res;
 }
 
-export const scoopsData = async ()=>{
-    let res=await API.get("/getnews/getscoop")
+export const scoopsData = async () => {
+    let res = await API.get("/getnews/getscoop")
     return res;
 }
 
-export const newsData = async (company)=>{
-    let res=await API.post("/getnews/get",{company})
+export const newsData = async (company) => {
+    let res = await API.post("/getnews/get", {
+        company
+    })
     return res;
 }
 
-export const getInvesData = async (company)=>{
-    let res=await API.post("/investments/getinv",{company})
+export const getInvesData = async (company) => {
+    let res = await API.post("/investments/getinv", {
+        company
+    })
     return res;
 }
 
-export const getSharePriceHis = async (company)=>{
-    let res=await API.post("/investments/getshareprice",{company})
+export const getSharePriceHis = async (company) => {
+    let res = await API.post("/investments/getshareprice", {
+        company
+    })
     return res;
 }
 
-export const getLastSharePrice = async (company)=>{
-    let res=await API.post("/investments/lastshareprice",{company})
+export const getLastSharePrice = async (company) => {
+    let res = await API.post("/investments/lastshareprice", {
+        company
+    })
     return res;
 }

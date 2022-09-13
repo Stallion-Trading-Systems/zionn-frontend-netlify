@@ -72,6 +72,10 @@
     border: 1px solid #7b61ff;
     box-shadow: -4px 4px 0px #7b61ff;
   }
+  .pass-not-match{
+    border: 1px solid red;
+    box-shadow: -4px 4px 0px red;
+  }
   .input-form:valid:focus {
     border: 1px solid green;
     box-shadow: -4px 4px 0px green;

@@ -13,6 +13,9 @@ import Onboardingflow from "./Components/Onboardingflow";
 import SellBuy from "./Components/SellBuy";
 import Scoops from "./Components/Scoops";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
+import SignatureAuth from "./Components/SignatureAuth";
+import ForgotPassword from "./auth/forgotpassword/ForgotPassword"
+import ResetPassword from "./auth/forgotpassword/ResetPassword"
 //app check
 function App() {
   const user=localStorage.getItem("user")
@@ -30,6 +33,9 @@ function App() {
           <Route exact path="/company/:cname" element={<SidebarP curruser={user} />} />
           <Route exact path="/scoops" element={<Scoops curruser={user} />} />
           <Route exact path="/privacy-policy" element={<PrivacyPolicy curruser={user} />} />
+          <Route exact path="/auth/resetpassword/:email" element={<ResetPassword curruser={user} />} />
+          <Route exact path="/signauth" element={<SignatureAuth curruser={user} />} />
+          <Route exact path="/auth/forgotpassword" element={<ForgotPassword curruser={user} />} />
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
       </BrowserRouter>

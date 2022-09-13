@@ -218,6 +218,9 @@ const Signin = () => {
                         </div>
                       </div>
                     </div>
+                    <div className="row mb-3">
+                      <p className="txt-2">forgot password? <NavLink style={{ textDecoration: "none" }} className="pur-nav-css" to="/auth/forgotpassword">reset now</NavLink> </p>
+                    </div>
                     <div className="row mt-3">
                       <p className="txt-2">not registered with us? <NavLink style={{ textDecoration: "none" }} className="pur-nav-css" to="/signup">sign up</NavLink> </p>
                     </div>
