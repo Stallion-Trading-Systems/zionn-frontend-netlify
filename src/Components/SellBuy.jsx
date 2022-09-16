@@ -41,7 +41,10 @@ const SellBuy = () => {
 
     let email = data.email
     const formData = new FormData();
+    if(doc)
     formData.append("file", doc.selectedFile);
+    else 
+    formData.append("file", null);
     formData.append("c_name", c_name);
     formData.append("secu_type", secu_type);
     formData.append("email", email);
@@ -172,7 +175,7 @@ setTimeout(() => {
                                   name="file"
                                   accept="application/pdf,application/msword,
   application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                                  required
+                                  
                                 />
                                 {issub ? <>uploaded  <i class="bi bi-check"></i></> : <>upload <i class="bi bi-arrow-up-right"></i></>}
                               </label>

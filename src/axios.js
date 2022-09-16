@@ -10,9 +10,12 @@ const API = axios.create({
 })
 
 API.interceptors.request.use((req) => {
-    return req 
+    if (localStorage.getItem('user')) {
+        req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('user')).token}`
+    }
+
+    return req
 })
-//hello check
 
 export const userSignUp = async (userData) => {
 
@@ -111,4 +114,9 @@ export const passfp = async (newpass) => {
 
     let res = await API.post('/auth/resetpassword', newpass)
     return res
+}
+
+export const holdings = async ()=>{
+    let res = await API.get('/user/dashboard')
+    return res;
 }

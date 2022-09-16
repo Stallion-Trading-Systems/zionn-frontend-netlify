@@ -110,7 +110,7 @@ const Tables = (props) => {
               </div>
             </div>
           </div>
-          '<div className="col-1"></div>
+          <div className="col-1"></div>
         </div>
         <div className="row mt-5">
           <div className="col-1"></div>
@@ -189,7 +189,7 @@ const Tables = (props) => {
               </div>
             </div>
           </div>
-          '<div className="col-1"></div>
+          <div className="col-1"></div>
         </div>
       </div>
     </div>
