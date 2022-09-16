@@ -142,7 +142,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div onClick={() => setOpenlogout(false)} className="container con-abs">
-                        <div className="row p-5">
+                        {/* <div className="row p-5">
                             <div className="col-6">
                                 <OpenOffers heading="open offers" />
                             </div>
@@ -150,7 +150,7 @@ const Dashboard = () => {
                             <div className="col-5">
                                 <Payout heading="payout" />
                             </div>
-                        </div>
+                        </div> */}
                         <div className="row p-5 mt-2">
                             <div className="col-1"></div>
                             <div className="col">
@@ -158,7 +158,14 @@ const Dashboard = () => {
                             </div>
                             <div className="col-1"></div>
                         </div>
-                        <div className="row mt-5">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+
+                        <div className="row mt-5 ">
                             <FooterP />
                         </div>
                     </div>

@@ -5,18 +5,18 @@ import Button from '../../Components/Button'
 import * as api from "../../axios"
 
 const HoldingTable = (props) => {
-  const [details, setDetails] = useState([])
-  useEffect(() => {
-    async function f() {
-      
-      let res = await api.holdings()
-      setDetails(res.data.result)
-      
-    }
+    const [details, setDetails] = useState([])
+    useEffect(() => {
+        async function f() {
 
-    f()
-    
-  }, [])
+            let res = await api.holdings()
+            setDetails(res.data.result)
+
+        }
+
+        f()
+
+    }, [])
     return (
         <div>
             <div className="container text-align-css-left">
@@ -25,7 +25,7 @@ const HoldingTable = (props) => {
                     <div>
                         <div className="bor-table">
                             <div className="container-sm  main-con">
-                                <div className="row gr-2">
+                                {details ? <><div className="row gr-2">
                                     <div className="col-3">
                                         <div className="cell-wide cell purple-b">
                                             <strong>company</strong>
@@ -58,19 +58,23 @@ const HoldingTable = (props) => {
                                         </div>
                                     </div>
                                 </div>
-                                
-                                {details.map((detail) => {
-                            return (
-                                <RowHoldings
-                                    a={detail?.c_name}
-                                    b={detail?.no_of_shares}
-                                    c={detail?.secu_type}
-                                    d={detail?.doe}
-                                    e="open bidding"
-                                />
-                            )
 
-                        })}
+                                    {details.map((detail) => {
+                                        return (
+                                            <RowHoldings
+                                                a={detail?.c_name}
+                                                b={detail?.no_of_shares}
+                                                c={detail?.secu_type}
+                                                d={detail?.doe}
+                                                e="open bidding"
+                                            />
+                                        )
+
+                                    })}</> : <>
+                                    <div class="alert alert-info" role="alert">
+                                        you don't have any holdings
+                                    </div>
+                                </>}
                             </div>
                         </div>
                     </div>

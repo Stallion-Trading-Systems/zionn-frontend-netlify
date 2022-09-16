@@ -1,8 +1,15 @@
 import React from "react";
+import { useState } from "react";
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import Cell from "./CellStatus";
 
 const RowHoldings = (props) => {
+    var doe=null;
+    // const [doe,setDoe]=useState(null);
+    if(props.c=="esop"){
+        doe="N/A";
+    }
     return (
         <div>
             <div className="row gr-2 mt-2">
@@ -26,12 +33,12 @@ const RowHoldings = (props) => {
                             </div>
                             <div className="col-4">
                                 <div className="cell-mid cell">
-                                    {props.d || <Skeleton width={80} height={15} />}
+                                    {doe || <Skeleton width={80} height={15} />}
                                 </div>
                             </div>
                             <div className="col-4">
                                 <div className="cell-mid cell ">
-                                    {props.e || <Skeleton width={80} height={15} />}
+                                    {props.e&&<Cell bool={props.e} />}
                                 </div>
                             </div>
                         </div>
