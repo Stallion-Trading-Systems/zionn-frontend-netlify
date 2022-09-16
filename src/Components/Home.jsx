@@ -83,12 +83,12 @@ const Home = () => {
             </div>
         </SidebarItem>,
         <SidebarItem>
-            <div className="sidebar-btn mar-mid-top mb-4">
-                <p data-tooltip-location="right" data-tooltip="we are still in beta. apologies for the half cooked experience"><Button widthv={120} name="calculator" /></p>
+            <div className="sidebar-btn mar-mid-top mt-2">
+            <NavLink to="/dashboard" style={{ textDecoration: 'none' }}><Button widthv={120} name="dashboard" /></NavLink>
             </div>
         </SidebarItem>,
         <SidebarItem>
-            <div className="sidebar-btn mar-mid-top mt-3">
+            <div className="sidebar-btn mar-mid-top mt-2">
                 <NavLink to="/scoops" style={{ textDecoration: 'none' }}><Button widthv={120} name="scoops" /></NavLink>
             </div>
         </SidebarItem>,
@@ -100,7 +100,6 @@ const Home = () => {
         <SidebarItem>
             <div className="last-but mar-mid-top">
                 <button onClick={reflinkfun} className={refon ? "refon" : "btn-2-ref"}>{refon ? "link copied!" : "refer to get $"}</button>
-
             </div>
         </SidebarItem>,
     ];

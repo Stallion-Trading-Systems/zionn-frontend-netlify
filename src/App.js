@@ -16,6 +16,7 @@ import PrivacyPolicy from "./Components/PrivacyPolicy";
 import SignatureAuth from "./Components/SignatureAuth";
 import ForgotPassword from "./auth/forgotpassword/ForgotPassword"
 import ResetPassword from "./auth/forgotpassword/ResetPassword"
+import Dashboard from "./Containers/Dashboard";
 //app check 2
 function App() {
   const user=localStorage.getItem("user")
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="/auth/resetpassword/:email" element={<ResetPassword curruser={user} />} />
           <Route exact path="/signauth" element={<SignatureAuth curruser={user} />} />
           <Route exact path="/auth/forgotpassword" element={<ForgotPassword curruser={user} />} />
+          <Route exact path="/dashboard" element={<Dashboard curruser={user} />} />
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
       </BrowserRouter>
