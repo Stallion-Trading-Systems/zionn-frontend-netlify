@@ -6,7 +6,6 @@ const KMPCard = (props) => {
             <div className='container '>
                 <div className="row d-flex justify-content-center align-items-center">
                         <Avatar
-                            color={Avatar.getRandomColor(['red', 'green', 'blue'])}
                             name={props.name}
                             round={true}
                             size="90"

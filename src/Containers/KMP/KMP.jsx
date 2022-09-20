@@ -13,13 +13,13 @@ const KMP = (props) => {
                         <div className="container ">
                             <div className="row">
                                 <div className='col-4'>
-                                    <KMPCard img="" name="Abhinav Awasthi" designation="frontend engineer" about="competitive programmer"/>
+                                    <KMPCard img="" name="Abhinav Awasthi" designation="Frontend Engineer" about="Competitive Programmer"/>
                                 </div>
                                 <div className='col-4'>
-                                    <KMPCard img="" name="abhinav awasthi" designation="frontend engineer" about="competitive programmer"/>
+                                    <KMPCard img="" name="Shreyansh Thakur" designation="Backend Engineer" about="Full Stack Developer"/>
                                 </div>
                                 <div className='col-4'>
-                                    <KMPCard img="" name="abhinav awasthi" designation="frontend engineer" about="competitive programmer"/>
+                                    <KMPCard img="" name="Dummy Person" designation="Dummy Designation" about="Dummy Content"/>
                                 </div>
                             </div>
                         </div>
