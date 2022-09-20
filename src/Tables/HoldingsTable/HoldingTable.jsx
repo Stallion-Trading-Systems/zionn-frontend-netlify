@@ -11,12 +11,12 @@ const HoldingTable = (props) => {
 
             let res = await api.holdings()
             setDetails(res.data.result)
-
         }
 
         f()
 
     }, [])
+   
     return (
         <div>
             <div className="container text-align-css-left">
@@ -25,7 +25,7 @@ const HoldingTable = (props) => {
                     <div>
                         <div className="bor-table">
                             <div className="container-sm  main-con">
-                                {details ? <><div className="row gr-2">
+                                {details.c_name ? <><div className="row gr-2">
                                     <div className="col-3">
                                         <div className="cell-wide cell purple-b">
                                             <strong>company</strong>
