@@ -1,0 +1,457 @@
+.side-bar {
+    align-items: center;
+    margin-left: 100px;
+  }
+  
+  .sidebar-btn {
+    margin-left: 30px;
+    color: blue;
+    font-size: 14px;
+  }
+  
+  .sidebar-logo {
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+  
+  .mar-top {
+    margin-top: 30px;
+  }
+  
+  .mar-mid-top {
+    margin-top: 5px;
+  }
+  
+  .img-logo {
+    width: 89px;
+    height: 89px;
+    margin-right: 1106px;
+  }
+  
+  .row-2 {
+    margin-top: 66px;
+    max-width: 600px;
+  }
+  
+  .fix-nav {
+    position: fixed;
+    z-index: 2;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    top: 0;
+    background-color: #fff;
+    width: 100%;
+  }
+  
+  .con-abs {
+    position: absolute;
+    margin-top: 120px;
+    overflow-x: hidden;
+  }
+  
+  .img-size {
+    height: 100px;
+    width: 100px;
+    margin-top: 40px;
+    margin-left: 45px;
+  }
+  
+  .title-name {
+    margin-top: 60px;
+    margin-left: 60px;
+    font-family: "PP Cirka";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+  }
+  
+  .but-below {
+    margin-left: 270px;
+  }
+  
+  .box-bor {
+    position: absolute;
+    width: 450px;
+    height: 250px;
+    border: 2px solid #000000;
+    border-radius: 20px;
+  }
+  
+  .table-top {
+    margin-top: 80px;
+  }
+  
+  .logo-top-size {
+    height: 50px;
+    width: 50px;
+  }
+  
+  .last-but {
+    margin-right: 100px;
+    margin-top: 110px;
+  }
+  
+  .logo-size {
+    width: 50px;
+    height: 90px;
+    margin-left: 40px;
+  }
+  
+  .grid-mar {
+    margin-left: 70px;
+  }
+  
+  .home-footer-css {
+    width: 100%;
+  }
+  
+  .card-com-css {
+    min-height: 100%;
+  }
+  
+  NavLink {
+    text-decoration: none;
+  }
+  
+  .close-btn-noti {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  .close-btn-noti {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+  
+  /* button default remove */
+  .btn-def-rem {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+  
+  .alert-css {
+    height: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-color: #7b61ff;
+    background-color: rgb(123, 97, 255, .8);
+  }
+  
+  .refon {
+    position: absolute;
+  
+    /* Fallback */
+    background: rgb(129, 250, 129);
+    width: 140px;
+    height: 50px;
+    font-size: 10px;
+    color: black;
+    font-weight: 500;
+    border: none;
+    /* Cut the corner */
+    background: linear-gradient(-45deg, transparent 7px, rgb(129, 250, 129) 7px);
+    transition: background 2s ease;
+    transform: translateY(4px) translateX(-4px);
+  }
+  
+  .btn-2-ref {
+    /* Rectangle 1 */
+  
+  
+    position: absolute;
+  
+    /* Fallback */
+    background: #7b61ff;
+    width: 140px;
+    height: 50px;
+    font-size: 10px;
+    color: white;
+    font-weight: 500;
+    border: none;
+    /* Cut the corner */
+    background: linear-gradient(-45deg, transparent 7px, #7b61ff 7px);
+    transition: background 2s ease;
+  
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.66));
+  }
+  
+  .butt-fref {
+    /* Button */
+  
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+    /* Auto layout */
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 18px;
+    gap: 10px;
+  
+    height: 28px;
+  
+    background: #ffffff;
+    border: 1px solid #000000;
+    box-shadow: -4px 4px 0px #000000;
+  
+    /* Inside auto layout */
+  
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 1;
+  }
+  
+  .butt-fref-ac {
+    transform: translateY(4px) translateX(-4px);
+    box-shadow: 0px 0px 0px #000000;
+  }
+  
+  .dropdown-monkey {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content-monkey {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgb(249, 249, 249, 0);
+    z-index: 1;
+    width: 100%;
+    margin-top: 10px;
+    right: 25%;
+  }
+  
+  .monkey-click {
+    display: block;
+  }
+  
+  .monkey-btn-css {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+  
+  .logout-btn-css {
+    margin-top: 10px;
+  }
+  
+  .heading-cp-css {
+    font-family: 'PP Cirka';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 22px;
+    color: #949E94;
+    margin-bottom: 10px;
+  }
+  
+  .pie-head-css {
+    margin-top: 4%;
+    margin-left: 4%;
+    position: absolute;
+  
+  }
+  
+  .skel-z-css {
+    z-index: 1;
+  }
+  
+  .home-slider-css {
+    min-width: 100%;
+  }
+  
+  /* 
+    You want a simple and fancy tooltip?
+    Just copy all [data-tooltip] blocks:
+  */
+  [data-tooltip] {
+    --arrow-size: 5px;
+    position: fixed;
+    z-index: 999;
+  }
+  
+  /* Positioning and visibility settings of the tooltip */
+  [data-tooltip]:before,
+  [data-tooltip]:after {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    left: 50%;
+    bottom: calc(100% + var(--arrow-size));
+    pointer-events: none;
+    transition: 0.2s;
+    will-change: transform;
+  }
+  
+  /* The actual tooltip with a dynamic width */
+  [data-tooltip]:before {
+    content: attr(data-tooltip);
+    padding: 10px 18px;
+    min-width: 50px;
+    max-width: 300px;
+    width: max-content;
+    width: -moz-max-content;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: rgb(123, 97, 255, .9);
+    
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-align: center;
+    white-space: pre-wrap;
+  }
+  
+  /* Tooltip arrow */
+  [data-tooltip]:after {
+    content: '';
+    border-style: solid;
+    border-width: var(--arrow-size) var(--arrow-size) 0px var(--arrow-size);
+    /* CSS triangle */
+    border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
+    transition-duration: 0s;
+    /* If the mouse leaves the element, 
+                                the transition effects for the 
+                                tooltip arrow are "turned off" */
+    transform-origin: top;
+    /* Orientation setting for the
+                                slide-down effect */
+    transform: translateX(-50%) scaleY(0);
+  }
+  
+  /* Tooltip becomes visible at hover */
+  [data-tooltip]:hover:before,
+  [data-tooltip]:hover:after {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Scales from 0.5 to 1 -> grow effect */
+  [data-tooltip]:hover:before {
+    transition-delay: 0.3s;
+    transform: translate(-50%, calc(0px - var(--arrow-size))) scale(1);
+  }
+  
+  /* 
+    Arrow slide down effect only on mouseenter (NOT on mouseleave)
+  */
+  [data-tooltip]:hover:after {
+    transition-delay: 0.5s;
+    /* Starting after the grow effect */
+    transition-duration: 0.2s;
+    transform: translateX(-50%) scaleY(1);
+  }
+  
+  /*
+    That's it for the basic tooltip.
+  
+    If you want some adjustability
+    here are some orientation settings you can use:
+  */
+  
+  /* LEFT */
+  /* Tooltip + arrow */
+  [data-tooltip-location="left"]:before,
+  [data-tooltip-location="left"]:after {
+    left: auto;
+    right: calc(100% + var(--arrow-size));
+    bottom: 50%;
+  }
+  
+  /* Tooltip */
+  [data-tooltip-location="left"]:before {
+    transform: translate(calc(0px - var(--arrow-size)), 50%) scale(0.5);
+  }
+  
+  [data-tooltip-location="left"]:hover:before {
+    transform: translate(calc(0px - var(--arrow-size)), 50%) scale(1);
+  }
+  
+  /* Arrow */
+  [data-tooltip-location="left"]:after {
+    border-width: var(--arrow-size) 0px var(--arrow-size) var(--arrow-size);
+    border-color: transparent transparent transparent rgba(55, 64, 70, 0.9);
+    transform-origin: left;
+    transform: translateY(50%) scaleX(0);
+  }
+  
+  [data-tooltip-location="left"]:hover:after {
+    transform: translateY(50%) scaleX(1);
+  }
+  
+  
+  
+  /* RIGHT */
+  [data-tooltip-location="right"]:before,
+  [data-tooltip-location="right"]:after {
+    left: calc(100% + var(--arrow-size));
+    bottom: 50%;
+  }
+  
+  [data-tooltip-location="right"]:before {
+    transform: translate(var(--arrow-size), 50%) scale(0.5);
+  }
+  
+  [data-tooltip-location="right"]:hover:before {
+    transform: translate(var(--arrow-size), 50%) scale(1);
+  }
+  
+  [data-tooltip-location="right"]:after {
+    border-width: var(--arrow-size) var(--arrow-size) var(--arrow-size) 0px;
+    border-color: transparent rgba(55, 64, 70, 0.9) transparent transparent;
+    transform-origin: right;
+    transform: translateY(50%) scaleX(0);
+  }
+  
+  [data-tooltip-location="right"]:hover:after {
+    transform: translateY(50%) scaleX(1);
+  }
+  
+  
+  
+  /* BOTTOM */
+  [data-tooltip-location="bottom"]:before,
+  [data-tooltip-location="bottom"]:after {
+    top: calc(100% + var(--arrow-size));
+    bottom: auto;
+  }
+  
+  [data-tooltip-location="bottom"]:before {
+    transform: translate(-50%, var(--arrow-size)) scale(0.5);
+  }
+  
+  [data-tooltip-location="bottom"]:hover:before {
+    transform: translate(-50%, var(--arrow-size)) scale(1);
+  }
+  
+  [data-tooltip-location="bottom"]:after {
+    border-width: 0px var(--arrow-size) var(--arrow-size) var(--arrow-size);
+    border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
+    transform-origin: bottom;
+  }
+  
+  
+  
+  
+  

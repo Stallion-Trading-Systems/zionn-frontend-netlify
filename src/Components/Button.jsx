@@ -10,7 +10,7 @@ const Button = (props) => {
   };
   const x = props.widthv;
   const defaultClick = (e) => {
-    setIsActive(false);
+    setIsActive(false); 
   };
   return (
     <div className="mar">

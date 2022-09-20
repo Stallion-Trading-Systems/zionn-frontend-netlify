@@ -17,6 +17,8 @@ import SignatureAuth from "./Components/SignatureAuth";
 import ForgotPassword from "./auth/forgotpassword/ForgotPassword"
 import ResetPassword from "./auth/forgotpassword/ResetPassword"
 import Dashboard from "./Containers/Dashboard";
+import IssuersPage from "./Containers/IssuersPage/IssuersPage"
+
 //app check 2
 function App() {
   const user=localStorage.getItem("user")
@@ -31,7 +33,7 @@ function App() {
           <Route exact path="/signin" element={<Signin curruser={user} />} />
           <Route exact path="/onboarding" element={<Onboardingflow />} />
           <Route exact path="/sellbuy" element={<SellBuy curruser={user} />} />
-          <Route exact path="/company/:cname" element={<SidebarP curruser={user} />} />
+          <Route exact path="/company/:cname" element={<IssuersPage curruser={user} />} />
           <Route exact path="/scoops" element={<Scoops curruser={user} />} />
           <Route exact path="/privacy-policy" element={<PrivacyPolicy curruser={user} />} />
           <Route exact path="/auth/resetpassword/:email" element={<ResetPassword curruser={user} />} />

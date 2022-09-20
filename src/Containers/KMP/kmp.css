@@ -1,0 +1,27 @@
+.kmp-name-css{
+    text-align: center;
+    font-weight: 700;
+    font-size: 22px;
+    font-family: "PP Cirka";
+    font-style: normal;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.kmp-des-css{
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+    font-family: "PP Cirka";
+    font-style: normal;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.kmp-about-css{
+    text-align: center;
+    font-weight: 400;
+    font-size: 17px;
+    font-family: 'Roboto Mono', monospace;
+    font-style: normal;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
