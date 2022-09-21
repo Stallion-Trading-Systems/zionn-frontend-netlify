@@ -228,14 +228,15 @@ const SidebarP = (props) => {
                                 </div>
                             </div>
                             <div className="row mt-5">
-                                <KMP heading="KMP"/>
+                                <KMP heading="KMP" />
                             </div>
                             <div className="row mt-5">
                                 <NewsCard heading="Latest News" company={cname}
                                 />
                             </div>
                             <div className="row mt-5 mb-5">
-                                <AnalystReport heading="analyst report"/>
+                                <AnalystReport heading="analyst report" />
+                                
                             </div>
                             <div>
                                 <FooterP />
