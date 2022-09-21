@@ -10,6 +10,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import Grid from "../../Components/Grid";
 import Unacademy from "../../assets/unacademy.png";
+import PriceHistory from "../PriceHistory/PriceHistory"
 import Swiggy from "../../assets/swiggy.png";
 import Lenskart from "../../assets/lenskart.svg"
 import OfBusiness from "../../assets/ofbusiness.svg"
@@ -212,8 +213,8 @@ const SidebarP = (props) => {
                             </div>
                             <div className="row">
                                 <div className="grid-mar">
-                                    <div className="heading-cp-css mt-5">price history</div>
-                                    {sloading ? (<><Skeleton count={1} width="90%" height={200} /></>) : (<><Grid company={params.cname} /></>)}
+                                    <div className="heading-cp-css mt-5 mb-5">price history</div>
+                                    {sloading ? (<><Skeleton count={1} width="90%" height={200} /></>) : (<><PriceHistory company={params.cname} /></>)}
                                 </div>
                             </div>
                             <div className="row mt-5">
