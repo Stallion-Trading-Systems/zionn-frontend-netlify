@@ -4,17 +4,15 @@ import { Sidebar, SidebarItem } from "react-responsive-sidebar";
 import Button from "../../Components/Button";
 import TitleButton from "../../Components/TitleButton";
 import monkey from "../../assets/monkey.svg"
-import Tables from "../../Components/Tables";
-import Open from "../../assets/Open.png";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import Grid from "../../Components/Grid";
-import Unacademy from "../../assets/unacademy.png";
 import PriceHistory from "../PriceHistory/PriceHistory"
+import Unacademy from "../../assets/unacademy.png";
 import Swiggy from "../../assets/swiggy.png";
 import Lenskart from "../../assets/lenskart.svg"
 import OfBusiness from "../../assets/ofbusiness.svg"
-import Ola from "../../assets/ola.png"
+import Open from "../../assets/Open.png";
+import Ola from "../../assets/ola.png";
 import TableTop from "../../Components/TableTop";
 import Financials from "../../Tables/FinancialsTable/Financials"
 import FooterP from "../../Components/FooterP";
@@ -26,6 +24,7 @@ import { useNavigate } from "react-router";
 import * as api from "../../axios"
 import KMP from "../KMP/KMP";
 import AnalystReport from "../AnalystReport/AnalystReport"
+import SellBuyRequest from "../SellBuyRequest/SellBuyRequest";
 
 const SidebarP = (props) => {
     const [sloading, setSloading] = useState(false);
@@ -66,7 +65,7 @@ const SidebarP = (props) => {
     const [openlogout, setOpenlogout] = useState(false);
     const [refon, setrefon] = useState(false);
     const [refonf, setrefonf] = useState(false);
-
+    const [selldiv, setselldiv] = useState(false);
     let logOut = (e) => {
         e.preventDefault();
         localStorage.removeItem("user");
@@ -205,12 +204,19 @@ const SidebarP = (props) => {
                                 </div>
                                 <div className="col-1"></div>
                                 <div className="col-2 mt-5 d-flex justify-content-center align-items-center">
-                                    <NavLink to="/sellbuy" style={{ textDecoration: 'none' }}><Button name="sell/buy" /></NavLink>
+                                    <NavLink to="" onClick={(e)=>{setselldiv(selldiv=>!selldiv)}} style={{ textDecoration: 'none' }}><Button name="sell/buy" /></NavLink>
                                 </div>
                                 <div className="col-3 mt-5 d-flex justify-content-center align-items-center">
                                     <a href="https://zionn-report-test.s3.amazonaws.com/user_doc/1ccf82b7-d7b2-42c1-a077-1fcff5f3b7f7-abhinav+resume.pdf" target="__blank" style={{ textDecoration: 'none' }}><Button name="analyst report" /></a>
                                 </div>
                             </div>
+                            {selldiv &&
+                                <>
+                                    <div className="row">
+                                        <SellBuyRequest cname={cname}/>
+                                    </div>
+                                </>
+                            }
                             <div className="row">
                                 <div className="grid-mar">
                                     <div className="heading-cp-css mt-5 mb-5">price history</div>
@@ -235,8 +241,8 @@ const SidebarP = (props) => {
                                 />
                             </div>
                             <div className="row mt-5 mb-5">
-                                <AnalystReport heading="analyst report" />
-                                
+                                {/* <AnalystReport heading="analyst report" /> */}
+
                             </div>
                             <div>
                                 <FooterP />
