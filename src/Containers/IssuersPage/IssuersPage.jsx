@@ -204,7 +204,7 @@ const SidebarP = (props) => {
                                 </div>
                                 <div className="col-1"></div>
                                 <div className="col-2 mt-5 d-flex justify-content-center align-items-center">
-                                    <NavLink to="" onClick={(e)=>{setselldiv(selldiv=>!selldiv)}} style={{ textDecoration: 'none' }}><Button name="sell/buy" /></NavLink>
+                                    <NavLink to="" onClick={(e) => { setselldiv(selldiv => !selldiv) }} style={{ textDecoration: 'none' }}><Button name="sell/buy" /></NavLink>
                                 </div>
                                 <div className="col-3 mt-5 d-flex justify-content-center align-items-center">
                                     <a href="https://zionn-report-test.s3.amazonaws.com/user_doc/1ccf82b7-d7b2-42c1-a077-1fcff5f3b7f7-abhinav+resume.pdf" target="__blank" style={{ textDecoration: 'none' }}><Button name="analyst report" /></a>
@@ -213,14 +213,23 @@ const SidebarP = (props) => {
                             {selldiv &&
                                 <>
                                     <div className="row">
-                                        <SellBuyRequest cname={cname}/>
+                                        <SellBuyRequest cname={cname} />
                                     </div>
                                 </>
                             }
                             <div className="row">
-                                <div className="grid-mar">
-                                    <div className="heading-cp-css mt-5 mb-5">price history</div>
-                                    {sloading ? (<><Skeleton count={1} width="90%" height={200} /></>) : (<><PriceHistory company={params.cname} /></>)}
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-1"></div>
+                                        <div className="col-10">
+                                            <div className="heading-cp-css mt-5 mb-5">price history</div>
+                                            <div className="d-flex justify-content-center align-items-center">
+
+                                                {sloading ? (<><Skeleton count={1} width="90%" height={200} /></>) : (<><PriceHistory company={params.cname} /></>)}
+                                            </div>
+                                        </div>
+                                        <div className="col-1"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mt-5">
