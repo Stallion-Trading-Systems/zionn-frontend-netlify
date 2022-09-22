@@ -204,7 +204,7 @@ const SidebarP = (props) => {
                                 </div>
                                 <div className="col-1"></div>
                                 <div className="col-2 mt-5 d-flex justify-content-center align-items-center">
-                                    <NavLink to="" onClick={(e) => { setselldiv(selldiv => !selldiv) }} style={{ textDecoration: 'none' }}><Button name="sell/buy" /></NavLink>
+                                    <a href="#sellbuyreq" onClick={(e) => { setselldiv(selldiv => !selldiv) }} style={{ textDecoration: 'none' }}><Button name="sell/buy" /></a>
                                 </div>
                                 <div className="col-3 mt-5 d-flex justify-content-center align-items-center">
                                     <a href="https://zionn-report-test.s3.amazonaws.com/user_doc/1ccf82b7-d7b2-42c1-a077-1fcff5f3b7f7-abhinav+resume.pdf" target="__blank" style={{ textDecoration: 'none' }}><Button name="analyst report" /></a>
@@ -212,7 +212,8 @@ const SidebarP = (props) => {
                             </div>
                             {selldiv &&
                                 <>
-                                    <div className="row">
+                                    <div id="sellbuyreq" className="row pt-5">
+                                        
                                         <SellBuyRequest cname={cname} />
                                     </div>
                                 </>
