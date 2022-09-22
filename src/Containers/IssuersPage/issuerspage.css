@@ -45,7 +45,7 @@
   
   .con-abs {
     position: absolute;
-    margin-top: 120px;
+    margin-top: 110px;
     overflow-x: hidden;
   }
   
@@ -282,6 +282,14 @@
     min-width: 100%;
   }
   
+.grey-back-css{
+  background-color: #F5F5F5;
+}
+
+.selldiv-css-block{
+  padding-top: 85px;
+}
+
   /* 
     You want a simple and fancy tooltip?
     Just copy all [data-tooltip] blocks:

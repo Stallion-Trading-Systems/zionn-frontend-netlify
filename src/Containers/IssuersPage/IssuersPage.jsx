@@ -146,14 +146,14 @@ const SidebarP = (props) => {
                         className="side-bar"
                         content={items}
                         width={200}
-                        background={"#FFF"}
+                        background={selldiv?"#F5F5F5":"#FFF"}
                         toggleIconColor={"#7B61FF"}
                         color={"#000000"}
                         activeHightlight={"#FFF"}
                         hoverHighlight={"#FFF"}
                         textAlign={"center"}
                     >
-                        <div className="fix-nav">
+                        <div className={selldiv?"fix-nav grey-back-css":"fix-nav"}>
                             <div className="container">
                                 <div className="row">
                                     <div className="col-1"></div>
@@ -184,8 +184,7 @@ const SidebarP = (props) => {
                                 </div>
                             </div>
                         </div>
-
-                        <div onClick={() => setOpenlogout(false)} className="container con-abs">
+                        <div onClick={() => setOpenlogout(false)} className={selldiv?"container con-abs grey-back-css":"container con-abs"}>
                             <div className="row ">
                                 <div className="col-6">
                                     <div className="row">
@@ -212,7 +211,7 @@ const SidebarP = (props) => {
                             </div>
                             {selldiv &&
                                 <>
-                                    <div id="sellbuyreq" className="row pt-5">
+                                    <div id="sellbuyreq" className="row selldiv-css-block">
                                         
                                         <SellBuyRequest cname={cname} />
                                     </div>
