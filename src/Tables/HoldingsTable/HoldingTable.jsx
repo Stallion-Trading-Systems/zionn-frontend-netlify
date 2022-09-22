@@ -11,6 +11,7 @@ const HoldingTable = (props) => {
 
             let res = await api.holdings()
             setDetails(res.data.result)
+            console.log(res.data.result);
         }
 
         f()
@@ -25,7 +26,7 @@ const HoldingTable = (props) => {
                     <div>
                         <div className="bor-table">
                             <div className="container-sm  main-con">
-                                {details.c_name ? <><div className="row gr-2">
+                                {details[0] ? <><div className="row gr-2">
                                     <div className="col-3">
                                         <div className="cell-wide cell purple-b">
                                             <strong>company</strong>

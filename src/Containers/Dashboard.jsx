@@ -137,7 +137,7 @@ const Dashboard = () => {
                                     </div>
 
                                 </div>
-                                <div className="col-1"></div>
+                                <div className="col-1"></div> 
                             </div>
                         </div>
                     </div>
