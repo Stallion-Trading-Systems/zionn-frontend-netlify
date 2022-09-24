@@ -103,11 +103,11 @@ const SellBuyRequest = (props) => {
                                                     <div className='row'>
                                                         <div className='col-6'>
                                                             <p className='label-input-css-sellbuyreq'>Min.</p>
-                                                            <input className='sellbuyreq-input-css' min="1" onChange={(e) => { setMinVal(e.target.value); setminmaxError(false) }} type="number" />
+                                                            <input className='sellbuyreq-input-css' min="1" onChange={(e) => { setMinVal(e.target.value); if(maxVal==0)setMaxVal(e.target.value); setminmaxError(false) }} type="number" />
                                                         </div>
                                                         <div className='col-6'>
                                                             <p className='label-input-css-sellbuyreq'>Max.</p>
-                                                            <input className='sellbuyreq-input-css' min={{ minVal } + 1} onChange={(e) => { setMaxVal(e.target.value); setminmaxError(false) }} type="number" />
+                                                            <input className='sellbuyreq-input-css' min="1" onChange={(e) => { setMaxVal(e.target.value); if(minVal==0)setMinVal(e.target.value); setminmaxError(false) }} type="number" />
                                                         </div>
                                                     </div>
                                                     {minmaxError && <div className='row'>
