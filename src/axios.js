@@ -120,3 +120,9 @@ export const holdings = async ()=>{
     let res = await API.get('/user/dashboard')
     return res;
 }
+
+export const sellbuyreq = async (sellbuydetails)=>{
+    let res=await API.post("/transaction/sellcompany",sellbuydetails)
+    console.log(sellbuydetails);
+    return res;
+}
