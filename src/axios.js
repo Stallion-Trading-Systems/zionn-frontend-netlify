@@ -126,3 +126,8 @@ export const sellbuyreq = async (sellbuydetails)=>{
     console.log(sellbuydetails);
     return res;
 }
+
+export const  getOpenOffer =async (userDetails)=>{
+    let res=await API.post("/user/openoffer",userDetails);
+    return res;
+}

@@ -154,7 +154,7 @@ const Dashboard = () => {
                         <div className="row p-5 mt-2">
                             <div className="col-1"></div>
                             <div className="col">
-                                <HoldingTable heading="holdings" />
+                                <HoldingTable heading="holdings" email={userobj.email} />
                             </div>
                             <div className="col-1"></div>
                         </div>

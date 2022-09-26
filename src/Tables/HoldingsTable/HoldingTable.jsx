@@ -6,18 +6,22 @@ import * as api from "../../axios"
 
 const HoldingTable = (props) => {
     const [details, setDetails] = useState([])
+    const [openOffers, setOpenOffers] = useState([])
     useEffect(() => {
         async function f() {
 
             let res = await api.holdings()
             setDetails(res.data.result)
-            console.log(res.data.result);
+            // console.log(res.data.result);
+            let res1 = await api.getOpenOffer({ email: props.email });
+            setOpenOffers(res1.data.result);
+            console.log(res1.data.result);
         }
 
         f()
 
     }, [])
-   
+
     return (
         <div>
             <div className="container text-align-css-left">
@@ -59,7 +63,18 @@ const HoldingTable = (props) => {
                                         </div>
                                     </div>
                                 </div>
+                                    {openOffers.map((detail) => {
+                                        return (
+                                            <RowHoldings
+                                                a={detail?.c_name}
+                                                b={detail?.no_of_secu}
+                                                c={detail?.secu_type}
+                                                d={detail?.doe}
+                                                e="open offer"
+                                            />
+                                        )
 
+                                    })}
                                     {details.map((detail) => {
                                         return (
                                             <RowHoldings
