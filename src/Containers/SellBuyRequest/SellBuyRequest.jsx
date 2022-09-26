@@ -28,6 +28,7 @@ const SellBuyRequest = (props) => {
     const [minmaxError, setminmaxError] = useState(false);
     const [errorprice, seterrorprice] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [noOfShares, setNoOfShares]=useState();
     const handleClick = (event) => {
         setIsActive((current) => !current);
     };
@@ -36,29 +37,39 @@ const SellBuyRequest = (props) => {
     };
     const createrequestsubmit = async (e) => {
         e.preventDefault();
-
-        let mnv, mxv;
-        mnv = minVal;
-        mxv = maxVal;
-        if (mnv == 0 && mxv != 0) {
-            mnv = mxv;
-        }
-        if (mxv == 0 && mnv != 0) {
-            mxv = mnv;
-        }
-        if (mxv < mnv || !price) {
-            if (mxv < mnv) {
-                setminmaxError(true);
-
-            }
+        if(!noOfShares||!price){
             if (!price) {
-                seterrorprice(true);
+                        seterrorprice(true);
+        
+                    }
+                    if(!noOfShares){
+                        setminmaxError(true);
 
-            }
-            return;
+                    }
+                    return;
         }
+        // let mnv, mxv;
+        // mnv = minVal;
+        // mxv = maxVal;
+        // if (mnv == 0 && mxv != 0) {
+        //     mnv = mxv;
+        // }
+        // if (mxv == 0 && mnv != 0) {
+        //     mxv = mnv;
+        // }
+        // if (mxv < mnv || !price) {
+        //     if (mxv < mnv) {
+        //         setminmaxError(true);
+
+        //     }
+        //     if (!price) {
+        //         seterrorprice(true);
+
+        //     }
+        //     return;
+        // }
         setLoading(true);
-        let res = await api.sellbuyreq({ c_name: props.cname, min_val: mnv, max_val: mxv, trans_price: price, trans_type: transType, email: userobj.email })
+        let res = await api.sellbuyreq({ c_name: props.cname, no_of_shares:noOfShares, trans_price: price, trans_type: transType, email: userobj.email })
         console.log(res);
         setLoading(false);
         setDone(true);
@@ -108,10 +119,10 @@ const SellBuyRequest = (props) => {
                                                         <div className='wrapper '>
                                                             <input checked={transType == "buy"} className='input-display-none' onChange={(e) => { setTansType(e.target.value) }} type="radio" name="buy" value="buy" id="option-1" />
                                                             <input checked={transType == "sell"} className='input-display-none' onChange={(e) => { setTansType(e.target.value) }} type="radio" name="sell" value="sell" id="option-2" />
-                                                            <label for="option-1" class="option option-b option-1">
+                                                            <label for="option-1" className="option option-b option-1">
                                                                 <span>buy</span>
                                                             </label>
-                                                            <label for="option-2" class="option option-s option-2">
+                                                            <label for="option-2" className="option option-s option-2">
                                                                 <span>sell</span>
                                                             </label>
                                                         </div>
@@ -121,16 +132,16 @@ const SellBuyRequest = (props) => {
 
                                                         <div className='row'>
                                                             <div className='col-6'>
-                                                                <p className='label-input-css-sellbuyreq'>Min.</p>
-                                                                <input className='sellbuyreq-input-css' min="1" onChange={(e) => { setMinVal(e.target.value); setminmaxError(false) }} type="number" />
+                                                                {/* <p className='label-input-css-sellbuyreq'># of securities</p> */}
+                                                                <input className='sellbuyreq-input-css' min="1" onChange={(e) => { setNoOfShares(e.target.value); setminmaxError(false) }} type="number" />
                                                             </div>
-                                                            <div className='col-6'>
+                                                            {/* <div className='col-6'>
                                                                 <p className='label-input-css-sellbuyreq'>Max.</p>
                                                                 <input className='sellbuyreq-input-css' min="1" onChange={(e) => { setMaxVal(e.target.value); setminmaxError(false) }} type="number" />
-                                                            </div>
+                                                            </div> */}
                                                         </div>
                                                         {minmaxError && <div className='row'>
-                                                            <p style={{ color: "red" }}>* max cannot be less than min</p>
+                                                            <p style={{ color: "red" }}>*enter # of shares</p>
                                                         </div>}
                                                     </div>
                                                     {transType == "buy" ? <><p className='mt-5 mb-3 sellbuyreq-con-css'>Bid Price</p>
