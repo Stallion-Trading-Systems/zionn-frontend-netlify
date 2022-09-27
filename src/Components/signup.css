@@ -7,8 +7,30 @@
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none; 
+  -webkit-appearance: none;
   margin: 0;
+}
+
+#leftHalf-auth {
+  background-color: #1D1E5F;
+  /* background: url(../assets/sellbuypic.svg); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 55%;
+  position: absolute;
+  left: 0px;
+  height: 100%;
+}
+
+#rightHalf-auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  position: absolute;
+  right: 0px;
+  height: 100%;
 }
 
 /* Firefox */
@@ -47,7 +69,7 @@ input[type="number"] {
   background: none;
 }
 
-.sign-btn {}
+
 
 .butto-2 {
   /* Button */
@@ -81,33 +103,36 @@ input[type="number"] {
 
 .btn-2-suu {
   box-sizing: border-box;
-/* Fallback */
-background: #7b61ff;
-width: 140px;
-height: 50px;
-font-size: 10px;
-color: white;
-font-weight: 500;
-border: none;
-/* Cut the corner */
-background: linear-gradient(-45deg, transparent 7px, #7b61ff 7px);
-transition: background 2s ease;
+  /* Fallback */
+  background: #7b61ff;
+  width: 140px;
+  height: 50px;
+  font-size: 10px;
+  color: white;
+  font-weight: 500;
+  border: none;
+  /* Cut the corner */
+  background: linear-gradient(-45deg, transparent 7px, #7b61ff 7px);
+  transition: background 2s ease;
 
-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.66));
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.66));
 }
-.btn-2-suu-pressed{
+
+.btn-2-suu-pressed {
   filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.66));
 
-/* transform: translateY(4px) translateX(4px); */
-transform: translateY(4px) ;
+  /* transform: translateY(4px) translateX(4px); */
+  transform: translateY(4px);
 
-/* transform:  translateX(-4px); */
+  /* transform:  translateX(-4px); */
 
 }
-.pur-nav-css{
+
+.pur-nav-css {
   font-weight: bold;
   color: #7b61ff;
 }
+
 .input-form:invalid:focus {
   border: 1px solid #7b61ff;
   box-shadow: -4px 4px 0px #7b61ff;
@@ -130,8 +155,29 @@ transform: translateY(4px) ;
     display: block;
     overflow-x: hidden;
   }
-  .form-su{
+
+  .form-su {
     margin-top: 150px;
+  }
+
+  #leftHalf-auth {
+    display: none;
+  }
+
+  #rightHalf-auth {
+    width: 100%;
   }
 }
 
+.typewriter-effect-auth-side-css {
+  color: #FFF;
+  font-family: 'PP Cirka';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 46px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 50%;
+}

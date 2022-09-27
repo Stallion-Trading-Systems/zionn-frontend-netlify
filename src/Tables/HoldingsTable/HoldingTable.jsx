@@ -12,15 +12,15 @@ const HoldingTable = (props) => {
 
             let res = await api.holdings()
             setDetails(res.data.result)
-            // console.log(res.data.result);
+            console.log(res.data.result);
             let res1 = await api.getOpenOffer({ email: props.email });
             setOpenOffers(res1.data.result);
-            console.log(res1.data.result);
+            // console.log(res1.data.result);
         }
-
         f()
 
     }, [])
+    
 
     return (
         <div>
@@ -30,7 +30,7 @@ const HoldingTable = (props) => {
                     <div>
                         <div className="bor-table">
                             <div className="container-sm  main-con">
-                                {details[0] ? <><div className="row gr-2">
+                                {details.filter((detail)=>detail.trans_type=="sell") ? <><div className="row gr-2">
                                     <div className="col-3">
                                         <div className="cell-wide cell purple-b">
                                             <strong>company</strong>
@@ -70,12 +70,11 @@ const HoldingTable = (props) => {
                                                 b={detail?.no_of_secu}
                                                 c={detail?.secu_type}
                                                 d={detail?.doe}
-                                                e="open offer"
+                                                e={detail?.status}
                                             />
                                         )
-
                                     })}
-                                    {details.map((detail) => {
+                                    {details.filter((detail)=>detail.trans_type=="sell").map((detail) => {
                                         return (
                                             <RowHoldings
                                                 a={detail?.c_name}

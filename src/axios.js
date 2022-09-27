@@ -131,3 +131,8 @@ export const  getOpenOffer =async (userDetails)=>{
     let res=await API.post("/user/openoffer",userDetails);
     return res;
 }
+
+export const  acceptOfferTrans =async (offerDetails)=>{
+    let res=await API.post("/user/updatestatus",offerDetails);
+    return res;
+}

@@ -70,3 +70,24 @@
     order: 2;
     flex-grow: 0;
 }
+
+.in-progress{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px 6px;
+    gap: 10px;
+
+    width: 120px;
+    height: 25px;
+
+    background: #0B6C15;
+    color: #FFF;
+    border-radius: 10px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
