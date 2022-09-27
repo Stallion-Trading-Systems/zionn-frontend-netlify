@@ -4,12 +4,8 @@ import userexists from "../assets/userexists.gif";
 import invalidotp from "../assets/invalidotp.gif";
 import slider from "../assets/slider.svg"
 import "./signup.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGoogle, faGithub } from "@fortawesome/free-brands-svg-icons";
 import google from "../assets/google.png";
 import linkedin from "../assets/linkedin.png";
-import Button2 from "./Button2";
-import Slider from "./Slider"
 import Typewriter from "typewriter-effect";
 import logo from "../assets/Vector.svg"
 
@@ -121,7 +117,7 @@ const Signup = () => {
       {curruser ? (<></>) : (<div>
         <div id="leftHalf-auth">
           <div className="container justify-content-center align-items-center">
-          
+
             <div className="row d-flex ">
               <div className="typewriter-effect-auth-side-css">
                 <Typewriter
@@ -156,9 +152,9 @@ const Signup = () => {
         </div>
         <div id="rightHalf-auth">
           <div className="container">
-          <div className="top-right-css">
-            <img className="mon-img-sb" src={logo} />
-          </div>
+            <div className="top-right-css">
+              <img className="mon-img-sb" src={logo} />
+            </div>
             <div className="row">
               <div className="form-css-su">
                 <div className="mob-v-only" >
@@ -178,6 +174,14 @@ const Signup = () => {
                   {user == false ? (
                     <form id="form1" onSubmit={signupfun}>
                       <div className="container">
+                        <div className="row">
+                          <div className="col-2"></div>
+                          <div className="col-8">
+                            {erroruae&&<div style={{ textAlign: "center" }} class="alert alert-warning" role="alert">
+                              user already exists
+                            </div>}
+                          </div>
+                        </div>
                         <div className="row">
                           <div className="col"></div>
                           <div className="col-8">
@@ -308,6 +312,14 @@ const Signup = () => {
                   ) : (
                     <form id="form2" onSubmit={verify}>
                       <div className="container">
+                      <div className="row">
+                          <div className="col-2"></div>
+                          <div className="col-8">
+                            {errorotp&&<div style={{ textAlign: "center" }} class="alert alert-danger" role="alert">
+                              wrong otp
+                            </div>}
+                          </div>
+                        </div>
                         <div className="row">
                           <div className="col"></div>
                           <div className="col-8">

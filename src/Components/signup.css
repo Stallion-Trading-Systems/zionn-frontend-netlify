@@ -17,7 +17,7 @@ input::-webkit-inner-spin-button {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 55%;
+  width: 50%;
   position: absolute;
   left: 0px;
   height: 100%;
@@ -27,7 +27,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 45%;
+  width: 50%;
   position: absolute;
   right: 0px;
   height: 100%;
@@ -174,7 +174,7 @@ input[type="number"] {
   font-family: 'PP Cirka';
   font-style: normal;
   font-weight: 700;
-  font-size: 45px;
+  font-size: 40px;
   line-height: 46px;
   display: flex;
   justify-content: center;
