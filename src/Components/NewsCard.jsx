@@ -26,8 +26,8 @@ const NewsCard = (props) => {
         <div className="col-10">
           <div className="container">
             <div className="row">
-              <div className="heading-cp-css">{props.heading}</div>
-              <div className="news-bor">
+              <div className="heading-cp-css mb-4">{props.heading}</div>
+              <div className="">
                 <div className="row">
                   <a className="scoop-link" target="__blank" href={cdetails[0]?.new_url} ><h3 className="scoop-title heading-trun">{cdetails[0]?.new_title || <Skeleton />}</h3></a>
                   <p className="content-trun">{cdetails[0]?.news_content || <Skeleton />}</p>

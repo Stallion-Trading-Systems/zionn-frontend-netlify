@@ -11,7 +11,7 @@
   padding: 16px 18px;
   gap: 10px;
 
-  width: 145px;
+  /* width: 145px; */
   height: 39px;
 
   background: #ffffff;
@@ -25,7 +25,7 @@
   flex-grow: 1;
   text-align: left;
 }
-.cell-wide-t {
+/* .cell-wide-t {
   width: 130px;
 }
 .cell-last-t {
@@ -33,10 +33,7 @@
 }
 .cell-mid-t {
   width: 130px;
-}
-.purple-b {
-  background-color: #7b61ff;
-}
+} */
 mark {
   background-color: rgb(104, 247, 104);
   justify-content: center;

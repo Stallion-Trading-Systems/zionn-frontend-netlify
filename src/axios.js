@@ -120,3 +120,19 @@ export const holdings = async ()=>{
     let res = await API.get('/user/dashboard')
     return res;
 }
+
+export const sellbuyreq = async (sellbuydetails)=>{
+    let res=await API.post("/transaction/sellcompany",sellbuydetails)
+    console.log(sellbuydetails);
+    return res;
+}
+
+export const  getOpenOffer =async (userDetails)=>{
+    let res=await API.post("/user/openoffer",userDetails);
+    return res;
+}
+
+export const  acceptOfferTrans =async (offerDetails)=>{
+    let res=await API.post("/user/updatestatus",offerDetails);
+    return res;
+}
