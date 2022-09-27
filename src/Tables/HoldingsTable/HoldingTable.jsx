@@ -21,7 +21,7 @@ const HoldingTable = (props) => {
 
     }, [])
     
-
+    const onlySellTrans=details.filter((detail)=>detail.trans_type=="sell");
     return (
         <div>
             <div className="container text-align-css-left">
@@ -30,7 +30,7 @@ const HoldingTable = (props) => {
                     <div>
                         <div className="bor-table">
                             <div className="container-sm  main-con">
-                                {details.filter((detail)=>detail.trans_type=="sell") ? <><div className="row gr-2">
+                                {onlySellTrans[0] ? <><div className="row gr-2">
                                     <div className="col-3">
                                         <div className="cell-wide cell purple-b">
                                             <strong>company</strong>
@@ -74,7 +74,7 @@ const HoldingTable = (props) => {
                                             />
                                         )
                                     })}
-                                    {details.filter((detail)=>detail.trans_type=="sell").map((detail) => {
+                                    {onlySellTrans.map((detail) => {
                                         return (
                                             <RowHoldings
                                                 a={detail?.c_name}

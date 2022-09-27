@@ -232,7 +232,7 @@ const SidebarP = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="row mt-5">
+                            <div className="row mt-5"> 
                                 <Financials heading1="financials" heading2="analyst rating" cname={params.cname} />
                             </div>
                             <div className="container">
