@@ -242,9 +242,9 @@ const SidebarP = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="row mt-5">
+                            {/* <div className="row mt-5">
                                 <KMP heading="KMP" />
-                            </div>
+                            </div> */}
                             <div className="row mt-5">
                                 <NewsCard heading="Latest News" company={cname}
                                 />
