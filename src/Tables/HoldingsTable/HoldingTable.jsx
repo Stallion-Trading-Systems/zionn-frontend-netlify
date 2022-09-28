@@ -15,7 +15,7 @@ const HoldingTable = (props) => {
             console.log(res.data.result);
             let res1 = await api.getOpenOffer({ email: props.email });
             setOpenOffers(res1.data.result);
-            // console.log(res1.data.result);
+            console.log(res1.data.result);
         }
         f()
 
@@ -46,12 +46,12 @@ const HoldingTable = (props) => {
                                             <div className='row'>
                                                 <div className="col-4">
                                                     <div className="cell-mid cell purple-b">
-                                                        <strong>security type</strong>
+                                                        <strong>order type</strong>
                                                     </div>
                                                 </div>
                                                 <div className="col-4">
                                                     <div className="cell-mid cell purple-b">
-                                                        <strong>holding period</strong>
+                                                        <strong>price</strong>
                                                     </div>
                                                 </div>
                                                 <div className="col-4">
@@ -68,19 +68,19 @@ const HoldingTable = (props) => {
                                             <RowHoldings
                                                 a={detail?.c_name}
                                                 b={detail?.no_of_secu}
-                                                c={detail?.secu_type}
-                                                d={detail?.doe}
+                                                c={(detail?.c_name)?"offer":detail?.secu_type}
+                                                d={detail?.trans_price}
                                                 e={detail?.status}
                                             />
                                         )
                                     })}
-                                    {onlySellTrans.map((detail) => {
+                                    {details.map((detail) => {
                                         return (
                                             <RowHoldings
                                                 a={detail?.c_name}
-                                                b={detail?.no_of_shares}
-                                                c={detail?.secu_type}
-                                                d={detail?.doe}
+                                                b={detail?.no_of_shares-detail?.shares_on_trade}
+                                                c={detail?.trans_type}
+                                                d={detail?.trans_type=="sell"?detail.sell_price:detail.buy_price}
                                                 e="open bidding"
                                             />
                                         )
