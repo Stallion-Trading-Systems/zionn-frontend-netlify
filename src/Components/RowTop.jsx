@@ -1,7 +1,6 @@
 import React from 'react'
 import Cell from '../Components/Cell'
 const RowTop = (props) => {
-    const check = props.f;
 
     return (
         <div>

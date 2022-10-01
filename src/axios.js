@@ -136,3 +136,8 @@ export const  acceptOfferTrans =async (offerDetails)=>{
     let res=await API.post("/user/updatestatus",offerDetails);
     return res;
 }
+
+export const bidaskFetch =async (companyDetails)=>{
+    let res=await API.post("/transaction/bidaskspread",companyDetails);
+    return res;
+}

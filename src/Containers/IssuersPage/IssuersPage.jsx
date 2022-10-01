@@ -238,7 +238,7 @@ const SidebarP = (props) => {
                             <div className="container">
                                 <div className="row mt-4">
                                     <div className="col-8">
-                                        <TableTop heading="bid / ask spread" price={sharePrice} />
+                                        <TableTop heading="bid / ask spread" cname={cname} />
                                     </div>
                                 </div>
                             </div>
