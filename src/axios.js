@@ -139,5 +139,6 @@ export const  acceptOfferTrans =async (offerDetails)=>{
 
 export const bidaskFetch =async (companyDetails)=>{
     let res=await API.post("/transaction/bidaskspread",companyDetails);
+    // console.log(companyDetails);
     return res;
 }

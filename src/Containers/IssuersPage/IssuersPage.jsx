@@ -30,7 +30,6 @@ const SidebarP = (props) => {
     const [sloading, setSloading] = useState(false);
     const user = localStorage.getItem("user");
     const userobj = JSON.parse(localStorage.getItem('user'));
-    const [sharePrice, setSharePrice] = useState();
     var uname = "zionn";
     if (user !== null) {
         uname = userobj.email.substring(0, userobj.email.indexOf('@'));
@@ -43,23 +42,22 @@ const SidebarP = (props) => {
         }, 500)
     }
     const params = useParams();
-    const [cname, setCname] = useState("");
+    const [cname, setCname] = useState(params.cname);
     const [cdetails, setDetails] = useState([])
-    useEffect(() => {
-        setCname(params.cname);
-        setSloading(true);
-        async function f() {
+    // useEffect(() => {
+    //     setCname(params.cname);
+    //     setSloading(true);
+    //     async function f() {
 
-            let res = await api.getLastSharePrice(params.cname)
+    //         let res = await api.getLastSharePrice(params.cname)
 
-            setSharePrice(parseInt(res.data.result[0].last_share_price));
-            // console.log(parseInt(res.data.result[0].last_share_price));
-            setSloading(false);
-        }
+    //         // console.log(parseInt(res.data.result[0].last_share_price));
+    //         setSloading(false);
+    //     }
 
-        f()
+    //     f()
 
-    }, [])
+    // }, [])
     // setSloading(false);
     const [linkref, setLinkref] = useState(uname);
     const [openlogout, setOpenlogout] = useState(false);

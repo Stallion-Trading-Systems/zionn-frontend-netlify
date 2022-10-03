@@ -17,7 +17,8 @@ const TableTop = (props) => {
       let res = await api.bidaskFetch({ c_name: props.cname });
 
       setBidAskDetails(res.data.result);
-      console.log(res.data.result);
+
+      // console.log(res);
 
     }
 
