@@ -3,8 +3,8 @@ import axios from 'axios'
 
 
 const API = axios.create({
-    // baseURL: 'https://zionn-stage.herokuapp.com/'
-    baseURL: 'https://zionn-prod.herokuapp.com/'
+    baseURL: 'https://zionn-stage.herokuapp.com/'
+    // baseURL: 'https://zionn-prod.herokuapp.com/'
     // baseURL: 'http://localhost:8080/'
 
 })
