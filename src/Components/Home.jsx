@@ -187,11 +187,11 @@ const Home = () => {
                             </div>
                         </div>
                         <br />
-                        <div className="row mt-5 mb-5 home-slider-css">
+                        {/* <div className="row mt-5 mb-5 home-slider-css">
                             <Slider />
-                        </div>
+                        </div> */}
                         <br />
-                        <div className="mt-5 mb-5">
+                        {/* <div className="mt-5 mb-5">
                             <Delayed waitBeforeShow={500}>
                                 <Carousel interval={9000} controls={false} indicators={false}>
                                     <Carousel.Item>
@@ -217,118 +217,14 @@ const Home = () => {
                                     </Carousel.Item>
                                 </Carousel>
                             </Delayed>
-                        </div>
+                        </div> */}
                         <div className="home-footer-css">
                             <FooterP />
                         </div>
                     </div>
                 </Sidebar>
             </div>}
-            {/* {user == null ?
-                (<h1>
-                    Please Log In
-                </h1>)
-                :
-                (<><div>
-                    <Sidebar
-                        className="side-bar"
-                        content={items}
-                        width={200}
-                        background={"#FFF"}
-                        toggleIconColor={"#7B61FF"}
-                        color={"#000000"}
-                        activeHightlight={"#FFF"}
-                        hoverHighlight={"#FFF"}
-                        textAlign={"center"}
-                    >
-                        <div className="fix-nav">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-6">
-                                        <TitleButton name="search pricing, analyst updates, etc ( cmd + K)" />
-                                    </div>
-                                    <div className="col-4"></div>
-                                    <div className="col-2 logo-top">
-                                        <img className="logo-top-size" src={monkey} />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="container con-abs">
-                            <div className="row">
-                                <div className="container">
-                                    <div className="row">
-                                        <div className="col-1"></div>
-                                        <div className="col-10">
-
-                                            <div className="container">
-                                                <div className="row">
-                                                    <div className="col-4 ml-2 mt-5 ">
-                                                        <Card imgl={lenskart} name="Lenskart" ev="$5B" in="Sequoia, Tiger" cname="Lenskart" />
-                                                    </div>
-                                                    <div className="col-4 ml-5 mt-5">
-                                                        <Card imgl={ola} name="OLA" ev="$5B" in="Sequoia, Tiger" cname="OLA" />
-                                                    </div>
-                                                    <div className="col-4 ml-5 mt-5">
-                                                        <Card imgl={unacademy} name="Unacademy" ev="$5B" in="Sequoia, Tiger" cname="Unacademy" />
-                                                    </div>
-
-                                                </div>
-                                                <div className="row">
-                                                    <div className="col-4 ml-5 mt-5">
-                                                        <Card imgl={ola} name="GoDigit" ev="$5B" in="Sequoia, Tiger" cname="GoDigit" />
-                                                    </div>
-                                                    <div className="col-4 ml-5 mt-5">
-                                                        <Card imgl={swiggy} name="Swiggy" ev="$5B" in="Sequoia, Tiger" cname="Swiggy" />
-                                                    </div>
-                                                    <div className="col-4 ml-5 mt-5">
-                                                        <Card imgl={ola} name="OfBusiness" ev="$5B" in="Sequoia, Tiger" cname="OfBusiness" />
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div className="col-1"></div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div className="mt-5 mb-5">
-                                <Delayed waitBeforeShow={500}>
-                                    <Carousel interval={9000} controls={false} indicators={false}>
-                                        <Carousel.Item>
-                                            <img
-                                                className="d-block w-100"
-                                                src={pic1}
-                                                alt="First slide"
-                                            />
-                                        </Carousel.Item>
-                                        <Carousel.Item>
-                                            <img
-                                                className="d-block w-100"
-                                                src={pic2}
-                                                alt="Second slide"
-                                            />
-                                        </Carousel.Item>
-                                        <Carousel.Item>
-                                            <img
-                                                className="d-block w-100"
-                                                src={pic3}
-                                                alt="Third slide"
-                                            />
-                                        </Carousel.Item>
-                                    </Carousel>
-                                </Delayed>
-                            </div>
-                            <div className="home-footer-css">
-                                <Footer />
-                            </div>
-                        </div>
-                    </Sidebar>
-                </div>
-
-                </>)} */}
+            
         </>
     );
 };
