@@ -11,11 +11,6 @@ import logo from "../assets/Vector.svg"
 const Onboardingflow = () => {
     const curruser = localStorage.getItem("user");
     const navigate = useNavigate();
-    if (curruser !== null) {
-        setTimeout(() => {
-            navigate("/");
-        }, 500)
-    }
     const [curr_employer, setEmployer] = useState("");
     const [designation, setDesignation] = useState("");
     const [tenure, setTenure] = useState(0);
