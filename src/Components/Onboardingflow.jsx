@@ -38,7 +38,6 @@ const Onboardingflow = () => {
 
         let res = await api.onBoarding({ email, curr_employer, designation, tenure })
 
-        console.log(res.data.message);
         if (res.data.message === "Details saved") {
             setTimeout(() => {
                 navigate("/");
@@ -61,7 +60,7 @@ const Onboardingflow = () => {
     return (
         <>
             <div>
-                {!curruser && <div>
+                <div>
                     <div>
                         <div id="leftHalf-auth">
                             <div className="container justify-content-center align-items-center">
@@ -195,7 +194,7 @@ const Onboardingflow = () => {
                             </div>
                         </div>
                     </div>
-                </div>}
+                </div>
             </div>
         </>
     );
