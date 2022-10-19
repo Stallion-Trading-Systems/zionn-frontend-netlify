@@ -25,6 +25,7 @@ const TableTop = (props) => {
     f()
 
   }, [])
+  
   const bidDetails = bidAskDetails.filter((detail) => detail.buy_price != null);
   const askDetails = bidAskDetails.filter((detail) => detail.buy_price == null);
   return (
@@ -34,58 +35,61 @@ const TableTop = (props) => {
           <div className="col-1"></div>
           <div className="col-10">
 
+            {(bidDetails.length>0||askDetails.length>0)&&
             <div className="container ">
-              <div className="row">
-                <div className="heading-cp-css">bid / ask spread</div>
+            <div className="row">
+              <div className="heading-cp-css">bid / ask spread</div>
+              <div className="">
                 <div className="">
-                  <div className="">
-                    <div className="container-sm  main-con">
-                      <div className="row mb-1">
-                        <div className="col-3">
-                          <div className="cell-wide cell purple-b">
-                            <strong>buy side</strong>
-                          </div>
-                        </div>
-                        <div className="col-3">
-                          <div className="cell-mid cell purple-b">
-                            <strong>bid price</strong>
-                          </div>
-                        </div>
-                        <div className="col-3">
-                          <div className="cell-mid cell purple-b">
-                            <strong>ask price</strong>
-                          </div>
-                        </div>
-                        <div className="col-3">
-                          <div className="cell-mid cell purple-b">
-                            <strong>sell side</strong>
-                          </div>
+                  <div className="container-sm  main-con">
+                    <div className="row mb-1">
+                      <div className="col-3">
+                        <div className="cell-wide cell purple-b">
+                          <strong>buy side</strong>
                         </div>
                       </div>
-                      <Row
-                        a={bidDetails[0]?.no_of_shares||"--"}
-                        b={bidDetails[0]?.buy_price||"--"}
-                        c={askDetails[0]?.sell_price||"--"}
-                        d={askDetails[0]?.no_of_shares||"--"}
-                      />
-                      <Row
-                        a={bidDetails[1]?.no_of_shares||"--"}
-                        b={bidDetails[1]?.buy_price||"--"}
-                        c={askDetails[1]?.sell_price||"--"}
-                        d={askDetails[1]?.no_of_shares||"--"}
-                      />
-                      <Row
-                        a={bidDetails[2]?.no_of_shares||"--"}
-                        b={bidDetails[2]?.buy_price||"--"}
-                        c={askDetails[2]?.sell_price||"--"}
-                        d={askDetails[2]?.no_of_shares||"--"}
-                      />
-
+                      <div className="col-3">
+                        <div className="cell-mid cell purple-b">
+                          <strong>bid price</strong>
+                        </div>
+                      </div>
+                      <div className="col-3">
+                        <div className="cell-mid cell purple-b">
+                          <strong>ask price</strong>
+                        </div>
+                      </div>
+                      <div className="col-3">
+                        <div className="cell-mid cell purple-b">
+                          <strong>sell side</strong>
+                        </div>
+                      </div>
                     </div>
+                    
+                    {(bidDetails.length>0||askDetails.length>0)&&<Row
+                      a={bidDetails[0]?.no_of_shares||"--"}
+                      b={bidDetails[0]?.buy_price||"--"}
+                      c={askDetails[0]?.sell_price||"--"}
+                      d={askDetails[0]?.no_of_shares||"--"}
+                    />}
+                    {(bidDetails.length>1||askDetails.length>1)&&<Row
+                      a={bidDetails[1]?.no_of_shares||"--"}
+                      b={bidDetails[1]?.buy_price||"--"}
+                      c={askDetails[1]?.sell_price||"--"}
+                      d={askDetails[1]?.no_of_shares||"--"}
+                    />}
+                    {(bidDetails.length>2||askDetails.length>2)&&<Row
+                      a={bidDetails[2]?.no_of_shares||"--"}
+                      b={bidDetails[2]?.buy_price||"--"}
+                      c={askDetails[2]?.sell_price||"--"}
+                      d={askDetails[2]?.no_of_shares||"--"}
+                    />}
+
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+            }
           </div>
           <div className="col-1"></div>
         </div>
