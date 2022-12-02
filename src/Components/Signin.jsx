@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./signin.css";
-import google from "../assets/google.png";
-import linkedin from "../assets/linkedin.png";
-import { GoogleLogin } from "react-google-login";
+// import google from "../assets/google.png";
+// import linkedin from "../assets/linkedin.png";
+// import { GoogleLogin } from "react-google-login";
 import { useNavigate } from "react-router";
 import slider from "../assets/slider.svg"
 import Typewriter from "typewriter-effect";
@@ -196,7 +196,7 @@ const Signin = () => {
                         </div>
                         <div className="col"></div>
                       </div>
-                      <div className="row">
+                      {/* <div className="row">
                         <p className="txt-2">sign in using </p>
                       </div>
                       <div className="row">
@@ -222,7 +222,7 @@ const Signin = () => {
                             onFailure={responseGoogleFail}
                             cookiePolicy={"single_host_origin"}
                           />
-                        </div>
+                        </div> */}
                         {/* <div className="col-2">
                             <button className="social-btn" form="form2">
                               <img
@@ -231,8 +231,8 @@ const Signin = () => {
                               />
                             </button>
                           </div> */}
-                      </div>
-                      <div className="row">
+                      {/* </div> */}
+                      <div className="row mt-3">
                         <div className="col d-flex justify-content-center">
                           <div className="sign-btn">
                             {loading ? <><Loading /></> : <><button

@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import signuppic from "../assets/helloworld.gif";
-import userexists from "../assets/userexists.gif";
-import invalidotp from "../assets/invalidotp.gif";
 import slider from "../assets/slider.svg"
 import "./signup.css";
-import google from "../assets/google.png";
-import linkedin from "../assets/linkedin.png";
+// import google from "../assets/google.png";
+// import linkedin from "../assets/linkedin.png";
 import Typewriter from "typewriter-effect";
 import logo from "../assets/Vector.svg"
 
-import { GoogleLogin } from "react-google-login";
+// import { GoogleLogin } from "react-google-login";
 import { useNavigate } from "react-router";
 
 import * as api from "../axios";
@@ -250,10 +247,10 @@ const Signup = () => {
                           </div>
                           <div className="col"></div>
                         </div>
-                        <div className="row">
+                        {/* <div className="row">
                           <p className="txt-2">sign up using </p>
-                        </div>
-                        <div className="row">
+                        </div> */}
+                        {/* <div className="row">
                           <div className="col d-flex justify-content-center">
                             <GoogleLogin
                               form="form322"
@@ -276,7 +273,7 @@ const Signup = () => {
                               onFailure={responseGoogleFail}
                               cookiePolicy={"single_host_origin"}
                             />
-                          </div>
+                          </div> */}
                           {/* <div className="col-2">
                               <button className="social-btn" form="form2">
                                 <img
@@ -285,8 +282,8 @@ const Signup = () => {
                                 />
                               </button>
                             </div> */}
-                        </div>
-                        <div className="row ">
+                        {/* </div> */}
+                        <div className="row mt-3">
                           <div className="col d-flex justify-content-center">
                             <div className="sign-btn ">
                               {loading ? (<><Loading /></>) : <><button
