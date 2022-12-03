@@ -125,7 +125,7 @@ const SellBuyRequest = (props) => {
                                                             <label for="option-2" className="option option-s option-2">
                                                                 <span>sell</span>
                                                             </label>
-                                                        </div>
+                                                        </div> 
                                                     </div>
                                                     <p className='mt-4 sellbuyreq-con-css mb-4'>Number of equity shares</p>
                                                     <div className='container'>

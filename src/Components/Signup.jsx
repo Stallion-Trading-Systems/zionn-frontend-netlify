@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import signuppic from "../assets/helloworld.gif";
-import userexists from "../assets/userexists.gif";
-import invalidotp from "../assets/invalidotp.gif";
 import slider from "../assets/slider.svg"
 import "./signup.css";
-import google from "../assets/google.png";
-import linkedin from "../assets/linkedin.png";
+// import google from "../assets/google.png";
+// import linkedin from "../assets/linkedin.png";
 import Typewriter from "typewriter-effect";
 import logo from "../assets/Vector.svg"
 
-import { GoogleLogin } from "react-google-login";
+// import { GoogleLogin } from "react-google-login";
 import { useNavigate } from "react-router";
 
 import * as api from "../axios";
@@ -35,27 +32,27 @@ const Signup = () => {
   const [user, setUser] = useState(false);
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
-  const responseGoogle = async (res) => {
-    console.log(res.profileObj.name);
-    let nm = res.profileObj.name;
-    let em = res.profileObj.email;
-    let user_token = await api.userSignUp({
-      name: nm,
-      email: em,
-      phone: undefined,
-      password: undefined,
-    });
-    console.log(user_token);
-    // storing user token in local storage
-    localStorage.setItem(
-      "user",
-      JSON.stringify({ name: nm, email: em, token: user_token.data.token })
-    );
-    navigate("/onboarding");
-  };
-  const responseGoogleFail = (err) => {
-    console.log(err);
-  };
+  // const responseGoogle = async (res) => {
+  //   console.log(res.profileObj.name);
+  //   let nm = res.profileObj.name;
+  //   let em = res.profileObj.email;
+  //   let user_token = await api.userSignUp({
+  //     name: nm,
+  //     email: em,
+  //     phone: undefined,
+  //     password: undefined,
+  //   });
+  //   console.log(user_token);
+  //   // storing user token in local storage
+  //   localStorage.setItem(
+  //     "user",
+  //     JSON.stringify({ name: nm, email: em, token: user_token.data.token })
+  //   );
+  //   navigate("/onboarding");
+  // };
+  // const responseGoogleFail = (err) => {
+  //   console.log(err);
+  // };
   const [isActive, setIsActive] = useState(false);
   const handleClick = (e) => {
     e.preventDefault();
@@ -83,9 +80,14 @@ const Signup = () => {
       setError(false);
       setErroruae(false);
       setErrorotp(false);
-      setUser(true);
+      // setUser(true);
       setOtp("");
       setLoading(false);
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ name: name, email: email, token: ut })
+      );
+      navigate("/onboarding");
     }
 
   };
@@ -250,10 +252,10 @@ const Signup = () => {
                           </div>
                           <div className="col"></div>
                         </div>
-                        <div className="row">
+                        {/* <div className="row">
                           <p className="txt-2">sign up using </p>
-                        </div>
-                        <div className="row">
+                        </div> */}
+                        {/* <div className="row">
                           <div className="col d-flex justify-content-center">
                             <GoogleLogin
                               form="form322"
@@ -276,7 +278,7 @@ const Signup = () => {
                               onFailure={responseGoogleFail}
                               cookiePolicy={"single_host_origin"}
                             />
-                          </div>
+                          </div> */}
                           {/* <div className="col-2">
                               <button className="social-btn" form="form2">
                                 <img
@@ -285,8 +287,8 @@ const Signup = () => {
                                 />
                               </button>
                             </div> */}
-                        </div>
-                        <div className="row ">
+                        {/* </div> */}
+                        <div className="row mt-3">
                           <div className="col d-flex justify-content-center">
                             <div className="sign-btn ">
                               {loading ? (<><Loading /></>) : <><button
