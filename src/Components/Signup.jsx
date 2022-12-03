@@ -32,27 +32,27 @@ const Signup = () => {
   const [user, setUser] = useState(false);
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
-  const responseGoogle = async (res) => {
-    console.log(res.profileObj.name);
-    let nm = res.profileObj.name;
-    let em = res.profileObj.email;
-    let user_token = await api.userSignUp({
-      name: nm,
-      email: em,
-      phone: undefined,
-      password: undefined,
-    });
-    console.log(user_token);
-    // storing user token in local storage
-    localStorage.setItem(
-      "user",
-      JSON.stringify({ name: nm, email: em, token: user_token.data.token })
-    );
-    navigate("/onboarding");
-  };
-  const responseGoogleFail = (err) => {
-    console.log(err);
-  };
+  // const responseGoogle = async (res) => {
+  //   console.log(res.profileObj.name);
+  //   let nm = res.profileObj.name;
+  //   let em = res.profileObj.email;
+  //   let user_token = await api.userSignUp({
+  //     name: nm,
+  //     email: em,
+  //     phone: undefined,
+  //     password: undefined,
+  //   });
+  //   console.log(user_token);
+  //   // storing user token in local storage
+  //   localStorage.setItem(
+  //     "user",
+  //     JSON.stringify({ name: nm, email: em, token: user_token.data.token })
+  //   );
+  //   navigate("/onboarding");
+  // };
+  // const responseGoogleFail = (err) => {
+  //   console.log(err);
+  // };
   const [isActive, setIsActive] = useState(false);
   const handleClick = (e) => {
     e.preventDefault();
@@ -80,9 +80,14 @@ const Signup = () => {
       setError(false);
       setErroruae(false);
       setErrorotp(false);
-      setUser(true);
+      // setUser(true);
       setOtp("");
       setLoading(false);
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ name: name, email: email, token: ut })
+      );
+      navigate("/onboarding");
     }
 
   };
